@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 1f;
     public float maxSpeed = 10f;
+    public float slowdown = 5f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +42,10 @@ public class PlayerController : MonoBehaviour
             Vector2 movement = direction * (Time.fixedDeltaTime * 100f * speed);
             _rb.AddForce(movement);
             _rb.transform.up = direction;
+        }
+        else if (_rb.linearVelocity.magnitude > 0)
+        {
+            _rb.AddForce(-_rb.linearVelocity.normalized * slowdown);
         }
         if (_rb.linearVelocity.magnitude > maxSpeed)
         {
