@@ -302,6 +302,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 100
+  maxSpeed: 10
+  slowdown: 5
+  projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
 --- !u!1001 &1694825946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -353,6 +356,10 @@ PrefabInstance:
     - target: {fileID: 4696697058128823943, guid: 95bc4189c6a6933c286debf752ae8954, type: 3}
       propertyPath: m_Name
       value: Pixel Perfect Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5304435370337387607, guid: 95bc4189c6a6933c286debf752ae8954, type: 3}
+      propertyPath: orthographic size
+      value: 8.609375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
