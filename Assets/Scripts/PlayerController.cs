@@ -57,9 +57,9 @@ public class PlayerController : MonoBehaviour
         }
         if (Keyboard.current.cKey.isPressed)
         {
-            GameObject projectileObject = Instantiate(projectilePrefab, _rb.position + Vector2.up * 0.5f, Quaternion.identity);
-            BulletController bulletController = projectileObject.GetComponent<BulletController>();
-            bulletController.Launch(direction, 3000);
+            GameObject projectileObject = Instantiate(projectilePrefab, _rb.position, Quaternion.identity);
+            BulletController projectile = projectileObject.GetComponent<BulletController>();
+            projectile.Launch(_rb.transform.up, 3000);
         }
     }
 
