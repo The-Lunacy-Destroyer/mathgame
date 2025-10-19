@@ -361,7 +361,7 @@ MonoBehaviour:
   speed: 100
   maxSpeed: 10
   slowdown: 5
-  projectileSpeed: 1000
+  projectileSpeed: 100
   projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
 --- !u!1001 &1230721024
 PrefabInstance:
