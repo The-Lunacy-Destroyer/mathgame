@@ -40,10 +40,9 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector2 direction = new Vector2(1, 0);
         if (Mouse.current.leftButton.isPressed)
         {
-            direction = GetPlayerToMouseVector().normalized;
+            Vector2 direction = GetPlayerToMouseVector().normalized;
             Vector2 movement = direction * (Time.fixedDeltaTime * 100f * speed);
             _rb.AddForce(movement);
             _rb.transform.up = direction;
