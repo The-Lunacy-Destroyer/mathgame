@@ -12,8 +12,7 @@ public class PlayerController : MonoBehaviour
     public float slowdown = 5f;
     public float projectileSpeed = 100f;
     public GameObject projectilePrefab;
-
-    Vector2 projectile_direction;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
