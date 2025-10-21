@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 1f;
     public float maxSpeed = 10f;
     public float slowdown = 5f;
+    public float projectileSpeed = 100f;
     public GameObject projectilePrefab;
 
     Vector2 projectile_direction;
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject projectileObject = Instantiate(projectilePrefab, _rb.position, Quaternion.identity);
             BulletController projectile = projectileObject.GetComponent<BulletController>();
-            projectile.Launch(_rb.transform.up, 3000);
+            projectile.Launch(_rb.transform.up, projectileSpeed);
         }
     }
 }
