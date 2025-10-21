@@ -100,3 +100,5 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
 /[Aa]ssets/_Recovery/
+/[Aa]ssets/_Recovery.meta
+/.vsconfig
