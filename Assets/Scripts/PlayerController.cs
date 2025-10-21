@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -9,7 +10,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 1f;
     public float maxSpeed = 10f;
     public float slowdown = 5f;
-    
+    public GameObject projectilePrefab;
+
+    Vector2 projectile_direction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,9 +39,10 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
+        Vector2 direction = new Vector2(1, 0);
         if (Mouse.current.leftButton.isPressed)
         {
-            Vector2 direction = GetPlayerToMouseVector().normalized;
+            direction = GetPlayerToMouseVector().normalized;
             Vector2 movement = direction * (Time.fixedDeltaTime * 100f * speed);
             _rb.AddForce(movement);
             _rb.transform.up = direction;
@@ -51,5 +55,13 @@ public class PlayerController : MonoBehaviour
         {
             _rb.linearVelocity = _rb.linearVelocity.normalized * maxSpeed;
         }
+        if (Keyboard.current.cKey.isPressed)
+        {
+            GameObject projectileObject = Instantiate(projectilePrefab, _rb.position + Vector2.up * 0.5f, Quaternion.identity);
+            BulletController bulletController = projectileObject.GetComponent<BulletController>();
+            bulletController.Launch(direction, 3000);
+        }
     }
+
+    
 }
