@@ -12,7 +12,7 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.magnitude > 100.0f)
+        if (transform.position.magnitude > 40.0f)
         {
             Destroy(gameObject);
         }
@@ -20,5 +20,14 @@ public class BulletController : MonoBehaviour
     public void Launch(Vector2 direction, float force)
     {
         rigidbody2d.AddForce(direction * force);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        EnemyController enemy = other.GetComponent<EnemyController>();
+        if (enemy != null)
+        {
+            enemy.EnemyDestroy();
+        }
     }
 }
