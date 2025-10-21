@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
+        LaunchProjectile();
     }
 
     private Vector3 GetPlayerToMouseVector()
@@ -55,6 +56,10 @@ public class PlayerController : MonoBehaviour
         {
             _rb.linearVelocity = _rb.linearVelocity.normalized * maxSpeed;
         }
+    }
+
+    private void LaunchProjectile()
+    {
         if (Keyboard.current.cKey.isPressed)
         {
             GameObject projectileObject = Instantiate(projectilePrefab, _rb.position, Quaternion.identity);
@@ -62,6 +67,4 @@ public class PlayerController : MonoBehaviour
             projectile.Launch(_rb.transform.up, 3000);
         }
     }
-
-    
 }
