@@ -17,6 +17,8 @@ public class PlayerController : EntityController
     private float _launchTimer;
     private bool _canLaunchProjectile = true;
 
+    public float damageScale = 1f;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

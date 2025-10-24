@@ -10,8 +10,7 @@ public class EntityController  : MonoBehaviour
         get => _currentHealth;
         set => _currentHealth = Mathf.Clamp(value, 0, maxHealth);
     }
-
-    public float damageScale = 1f;
+    
     private void Awake()
     {
         CurrentHealth = maxHealth;
