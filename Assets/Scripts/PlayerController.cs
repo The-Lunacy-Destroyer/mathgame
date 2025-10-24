@@ -10,16 +10,23 @@ public class PlayerController : MonoBehaviour
     public float speed = 1f;
     public float maxSpeed = 10f;
     public float slowdown = 5f;
+
     public float projectileSpeed = 100f;
     public GameObject projectilePrefab;
-
-    public float projectile_time = 0.2f;
+    public float launchCooldown = 0.2f;
     float time;
     bool canLaunchProjectile = true;
+
+
+    public float maxHealth = 100.0f;
+    float currentHealth;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        time = projectile_time;
+        time = launchCooldown;
+        currentHealth = maxHealth;
         _rb = GetComponent<Rigidbody2D>();
         _mainCamera = Camera.main;
     }
@@ -31,7 +38,7 @@ public class PlayerController : MonoBehaviour
         if (time < 0)
         {
             canLaunchProjectile = true;
-            time = projectile_time;
+            time = launchCooldown;
         }
     }
 
@@ -65,6 +72,10 @@ public class PlayerController : MonoBehaviour
         {
             _rb.linearVelocity = _rb.linearVelocity.normalized * maxSpeed;
         }
+    }
+    public void PlayerChangeHealth(float amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
 
     private void LaunchProjectile()
