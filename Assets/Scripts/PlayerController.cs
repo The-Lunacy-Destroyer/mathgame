@@ -12,10 +12,14 @@ public class PlayerController : MonoBehaviour
     public float slowdown = 5f;
     public float projectileSpeed = 100f;
     public GameObject projectilePrefab;
-    
+
+    public float projectile_time = 0.2f;
+    float time;
+    bool shot = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        time = projectile_time;
         _rb = GetComponent<Rigidbody2D>();
         _mainCamera = Camera.main;
     }
@@ -23,13 +27,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        time -= Time.deltaTime;
+        if (time < 0)
+        {
+            shot = true;
+            time = projectile_time;
+        }
     }
 
     void FixedUpdate()
     {
         MovePlayer();
-        LaunchProjectile();
+
+        if (shot)
+        {
+            LaunchProjectile();
+            shot = false;
+        }
+       
     }
 
     private Vector3 GetPlayerToMouseVector()
