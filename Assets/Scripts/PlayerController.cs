@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
             BulletController projectile = projectileObject.GetComponent<BulletController>();
             projectile.Launch(_rb.transform.up, projectileSpeed);
             canLaunchProjectile = false;
+            
         }
     }
 }

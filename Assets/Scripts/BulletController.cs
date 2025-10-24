@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 public class BulletController : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
+    public float bulletDamage = 2.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -27,7 +28,13 @@ public class BulletController : MonoBehaviour
         EnemyController enemy = other.GetComponent<EnemyController>();
         if (enemy != null)
         {
-            enemy.EnemyDestroy();
+            enemy.health -= bulletDamage;
+            if (enemy.health < 0)
+            {
+                Destroy(enemy.gameObject);
+            }
+            Destroy(gameObject);
         }
+        
     }
 }
