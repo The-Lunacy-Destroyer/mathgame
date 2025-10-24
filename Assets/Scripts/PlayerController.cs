@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : EntityController
 {
-    private Rigidbody2D _rigidbody = null;
-    private Camera _mainCamera = null;
+    private Rigidbody2D _rigidbody;
+    private Camera _mainCamera;
 
     public float speed = 1f;
     public float maxSpeed = 10f;
@@ -14,18 +13,14 @@ public class PlayerController : MonoBehaviour
     public float projectileSpeed = 100f;
     public GameObject projectilePrefab;
     
-    public float launchCooldown = 0.2f;
-    private float _launchTimer = 0;
+    public float projectileCooldown = 0.2f;
+    private float _launchTimer;
     private bool _canLaunchProjectile = true;
-    
-    public float maxHealth = 100.0f;
-    private float _currentHealth = 0;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _launchTimer = launchCooldown;
-        _currentHealth = maxHealth;
+        _launchTimer = projectileCooldown;
         _rigidbody = GetComponent<Rigidbody2D>();
         _mainCamera = Camera.main;
     }
@@ -37,7 +32,7 @@ public class PlayerController : MonoBehaviour
         if (_launchTimer < 0)
         {
             _canLaunchProjectile = true;
-            _launchTimer = launchCooldown;
+            _launchTimer = projectileCooldown;
         }
     }
 
@@ -47,16 +42,11 @@ public class PlayerController : MonoBehaviour
         LaunchProjectile();
        
     }
-    
-    public void ChangePlayerHealth(float amount)
-    {
-        _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, maxHealth);
-    }
 
     private Vector3 GetPlayerToMouseVector()
     {
-        Vector3 mousepos = _mainCamera.ScreenToWorldPoint(Mouse.current.position.value);
-        return mousepos - transform.position;
+        Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.value);
+        return mousePosition - transform.position;
     }
 
     private void MovePlayer()
