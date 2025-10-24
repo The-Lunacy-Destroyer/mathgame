@@ -29,7 +29,7 @@ public class BulletController : MonoBehaviour
         if (otherObj is EnemyController enemy)
         {
             enemy.CurrentHealth -= bulletDamage;
-            if (enemy.CurrentHealth < 0)
+            if (enemy.CurrentHealth <= 0)
             {
                 Destroy(enemy.gameObject);
             }

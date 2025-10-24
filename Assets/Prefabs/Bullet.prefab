@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2bf6628f01e84469a96127b9421e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  bulletDamage: 21
 --- !u!61 &9005743548601107342
 BoxCollider2D:
   m_ObjectHideFlags: 0
