@@ -74,6 +74,8 @@ public class PlayerController : EntityController
         {
             GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody.position, Quaternion.identity);
             BulletController projectile = projectileObject.GetComponent<BulletController>();
+            
+            projectile.bulletDamage *= damageScale;
             projectile.Launch(_rigidbody.transform.up, projectileSpeed);
             _canLaunchProjectile = false;
         }

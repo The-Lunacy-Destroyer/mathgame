@@ -11,6 +11,7 @@ public class EntityController  : MonoBehaviour
         set => _currentHealth = Mathf.Clamp(value, 0, maxHealth);
     }
 
+    public float damageScale = 1f;
     private void Awake()
     {
         CurrentHealth = maxHealth;
