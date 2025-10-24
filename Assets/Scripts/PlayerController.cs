@@ -13,7 +13,7 @@ public class PlayerController : EntityController
     public float projectileSpeed = 100f;
     public GameObject projectilePrefab;
     
-    public float projectileCooldown = 0.2f;
+    public float projectileCooldown = 0.5f;
     private float _launchTimer;
     private bool _canLaunchProjectile = true;
 

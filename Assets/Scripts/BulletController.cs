@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 public class BulletController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
-    public float bulletDamage = 2.0f;
+    public float bulletDamage = 20.1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
