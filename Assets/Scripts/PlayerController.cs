@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public float projectile_time = 0.2f;
     float time;
-    bool shot = true;
+    bool canLaunchProjectile = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         time -= Time.deltaTime;
         if (time < 0)
         {
-            shot = true;
+            canLaunchProjectile = true;
             time = projectile_time;
         }
     }
@@ -38,12 +38,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
-
-        if (shot)
-        {
-            LaunchProjectile();
-            shot = false;
-        }
+        LaunchProjectile();
        
     }
 
@@ -74,11 +69,12 @@ public class PlayerController : MonoBehaviour
 
     private void LaunchProjectile()
     {
-        if (Keyboard.current.cKey.isPressed)
+        if (Keyboard.current.cKey.isPressed && canLaunchProjectile)
         {
             GameObject projectileObject = Instantiate(projectilePrefab, _rb.position, Quaternion.identity);
             BulletController projectile = projectileObject.GetComponent<BulletController>();
             projectile.Launch(_rb.transform.up, projectileSpeed);
+            canLaunchProjectile = false;
         }
     }
 }
