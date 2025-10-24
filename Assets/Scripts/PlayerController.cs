@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D _rb = null;
+    private Rigidbody2D _rigidbody = null;
     private Camera _mainCamera = null;
 
     public float speed = 1f;
@@ -13,32 +13,31 @@ public class PlayerController : MonoBehaviour
 
     public float projectileSpeed = 100f;
     public GameObject projectilePrefab;
+    
     public float launchCooldown = 0.2f;
-    float time;
-    bool canLaunchProjectile = true;
-
-
+    private float _launchTimer = 0;
+    private bool _canLaunchProjectile = true;
+    
     public float maxHealth = 100.0f;
-    float currentHealth;
-
-
+    private float _currentHealth = 0;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        time = launchCooldown;
-        currentHealth = maxHealth;
-        _rb = GetComponent<Rigidbody2D>();
+        _launchTimer = launchCooldown;
+        _currentHealth = maxHealth;
+        _rigidbody = GetComponent<Rigidbody2D>();
         _mainCamera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
-        time -= Time.deltaTime;
-        if (time < 0)
+        _launchTimer -= Time.deltaTime;
+        if (_launchTimer < 0)
         {
-            canLaunchProjectile = true;
-            time = launchCooldown;
+            _canLaunchProjectile = true;
+            _launchTimer = launchCooldown;
         }
     }
 
@@ -47,6 +46,11 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         LaunchProjectile();
        
+    }
+    
+    public void ChangePlayerHealth(float amount)
+    {
+        _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, maxHealth);
     }
 
     private Vector3 GetPlayerToMouseVector()
@@ -61,32 +65,27 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 direction = GetPlayerToMouseVector().normalized;
             Vector2 movement = direction * (Time.fixedDeltaTime * 100f * speed);
-            _rb.AddForce(movement);
-            _rb.transform.up = direction;
+            _rigidbody.AddForce(movement);
+            _rigidbody.transform.up = direction;
         }
-        else if (_rb.linearVelocity.magnitude > 0)
+        else if (_rigidbody.linearVelocity.magnitude > 0)
         {
-            _rb.AddForce(-_rb.linearVelocity.normalized * slowdown);
+            _rigidbody.AddForce(-_rigidbody.linearVelocity.normalized * slowdown);
         }
-        if (_rb.linearVelocity.magnitude > maxSpeed)
+        if (_rigidbody.linearVelocity.magnitude > maxSpeed)
         {
-            _rb.linearVelocity = _rb.linearVelocity.normalized * maxSpeed;
+            _rigidbody.linearVelocity = _rigidbody.linearVelocity.normalized * maxSpeed;
         }
-    }
-    public void PlayerChangeHealth(float amount)
-    {
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
 
     private void LaunchProjectile()
     {
-        if (Keyboard.current.cKey.isPressed && canLaunchProjectile)
+        if (Keyboard.current.cKey.isPressed && _canLaunchProjectile)
         {
-            GameObject projectileObject = Instantiate(projectilePrefab, _rb.position, Quaternion.identity);
+            GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody.position, Quaternion.identity);
             BulletController projectile = projectileObject.GetComponent<BulletController>();
-            projectile.Launch(_rb.transform.up, projectileSpeed);
-            canLaunchProjectile = false;
-            
+            projectile.Launch(_rigidbody.transform.up, projectileSpeed);
+            _canLaunchProjectile = false;
         }
     }
 }

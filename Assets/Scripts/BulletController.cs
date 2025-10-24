@@ -2,12 +2,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class BulletController : MonoBehaviour
 {
-    Rigidbody2D rigidbody2d;
+    private Rigidbody2D _rigidbody;
     public float bulletDamage = 2.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        rigidbody2d = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class BulletController : MonoBehaviour
     }
     public void Launch(Vector2 direction, float force)
     {
-        rigidbody2d.AddForce(direction * force);
+        _rigidbody.AddForce(direction * force);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -35,6 +35,5 @@ public class BulletController : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        
     }
 }
