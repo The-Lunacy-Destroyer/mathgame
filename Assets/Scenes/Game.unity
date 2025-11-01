@@ -119,6 +119,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &36014906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 36014908}
+  - component: {fileID: 36014907}
+  - component: {fileID: 36014909}
+  m_Layer: 5
+  m_Name: HealthBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &36014907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36014906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: c98257d53b1bcac44bbf0182d8340454, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: aaa3fdcd9a5d05f4f9a6d7179affa4f2, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &36014908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36014906}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &36014909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36014906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d06cd880eb62f4c9d112a2c5e964ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIHandler
 --- !u!1001 &52523194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -359,13 +427,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   maxHealth: 100
-  damageScale: 0.1
   speed: 15
   maxSpeed: 20
   slowdown: 2
   projectileSpeed: 500
   projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
   projectileCooldown: 0.5
+  damageScale: 0.1
 --- !u!1001 &1230721024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -380,11 +448,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4820191035631660126, guid: 9883a9638fc2cad40aeed0a1a89b8919, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.368161
+      value: -4.38
       objectReference: {fileID: 0}
     - target: {fileID: 4820191035631660126, guid: 9883a9638fc2cad40aeed0a1a89b8919, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.860915
+      value: 2.91
       objectReference: {fileID: 0}
     - target: {fileID: 4820191035631660126, guid: 9883a9638fc2cad40aeed0a1a89b8919, type: 3}
       propertyPath: m_LocalPosition.z
@@ -534,7 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5304435370337387607, guid: 95bc4189c6a6933c286debf752ae8954, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 8.640625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -616,11 +684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4820191035631660126, guid: 9883a9638fc2cad40aeed0a1a89b8919, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.6
+      value: -9.78
       objectReference: {fileID: 0}
     - target: {fileID: 4820191035631660126, guid: 9883a9638fc2cad40aeed0a1a89b8919, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22
+      value: -2.84
       objectReference: {fileID: 0}
     - target: {fileID: 4820191035631660126, guid: 9883a9638fc2cad40aeed0a1a89b8919, type: 3}
       propertyPath: m_LocalPosition.z
@@ -674,3 +742,4 @@ SceneRoots:
   - {fileID: 52523194}
   - {fileID: 1230721024}
   - {fileID: 2052417329}
+  - {fileID: 36014908}

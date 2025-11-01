@@ -25,6 +25,8 @@ public class PlayerController : EntityController
         _launchTimer = projectileCooldown;
         _rigidbody = GetComponent<Rigidbody2D>();
         _mainCamera = Camera.main;
+
+        
     }
 
     // Update is called once per frame
@@ -80,6 +82,7 @@ public class PlayerController : EntityController
             projectile.bulletDamage *= damageScale;
             projectile.Launch(_rigidbody.transform.up, projectileSpeed);
             _canLaunchProjectile = false;
+            
         }
     }
 }
