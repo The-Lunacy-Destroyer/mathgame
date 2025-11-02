@@ -214,6 +214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingHealthBar
   slider: {fileID: 7713994784390510908}
+  camera: {fileID: 0}
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &5887527003101277642
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,3 +576,7 @@ MonoBehaviour:
   maxHealth: 20
   healthBar: {fileID: 0}
   moveSpeed: 2
+  projectileSpeed: 1000
+  projectilePrefab: {fileID: 0}
+  projectileCooldown: 0.5
+  damageScale: 1

@@ -4,6 +4,7 @@ public class BulletController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     public float bulletDamage = 20.1f;
+    public bool damage_player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -26,7 +27,9 @@ public class BulletController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         MonoBehaviour otherObj = other.GetComponent<MonoBehaviour>();
-        if (otherObj is EnemyController enemy)
+
+
+        if (otherObj is EnemyController enemy && !damage_player)
         {
             enemy.CurrentHealth -= bulletDamage;
            
