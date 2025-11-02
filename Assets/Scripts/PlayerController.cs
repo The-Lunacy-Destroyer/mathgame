@@ -13,16 +13,13 @@ public class PlayerController : EntityController
     public float projectileSpeed = 100f;
     public GameObject projectilePrefab;
     
-    public float projectileCooldown = 0.5f;
-    private float _launchTimer;
-    private bool _canLaunchProjectile = true;
 
     public float damageScale = 1f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _launchTimer = projectileCooldown;
+
         _rigidbody = GetComponent<Rigidbody2D>();
         _mainCamera = Camera.main;
 
@@ -30,7 +27,7 @@ public class PlayerController : EntityController
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         _launchTimer -= Time.deltaTime;
         if (_launchTimer < 0)

@@ -16,9 +16,7 @@ public class EnemyController : EntityController
     public float projectileSpeed = 100f;
     public GameObject projectilePrefab;
 
-    public float projectileCooldown = 0.5f;
-    private float _launchTimer;
-    private bool _canLaunchProjectile = false;
+    
 
     public float damageScale = 1f;
 
@@ -27,7 +25,8 @@ public class EnemyController : EntityController
         healthBar = GetComponentInChildren<FloatingHealthBar>();
         _rigidbody = GetComponent<Rigidbody2D>();
         target = GameObject.Find("Player").transform;
-        _launchTimer = projectileCooldown;
+        _canLaunchProjectile = false;
+
     }
     private void Update()
     {
@@ -46,6 +45,7 @@ public class EnemyController : EntityController
             _canLaunchProjectile = true;
             _launchTimer = projectileCooldown;
         }
+
     }
     private void FixedUpdate()
     {

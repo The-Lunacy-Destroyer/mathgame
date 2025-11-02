@@ -574,9 +574,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   maxHealth: 20
+  projectileCooldown: 0.5
+  _launchTimer: 0
+  _canLaunchProjectile: 1
   healthBar: {fileID: 0}
   moveSpeed: 2
   projectileSpeed: 1000
   projectilePrefab: {fileID: 0}
-  projectileCooldown: 0.5
   damageScale: 1
