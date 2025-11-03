@@ -9,27 +9,16 @@ public class EnemyController : EntityController
     [SerializeField] FloatingHealthBar healthBar;
 
     [SerializeField] float moveSpeed = 5.0f;
-    Rigidbody2D _rigidbody;
     Transform target;
-    Vector2 moveDirection;
-
-    public float projectileSpeed = 100f;
-    public GameObject projectilePrefab;
-
-    
-
-    public float damageScale = 1f;
 
     private void Start()
     {
         healthBar = GetComponentInChildren<FloatingHealthBar>();
-        _rigidbody = GetComponent<Rigidbody2D>();
         target = GameObject.Find("Player").transform;
-        _canLaunchProjectile = false;
-
     }
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         healthBar.UpdateHealthBar(CurrentHealth, maxHealth);
         if (target)
         {
@@ -38,35 +27,14 @@ public class EnemyController : EntityController
             _rigidbody.rotation = angle;
             moveDirection = direction;
         }
-
-        _launchTimer -= Time.deltaTime;
-        if (_launchTimer < 0)
-        {
-            _canLaunchProjectile = true;
-            _launchTimer = projectileCooldown;
-        }
-
     }
-    private void FixedUpdate()
+
+    void FixedUpdate()
     {
+        LaunchProjectile(moveDirection);
         if (target)
         {
             _rigidbody.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
-        }
-        LaunchProjectile();
-    }
-
-    private void LaunchProjectile()
-    {
-        if (_canLaunchProjectile)
-        {
-            GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody.position, Quaternion.identity);
-            BulletController projectile = projectileObject.GetComponent<BulletController>();
-
-            projectile.bulletDamage *= damageScale;
-            projectile.Launch(moveDirection, projectileSpeed);
-            _canLaunchProjectile = false;
-
         }
     }
 }

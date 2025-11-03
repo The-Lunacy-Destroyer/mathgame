@@ -7,9 +7,16 @@ public class EntityController  : MonoBehaviour
     private float _currentHealth;
 
     public float projectileCooldown = 0.5f;
-    public float _launchTimer;
-    public bool _canLaunchProjectile = true;
+    private float _launchTimer;
+    private bool _canLaunchProjectile = true;
 
+    protected Vector2 moveDirection;
+
+    public float projectileSpeed = 100f;
+    public GameObject projectilePrefab;
+
+    public float damageScale = 1f;
+    protected Rigidbody2D _rigidbody;
     public float CurrentHealth
     {
         get => _currentHealth;
@@ -20,10 +27,31 @@ public class EntityController  : MonoBehaviour
     {
         CurrentHealth = maxHealth;
         _launchTimer = projectileCooldown;
+        _canLaunchProjectile = false;
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        
+        _launchTimer -= Time.deltaTime;
+        if (_launchTimer < 0)
+        {
+            _canLaunchProjectile = true;
+            _launchTimer = projectileCooldown;
+        }
+    }
+    
+    protected void LaunchProjectile(Vector2 launchDirection)
+    {
+        if (_canLaunchProjectile)
+        {
+            GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody.position, Quaternion.identity);
+            BulletController projectile = projectileObject.GetComponent<BulletController>();
+
+            projectile.bulletDamage *= damageScale;
+            projectile.Launch(launchDirection, projectileSpeed);
+            _canLaunchProjectile = false;
+
+        }
     }
 }
