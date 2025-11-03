@@ -6,20 +6,16 @@ using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 public class EnemyController : EntityController
 {
-    [SerializeField] FloatingHealthBar healthBar;
-
     [SerializeField] float moveSpeed = 5.0f;
     Transform target;
 
     private void Start()
     {
-        healthBar = GetComponentInChildren<FloatingHealthBar>();
         target = GameObject.Find("Player").transform;
     }
     protected override void Update()
     {
         base.Update();
-        healthBar.UpdateHealthBar(CurrentHealth, maxHealth);
         if (target)
         {
             Vector3 direction = (target.position - transform.position).normalized;

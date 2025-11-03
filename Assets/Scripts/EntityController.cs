@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EntityController  : MonoBehaviour
 {
+    private FloatingHealthBar healthBar;
+
     public float maxHealth = 100.0f;
     private float _currentHealth;
 
@@ -29,6 +31,7 @@ public class EntityController  : MonoBehaviour
         _launchTimer = projectileCooldown;
         _canLaunchProjectile = false;
         _rigidbody = GetComponent<Rigidbody2D>();
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
     }
 
     protected virtual void Update()
@@ -39,6 +42,7 @@ public class EntityController  : MonoBehaviour
             _canLaunchProjectile = true;
             _launchTimer = projectileCooldown;
         }
+        healthBar.UpdateHealthBar(CurrentHealth, maxHealth);
     }
     
     protected void LaunchProjectile(Vector2 launchDirection)
