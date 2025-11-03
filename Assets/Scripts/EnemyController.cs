@@ -30,6 +30,6 @@ public class EnemyController : EntityController
 
     void FixedUpdate()
     {
-        LaunchProjectile(_movementDirection);
+        LaunchProjectile(_rigidbody.position, _movementDirection);
     }
 }

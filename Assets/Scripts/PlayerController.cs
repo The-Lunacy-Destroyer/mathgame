@@ -8,17 +8,19 @@ public class PlayerController : EntityController
     public float slowdown = 5f;
     
     private Camera _mainCamera;
+    private Transform _spaceGunTransform;
     
     void Start()
     {
         _mainCamera = Camera.main;
+        _spaceGunTransform = transform.Find("SpaceGun");
     }
 
     void FixedUpdate()
     {
         if (Keyboard.current.cKey.isPressed)
         {
-            LaunchProjectile(transform.up);
+            LaunchProjectile(_spaceGunTransform.position, transform.up);
         }
         MovePlayer();
     }
