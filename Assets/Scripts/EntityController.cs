@@ -32,6 +32,7 @@ public class EntityController  : MonoBehaviour
         _canLaunchProjectile = false;
         _rigidbody = GetComponent<Rigidbody2D>();
         healthBar = GetComponentInChildren<FloatingHealthBar>();
+        healthBar.Source = GetComponent<EntityController>();
     }
 
     protected virtual void Update()

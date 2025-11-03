@@ -5,13 +5,15 @@ using UnityEngine.UI;
 public class FloatingHealthBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-    [SerializeField] private Camera camera;
-    [SerializeField] private Transform target;
-    [SerializeField] private Vector3 offset;
+    [SerializeField] private Vector2 offset;
+    
+    private Camera camera;
+    public EntityController Source { get; set; }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        
+        camera = Camera.main;
     }
     public void UpdateHealthBar(float curh, float maxh)
     {
@@ -22,6 +24,8 @@ public class FloatingHealthBar : MonoBehaviour
     void Update()
     {
         transform.rotation = camera.transform.rotation;
-        transform.position = target.position + offset;
+        
+        Vector2 pos = Source.transform.position;
+        transform.position = pos + offset;
     }
 }
