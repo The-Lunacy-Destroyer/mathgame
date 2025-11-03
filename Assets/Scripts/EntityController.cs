@@ -45,13 +45,14 @@ public class EntityController  : MonoBehaviour
         healthBar.UpdateHealthBar(CurrentHealth, maxHealth);
     }
     
-    protected void LaunchProjectile(Vector2 launchDirection)
+    protected virtual void LaunchProjectile(Vector2 launchDirection)
     {
         if (_canLaunchProjectile)
         {
             GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody.position, Quaternion.identity);
             BulletController projectile = projectileObject.GetComponent<BulletController>();
-
+            
+            projectile.Source = this.GetComponent<EntityController>();
             projectile.bulletDamage *= damageScale;
             projectile.Launch(launchDirection, projectileSpeed);
             _canLaunchProjectile = false;

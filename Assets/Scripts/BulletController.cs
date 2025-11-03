@@ -4,7 +4,8 @@ public class BulletController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     public float bulletDamage = 20.1f;
-    public bool damage_player;
+
+    public EntityController Source { get; set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -28,11 +29,11 @@ public class BulletController : MonoBehaviour
     {
         MonoBehaviour otherObj = other.GetComponent<EntityController>();
 
-        if (otherObj is EnemyController enemy && !damage_player)
+        if (otherObj is EnemyController enemy && Source is PlayerController)
         {
             DecreaseHealth(enemy);
         }
-        else if (otherObj is PlayerController player && damage_player)
+        else if (otherObj is PlayerController player && Source is EnemyController)
         {
             DecreaseHealth(player);
         }
