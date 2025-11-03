@@ -3,22 +3,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : EntityController
 {
-    private Camera _mainCamera;
-
     public float speed = 1f;
     public float maxSpeed = 10f;
     public float slowdown = 5f;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Camera _mainCamera;
+    
     void Start()
     {
         _mainCamera = Camera.main;
-    }
-
-    // Update is called once per frame
-    protected override void Update() 
-    {
-        base.Update();
     }
 
     void FixedUpdate()
@@ -49,6 +42,7 @@ public class PlayerController : EntityController
         {
             _rigidbody.AddForce(-_rigidbody.linearVelocity.normalized * slowdown);
         }
+        
         if (_rigidbody.linearVelocity.magnitude > maxSpeed)
         {
             _rigidbody.linearVelocity = _rigidbody.linearVelocity.normalized * maxSpeed;

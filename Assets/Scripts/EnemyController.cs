@@ -6,31 +6,30 @@ using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 public class EnemyController : EntityController
 {
-    [SerializeField] float moveSpeed = 5.0f;
-    Transform target;
-
+    private Transform _targetTransform;
+    
+    public float movementSpeed = 5.0f;
+    private Vector2 _movementDirection;
+    
     private void Start()
     {
-        target = GameObject.Find("Player").transform;
+        _targetTransform = GameObject.Find("Player").transform;
     }
     protected override void Update()
     {
         base.Update();
-        if (target)
+        if (_targetTransform)
         {
-            Vector3 direction = (target.position - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            _movementDirection = (_targetTransform.position - transform.position).normalized;
+            _rigidbody.linearVelocity = _movementDirection * movementSpeed;
+            
+            float angle = Mathf.Atan2(_movementDirection.x, _movementDirection.y) * Mathf.Rad2Deg;
             _rigidbody.rotation = angle;
-            moveDirection = direction;
         }
     }
 
     void FixedUpdate()
     {
-        LaunchProjectile(moveDirection);
-        if (target)
-        {
-            _rigidbody.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
-        }
+        LaunchProjectile(_movementDirection);
     }
 }

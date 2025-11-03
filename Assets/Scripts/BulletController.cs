@@ -2,17 +2,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class BulletController : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody;
     public float bulletDamage = 20.1f;
 
     public EntityController Source { get; set; }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    private Rigidbody2D _rigidbody;
+    
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.magnitude > 40.0f)
@@ -20,6 +20,7 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
     public void Launch(Vector2 direction, float force)
     {
         _rigidbody.AddForce(direction * force);
@@ -39,13 +40,13 @@ public class BulletController : MonoBehaviour
         }
     }
 
-    private void DecreaseHealth(EntityController obj)
+    private void DecreaseHealth(EntityController entity)
     {
-        obj.CurrentHealth -= bulletDamage;
+        entity.CurrentHealth -= bulletDamage;
            
-        if (obj.CurrentHealth <= 0)
+        if (entity.CurrentHealth <= 0)
         {
-            Destroy(obj.gameObject);
+            Destroy(entity.gameObject);
         }
         Destroy(gameObject);
     }
