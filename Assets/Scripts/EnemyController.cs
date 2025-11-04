@@ -9,6 +9,7 @@ public class EnemyController : EntityController
     private Transform _targetTransform;
     
     public float slowdownRadius = 4f;
+    public float shootRadius = 3f;
 
     private Vector2 _movementVector;
     private Vector2 _movementDirection;
@@ -23,8 +24,11 @@ public class EnemyController : EntityController
     {
         _movementVector = _targetTransform.position - transform.position;
         _movementDirection = _movementVector.normalized;
-        
-        LaunchProjectile(_rigidbody.position, _movementDirection);
+
+        if (_movementVector.magnitude <= shootRadius)
+        {
+            LaunchProjectile(_rigidbody.position, _movementDirection);
+        }
 
         if (_targetTransform)
         {

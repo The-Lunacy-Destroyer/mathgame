@@ -364,8 +364,9 @@ MonoBehaviour:
   maxHealth: 100
   projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
   projectileSpeed: 500
-  damageScale: 0.1
+  damageScale: 1
   projectileCooldown: 0.5
+  rotationRadius: 2.5
 --- !u!58 &188811226
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -725,15 +726,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: speed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: maxSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: slowdown
       value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: stopRadius
@@ -741,7 +746,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: damageScale
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
+      propertyPath: shootRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: slowdownRadius

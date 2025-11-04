@@ -5,7 +5,7 @@ public class PlayerController : EntityController
 {
     private Camera _mainCamera;
     private Transform _spaceGunTransform;
-    
+
     void Start()
     {
         _mainCamera = Camera.main;
@@ -29,12 +29,14 @@ public class PlayerController : EntityController
 
     private void MovePlayer()
     {
-        if (Mouse.current.leftButton.isPressed)
+        Vector2 mouseVector = GetPlayerToMouseVector();
+        Vector2 direction = mouseVector.normalized;
+        _rigidbody.transform.up = direction;
+        
+        if (Mouse.current.leftButton.isPressed && !Mouse.current.rightButton.isPressed)
         {
-            Vector2 direction = GetPlayerToMouseVector().normalized;
-            Vector2 movement = direction * (Time.fixedDeltaTime * 100f * speed);
+            Vector2 movement = direction * speed;
             _rigidbody.AddForce(movement);
-            _rigidbody.transform.up = direction;
         }
         else if (_rigidbody.linearVelocity.magnitude >= slowdown)
         {
