@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 public class FloatingHealthBar : MonoBehaviour
 {
+    private Camera _camera;
+    
     public Slider slider;
     public Vector2 offset;
     
     public EntityController Source { get; set; }
     
-    private Camera _camera;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {

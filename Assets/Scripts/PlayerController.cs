@@ -3,10 +3,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : EntityController
 {
-    public float speed = 1f;
-    public float maxSpeed = 10f;
-    public float slowdown = 5f;
-    
     private Camera _mainCamera;
     private Transform _spaceGunTransform;
     
@@ -40,14 +36,15 @@ public class PlayerController : EntityController
             _rigidbody.AddForce(movement);
             _rigidbody.transform.up = direction;
         }
-        else if (_rigidbody.linearVelocity.magnitude > 0)
+        else if (_rigidbody.linearVelocity.magnitude >= slowdown)
         {
-            _rigidbody.AddForce(-_rigidbody.linearVelocity.normalized * slowdown);
+            _rigidbody.linearVelocity -= _rigidbody.linearVelocity.normalized * slowdown;
+        }
+        else
+        {
+            _rigidbody.linearVelocity = Vector2.zero;
         }
         
-        if (_rigidbody.linearVelocity.magnitude > maxSpeed)
-        {
-            _rigidbody.linearVelocity = _rigidbody.linearVelocity.normalized * maxSpeed;
-        }
+        _rigidbody.linearVelocity = Vector2.ClampMagnitude(_rigidbody.linearVelocity, maxSpeed);
     }
 }

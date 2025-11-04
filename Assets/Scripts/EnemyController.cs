@@ -8,28 +8,51 @@ public class EnemyController : EntityController
 {
     private Transform _targetTransform;
     
-    public float movementSpeed = 5.0f;
+    public float slowdownRadius = 4f;
+
+    private Vector2 _movementVector;
     private Vector2 _movementDirection;
-    
     private void Start()
     {
         _targetTransform = GameObject.Find("Player").transform;
+        _movementVector = _targetTransform.position - transform.position;
+        _movementDirection = _movementVector.normalized;
     }
-    protected override void Update()
+    
+    void FixedUpdate()
     {
-        base.Update();
+        _movementVector = _targetTransform.position - transform.position;
+        _movementDirection = _movementVector.normalized;
+        
+        LaunchProjectile(_rigidbody.position, _movementDirection);
+
         if (_targetTransform)
         {
-            _movementDirection = (_targetTransform.position - transform.position).normalized;
-            _rigidbody.linearVelocity = _movementDirection * movementSpeed;
-            
-            float angle = Mathf.Atan2(_movementDirection.x, _movementDirection.y) * Mathf.Rad2Deg;
-            _rigidbody.rotation = angle;
+            MoveEnemy();
         }
     }
 
-    void FixedUpdate()
+    private void MoveEnemy()
     {
-        LaunchProjectile(_rigidbody.position, _movementDirection);
+        float angle = Mathf.Atan2(_movementDirection.x, _movementDirection.y) * Mathf.Rad2Deg;
+        _rigidbody.rotation = angle;
+        
+        float forceAngle = Mathf.Atan2(_rigidbody.totalForce.x, _rigidbody.totalForce.y) * Mathf.Rad2Deg;
+        
+        if (_movementVector.magnitude > slowdownRadius)
+        {
+            float forceSpeed = speed * (1 + Mathf.Abs(angle - forceAngle) / 360f);
+            _rigidbody.AddForce(_movementDirection * forceSpeed);
+        }
+        else if (_rigidbody.linearVelocity.magnitude >= slowdown)
+        {
+            _rigidbody.linearVelocity -= _rigidbody.linearVelocity.normalized * slowdown;
+        }
+        else
+        {
+            _rigidbody.linearVelocity = Vector2.zero;
+        }
+
+        _rigidbody.linearVelocity = Vector2.ClampMagnitude(_rigidbody.linearVelocity, maxSpeed);
     }
 }

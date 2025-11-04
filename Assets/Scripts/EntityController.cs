@@ -6,6 +6,11 @@ public class EntityController  : MonoBehaviour
     private FloatingHealthBar _healthBar;
     protected Rigidbody2D _rigidbody;
     
+    // Entity movement
+    public float slowdown = 5f;
+    public float speed = 1f;
+    public float maxSpeed = 10f;
+    
     // Entity health
     public float maxHealth = 100.0f;
     private float _currentHealth;

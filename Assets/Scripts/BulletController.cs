@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class BulletController : MonoBehaviour
 {
+    private Rigidbody2D _rigidbody;
+    
     public float bulletDamage = 20.1f;
 
     public EntityController Source { get; set; }
-    
-    private Rigidbody2D _rigidbody;
     
     void Awake()
     {
