@@ -22,16 +22,16 @@ public class EnemyController : EntityController
     
     void FixedUpdate()
     {
-        _movementVector = _targetTransform.position - transform.position;
-        _movementDirection = _movementVector.normalized;
-
-        if (_movementVector.magnitude <= shootRadius)
-        {
-            LaunchProjectile(_rigidbody.position, _movementDirection);
-        }
-
         if (_targetTransform)
         {
+            _movementVector = _targetTransform.position - transform.position;
+            _movementDirection = _movementVector.normalized;
+
+            if (_movementVector.magnitude <= shootRadius)
+            {
+                LaunchProjectile(_rigidbody.position, _movementDirection);
+            }
+            
             MoveEnemy();
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EntityController  : MonoBehaviour
 {
@@ -25,8 +26,10 @@ public class EntityController  : MonoBehaviour
     public float projectileSpeed = 100f;
     public float damageScale = 1f;
     public float projectileCooldown = 0.5f;
+    public float spreadAngle = 15f;
     private float _launchTimer;
     private bool _canLaunchProjectile = true;
+    
     
      void Awake()
     {
@@ -54,7 +57,9 @@ public class EntityController  : MonoBehaviour
             projectile.Source = this.GetComponent<EntityController>();
             projectile.bulletDamage *= damageScale;
             _canLaunchProjectile = false;
-
+            
+            float spread = Random.Range(-spreadAngle, spreadAngle); 
+            launchDirection = Utilities.RotateVector(launchDirection, spread);
             projectile.Launch(launchDirection, projectileSpeed);
         }
     }

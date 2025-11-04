@@ -366,7 +366,7 @@ MonoBehaviour:
   projectileSpeed: 500
   damageScale: 1
   projectileCooldown: 0.5
-  rotationRadius: 2.5
+  spreadAngle: 15
 --- !u!58 &188811226
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -750,7 +750,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: shootRadius
-      value: 5
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
+      propertyPath: spreadAngle
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: slowdownRadius
