@@ -1,15 +1,19 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : EntityController
 {
     private Camera _mainCamera;
     private Transform _spaceGunTransform;
+    public InputAction moveVector;
 
     public float rotationSpeed = 5f;
     public float decelerationForce = 1f;
     void Start()
     {
+        moveVector.Enable();
         _mainCamera = Camera.main;
         _spaceGunTransform = transform.Find("SpaceGun");
     }
@@ -22,7 +26,7 @@ public class PlayerController : EntityController
 
     void FixedUpdate()
     {
-        if (Keyboard.current.cKey.isPressed || Mouse.current.rightButton.isPressed)
+        if (Keyboard.current.cKey.isPressed || Mouse.current.leftButton.isPressed)
         {
             LaunchProjectile(_spaceGunTransform.position, transform.up);
         }
@@ -37,13 +41,8 @@ public class PlayerController : EntityController
 
     private void MovePlayer()
     {
-        Vector2 movementDirection = Vector2.zero;
+        Vector2 movementDirection = moveVector.ReadValue<Vector2>().normalized;
 
-        if (Keyboard.current.wKey.isPressed) movementDirection.y++;
-        if (Keyboard.current.sKey.isPressed) movementDirection.y--;
-        if (Keyboard.current.dKey.isPressed) movementDirection.x++;
-        if (Keyboard.current.aKey.isPressed) movementDirection.x--;
-        
         if (movementDirection.magnitude > 0)
         {
             float deceleration = Vector2.Angle(_rigidbody.totalForce, movementDirection) / 180f * decelerationForce;
@@ -64,7 +63,6 @@ public class PlayerController : EntityController
 
     private void RotateGun()
     {
-        if (!Mouse.current.leftButton.isPressed) return;
         Vector2 mouseVector = GetPlayerToMouseVector();
         Vector2 direction = mouseVector.normalized;
         

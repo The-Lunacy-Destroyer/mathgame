@@ -570,7 +570,56 @@ MonoBehaviour:
   damageScale: 1
   projectileCooldown: 0.5
   spreadAngle: 15
-  rotationSpeed: 3
+  moveVector:
+    m_Name: Move Vector
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9fa7b085-1513-4ac8-9009-b42b57ed7836
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: 7b3e941c-7b87-4d31-b00b-0e03e1cfb7c4
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Vector
+      m_Flags: 4
+    - m_Name: up
+      m_Id: b1a6445e-6178-4bbd-bd30-e0f4a3f4962e
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Vector
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 70107668-9c6b-4265-bb04-5c5ae6c30e6d
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Vector
+      m_Flags: 8
+    - m_Name: left
+      m_Id: c7f41fb1-ee31-4964-a133-0d9fc2466ec1
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Vector
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 4e22fe3b-67ce-472a-8434-ed83afc635ca
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Vector
+      m_Flags: 8
+    m_Flags: 0
+  rotationSpeed: 15
   decelerationForce: 2
 --- !u!58 &188811226
 CircleCollider2D:
@@ -1247,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5304435370337387607, guid: 95bc4189c6a6933c286debf752ae8954, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 8.421875
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
