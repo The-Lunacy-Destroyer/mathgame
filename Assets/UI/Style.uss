@@ -1,0 +1,102 @@
+:root {
+    
+}
+*
+{
+    border-width: 0;
+}
+
+#MainContainer
+{
+    background-color: #353658;
+    flex-direction: row;
+    color: #9FADD1;
+}
+#MainSection
+{
+    background-color: #26263e;
+    flex-grow: 1;
+}
+#Presentation
+{
+    width: 66%;
+    justify-content: center;
+    align-items: center;
+}
+.MainContainer__section
+{
+    align-items: center;
+    justify-content: center;
+}
+
+#MainSection_Header
+{
+    justify-content: space-between;
+    padding: 24px 16px;
+    background-color: #26263e;
+    align-items: center;
+}
+#MainSection_Main
+{
+    padding: 16px;
+    flex-grow: 1;
+    justify-content: center;
+    background-color: #1E1F32;
+}
+#MainSection_Footer
+{
+    padding: 16px;
+    background-color: #26263e;
+}
+#Logo
+{
+    width: 180px;
+    height: 180px;
+}
+#Title
+{
+    font-size: 48px;
+    -unity-font-style: bold;
+    letter-spacing: 4px;
+    margin-top: 20px;
+}
+#MainSection_Buttons
+{
+    align-self: stretch;
+    justify-content: center;
+    align-items: center;
+}
+#ButtonContainer
+{
+    flex-grow: 1;
+}
+.ButtonContainer__ButtonBlock
+{
+    flex-direction: row;
+    flex-grow: 1;
+}
+.ButtonContainer__Button
+{
+    flex-grow: 1;
+    margin: 8px;
+    padding: 24px;
+    background-color: #26263e;
+    border-radius: 8px;
+    border-width: 0;
+    
+    font-size: 40px;
+    transition: scale .2s, color .2s, background-color .2s;
+}
+.ButtonContainer__Button:hover
+{
+    background-color: #2e384e;
+    color: #bf99dc;
+    scale: 1.025;
+    transition: scale .2s, color .1s, background-color .1s;
+}
+.Button_disabled, .Button_disabled:hover
+{
+    background-color: #3d3c53;
+    color: #969ebc;
+    scale: 1;
+}
