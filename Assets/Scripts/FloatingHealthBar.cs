@@ -26,6 +26,6 @@ public class FloatingHealthBar : MonoBehaviour
     {
         transform.rotation = _camera.transform.rotation;
         Vector2 pos = Source.transform.position;
-        transform.position = pos + offset;
+        transform.position = pos - offset;
     }
 }
