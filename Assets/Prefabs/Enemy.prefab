@@ -1413,6 +1413,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4092099704307828885, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.13804872
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092099704307828885, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.24399401
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092099704307828885, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65061706
+      objectReference: {fileID: 0}
     - target: {fileID: 6364317199411781312, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
