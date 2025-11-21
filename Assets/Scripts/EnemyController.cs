@@ -1,3 +1,4 @@
+using System;
 using Mono.Cecil.Cil;
 using NUnit.Framework.Constraints;
 using Unity.VisualScripting;
@@ -13,6 +14,9 @@ public class EnemyController : EntityController
 
     private Vector2 _movementVector;
     private Vector2 _movementDirection;
+
+    public GameObject healthDrop;
+    
     private void Start()
     {
         _targetTransform = GameObject.Find("Player").transform;
@@ -34,6 +38,12 @@ public class EnemyController : EntityController
             
             MoveEnemy();
         }
+    }
+
+    private void OnDestroy()
+    {
+        if(CurrentHealth <= 0)
+            Instantiate(healthDrop, transform.position, Quaternion.identity);
     }
 
     private void MoveEnemy()

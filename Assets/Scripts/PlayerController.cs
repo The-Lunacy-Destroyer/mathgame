@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -45,7 +46,7 @@ public class PlayerController : EntityController
             _ingameMenu.SetActive(true);
         }
     }
-    
+
     private Vector3 GetPlayerToMouseVector()
     {
         Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.value);

@@ -1265,6 +1265,7 @@ MonoBehaviour:
   spreadAngle: 15
   slowdownRadius: 4
   shootRadius: 3
+  healthDrop: {fileID: 1178529517290169631, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
 --- !u!60 &667771176659950419
 PolygonCollider2D:
   m_ObjectHideFlags: 0
