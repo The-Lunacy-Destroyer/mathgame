@@ -10,7 +10,8 @@
                         <ui:Button name="Settings" text="Настройки" class="ButtonContainer__Button Button_disabled" />
                         <ui:Button name="Controls" text="Управление" class="ButtonContainer__Button Button_disabled" />
                     </ui:VisualElement>
-                    <ui:Button name="Leave" text="Выйти" class="ButtonContainer__Button" />
+                    <ui:Button name="LeaveToMenu" text="Выйти в меню" class="ButtonContainer__Button" />
+                    <ui:Button name="Leave" text="Выйти из игры" class="ButtonContainer__Button" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

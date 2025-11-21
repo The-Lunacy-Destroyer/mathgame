@@ -16,7 +16,7 @@ public class PlayerController : EntityController
         _mainCamera = Camera.main;
         _spaceGunTransform = transform.Find("SpaceGun");
         _ingameMenu = GameObject.Find("IngameMenu");
-        _ingameMenu.SetActive(false);
+        _ingameMenu?.SetActive(false);
     }
 
     protected override void Update()

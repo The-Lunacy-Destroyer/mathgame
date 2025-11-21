@@ -9,6 +9,8 @@ public class MenuButtonHandler : MonoBehaviour
     
     private Button _newGameButton;
     private Button _leaveButton;
+    private Button _leaveToMenuButton;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnEnable()
     {
@@ -16,15 +18,24 @@ public class MenuButtonHandler : MonoBehaviour
         
         _newGameButton = _root.Q<Button>("NewGame");
         _leaveButton = _root.Q<Button>("Leave");
+        _leaveToMenuButton = _root.Q<Button>("LeaveToMenu");
         
-        _newGameButton.clicked += NewGame;
-        _leaveButton.clicked += Leave;
+        if(_newGameButton != null)
+            _newGameButton.clicked += NewGame;
+        if(_leaveButton != null)
+            _leaveButton.clicked += Leave;
+        if(_leaveToMenuButton != null)
+            _leaveToMenuButton.clicked += LeaveToMenu;
     }
 
     private void OnDisable()
     {
-        _newGameButton.clicked -= NewGame;
-        _leaveButton.clicked -= Leave;
+        if(_newGameButton != null)
+            _newGameButton.clicked -= NewGame;
+        if(_leaveButton != null)
+            _leaveButton.clicked -= Leave;
+        if(_leaveToMenuButton != null)
+            _leaveToMenuButton.clicked -= LeaveToMenu;
     }
 
     private void NewGame()
@@ -39,5 +50,10 @@ public class MenuButtonHandler : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+
+    private void LeaveToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
