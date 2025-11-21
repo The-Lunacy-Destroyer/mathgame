@@ -100,3 +100,15 @@
     color: #969ebc;
     scale: 1;
 }
+
+#IngameContainer
+{
+    justify-content: center;
+}
+#IngameContainer #MainSection_Main
+{
+    color: #9FADD1;
+    height: auto;
+    flex-grow: 0;
+    border-radius: 16px;
+}

@@ -1,0 +1,18 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Style.uss?fileID=7433441132597879392&amp;guid=5846a7ca5a0d6714c89af77031817294&amp;type=3#Style" />
+    <ui:VisualElement name="IngameContainer" style="flex-grow: 1; align-items: center; width: 100%; height: 100%; align-self: auto; align-content: flex-start; justify-content: center;">
+        <ui:VisualElement name="MainSection_Main" class="MainContainer__section">
+            <ui:VisualElement name="MainSection_Buttons">
+                <ui:VisualElement name="ButtonContainer">
+                    <ui:Button name="NewGame" text="Начать заново" class="ButtonContainer__Button" />
+                    <ui:Button name="LoadGame" text="Загрузить" class="ButtonContainer__Button Button_disabled" />
+                    <ui:VisualElement class="ButtonContainer__ButtonBlock">
+                        <ui:Button name="Settings" text="Настройки" class="ButtonContainer__Button Button_disabled" />
+                        <ui:Button name="Controls" text="Управление" class="ButtonContainer__Button Button_disabled" />
+                    </ui:VisualElement>
+                    <ui:Button name="Leave" text="Выйти" class="ButtonContainer__Button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

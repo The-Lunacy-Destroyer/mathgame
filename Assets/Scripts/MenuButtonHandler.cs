@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class MainMenuButtonHandler : MonoBehaviour
+public class MenuButtonHandler : MonoBehaviour
 {
     private VisualElement _root;
     
