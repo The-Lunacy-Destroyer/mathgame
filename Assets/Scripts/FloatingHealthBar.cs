@@ -21,8 +21,7 @@ public class FloatingHealthBar : MonoBehaviour
         slider.value = currentHealth / maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.rotation = _camera.transform.rotation;
         Vector2 pos = Source.transform.position;

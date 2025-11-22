@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class PlayerController : EntityController
 {
@@ -23,7 +21,6 @@ public class PlayerController : EntityController
     protected override void Update()
     {
         base.Update();
-        RotateGun();
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             _ingameMenu.SetActive(!_ingameMenu.activeSelf);
@@ -37,6 +34,7 @@ public class PlayerController : EntityController
             LaunchProjectile(_spaceGunTransform.position, transform.up);
         }
         MovePlayer();
+        RotateGun();
     }
 
     void OnDestroy()

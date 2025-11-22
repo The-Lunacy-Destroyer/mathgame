@@ -1,21 +1,24 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 public class BulletController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     
     public float bulletDamage = 20.1f;
 
+    private Camera _camera;
+    
     public EntityController Source { get; set; }
     
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _camera = Camera.main;
     }
 
     void Update()
     {
-        if (transform.position.magnitude > 40.0f)
+        if ((_camera.transform.position - transform.position).magnitude > 40.0f)
         {
             Destroy(gameObject);
         }
