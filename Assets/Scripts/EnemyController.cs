@@ -5,12 +5,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
+
 public class EnemyController : EntityController
 {
     private Transform _targetTransform;
     
     public float slowdownRadius = 4f;
     public float shootRadius = 3f;
+
+    public float minSpeedScale = 1f;
+    public float maxSpeedScale = 1f;
+    private float _speedScale = 1f;
 
     private Vector2 _movementVector;
     private Vector2 _movementDirection;
@@ -22,6 +28,9 @@ public class EnemyController : EntityController
         _targetTransform = GameObject.Find("Player").transform;
         _movementVector = _targetTransform.position - transform.position;
         _movementDirection = _movementVector.normalized;
+
+        minSpeedScale = Math.Min(minSpeedScale, 1);
+        RandomizeStats();
     }
     
     void FixedUpdate()
@@ -67,6 +76,12 @@ public class EnemyController : EntityController
             _rigidbody.linearVelocity = Vector2.zero;
         }
 
-        _rigidbody.linearVelocity = Vector2.ClampMagnitude(_rigidbody.linearVelocity, maxSpeed);
+        _rigidbody.linearVelocity = Vector2.ClampMagnitude(
+            _rigidbody.linearVelocity, maxSpeed * _speedScale);
+    }
+
+    private void RandomizeStats()
+    {
+        _speedScale = Random.Range(1 - minSpeedScale, 1 + maxSpeedScale);
     }
 }

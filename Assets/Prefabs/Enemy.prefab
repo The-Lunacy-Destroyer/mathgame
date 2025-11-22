@@ -1256,15 +1256,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   slowdown: 5
   speed: 1
-  maxSpeed: 10
+  maxSpeed: 12
   maxHealth: 20
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
   projectileSpeed: 1000
   damageScale: 1
   projectileCooldown: 0.5
   spreadAngle: 15
   slowdownRadius: 4
   shootRadius: 3
+  minSpeedScale: 0.75
+  maxSpeedScale: 0.5
+  decelerationForce: 100
   healthDrop: {fileID: 1178529517290169631, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
 --- !u!60 &667771176659950419
 PolygonCollider2D:

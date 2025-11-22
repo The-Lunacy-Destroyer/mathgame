@@ -573,17 +573,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad431c15efd82cccbe79daaab7905df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  slowdown: 0.125
-  speed: 8
-  maxSpeed: 12
+  slowdown: 0.15
+  speed: 5
+  maxSpeed: 10
   maxHealth: 100
   projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
   projectileSpeed: 500
   damageScale: 1
   projectileCooldown: 0.5
   spreadAngle: 15
-  rotationSpeed: 3
-  decelerationForce: 4
+  rotationSpeed: 5
+  decelerationForce: 7
 --- !u!58 &188811226
 CircleCollider2D:
   m_ObjectHideFlags: 0
