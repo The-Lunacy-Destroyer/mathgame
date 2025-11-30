@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using System.Collections.Generic;
 public class PlayerController : EntityController
 {
     private Camera _mainCamera;
@@ -29,9 +29,9 @@ public class PlayerController : EntityController
 
     void FixedUpdate()
     {
-        if (Keyboard.current.cKey.isPressed || Mouse.current.rightButton.isPressed)
+        if (Keyboard.current.cKey.isPressed || Mouse.current.leftButton.isPressed)
         {
-            LaunchProjectile(_spaceGunTransform.position, transform.up);
+            LaunchProjectile(_spaceGunTransform.position, transform.up, false);
         }
         MovePlayer();
         RotateGun();
@@ -80,7 +80,6 @@ public class PlayerController : EntityController
 
     private void RotateGun()
     {
-        if (!Mouse.current.leftButton.isPressed) return;
         Vector2 mouseVector = GetPlayerToMouseVector();
         Vector2 direction = mouseVector.normalized;
         

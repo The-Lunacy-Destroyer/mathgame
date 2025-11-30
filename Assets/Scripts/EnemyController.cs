@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
+using System.Collections.Generic;
 public class EnemyController : EntityController
 {
     private Transform _targetTransform;
@@ -23,7 +23,6 @@ public class EnemyController : EntityController
         _targetTransform = GameObject.Find("Player").transform;
         _movementVector = _targetTransform.position - transform.position;
         _movementDirection = _movementVector.normalized;
-
         minSpeedScale = Math.Min(minSpeedScale, 1);
         RandomizeStats();
     }
@@ -37,7 +36,7 @@ public class EnemyController : EntityController
 
             if (_movementVector.magnitude <= shootRadius)
             {
-                LaunchProjectile(_rigidbody.position, _movementDirection);
+                LaunchProjectile(_rigidbody.position, _movementDirection, false);
             }
             
             MoveEnemy();

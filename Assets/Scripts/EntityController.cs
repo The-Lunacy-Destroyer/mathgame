@@ -1,6 +1,6 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
-
+using System.Collections.Generic;
 public class EntityController  : MonoBehaviour
 {
     private FloatingHealthBar _healthBar;
@@ -27,7 +27,7 @@ public class EntityController  : MonoBehaviour
     public float projectileCooldown = 0.5f;
     public float spreadAngle = 15f;
     private float _launchTimer;
-    private bool _canLaunchProjectile = true;
+    public  bool _canLaunchProjectile = true;
     
     
      void Awake()
@@ -46,22 +46,24 @@ public class EntityController  : MonoBehaviour
         _healthBar.UpdateHealthBar(CurrentHealth, maxHealth);
     }
     
-    protected virtual void LaunchProjectile(Vector2 launchPosition, Vector2 launchDirection)
+    protected virtual void LaunchProjectile(Vector2 launchPosition, Vector2 launchDirection, bool repeating)
     {
-        if (_canLaunchProjectile)
+        if (_canLaunchProjectile || repeating)
         {
             GameObject projectileObject = Instantiate(projectilePrefab, launchPosition, Quaternion.identity);
             BulletController projectile = projectileObject.GetComponent<BulletController>();
-            
-            projectile.Source = this.GetComponent<EntityController>();
+
+            projectile.Source = GetComponent<EntityController>();
             projectile.bulletDamage *= damageScale;
             _canLaunchProjectile = false;
-            
-            float spread = Random.Range(-spreadAngle, spreadAngle); 
+            float spread = Random.Range(-spreadAngle, spreadAngle);
             launchDirection = Utilities.RotateVector(launchDirection, spread);
             projectile.Launch(launchDirection, projectileSpeed);
+
         }
     }
+
+
 
     private void AddProjectileLaunchDelay()
     {
