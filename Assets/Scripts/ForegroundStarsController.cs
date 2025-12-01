@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 public class ForegroundStarsController : MonoBehaviour
 {
-    public TileBase tile;
+    public TileBase[] tiles;
     private Tilemap _tilemap;
 
     public int drawPosX = 0;
@@ -21,7 +21,7 @@ public class ForegroundStarsController : MonoBehaviour
     void Start()
     {
         _tilemap = GetComponent<Tilemap>();
-        if (tile != null)
+        if (tiles.Length > 0)
         {
             Quaternion[] rotations = {
                 Quaternion.Euler(0, 0, 0),
@@ -43,7 +43,7 @@ public class ForegroundStarsController : MonoBehaviour
             {
                 Vector3Int cellPosition = new Vector3Int
                     (drawPosX + cellPositionsX[x], drawPosY + cellPositionsY[y]);
-                _tilemap.SetTile(cellPosition, tile);
+                _tilemap.SetTile(cellPosition, tiles[Random.Range(0, tiles.Length)]);
                 RotateTile(cellPosition, rotations[Random.Range(0, rotations.Length)]);
 
                 x++;

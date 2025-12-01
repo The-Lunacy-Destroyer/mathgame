@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: ForegroundStars2
+  m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
+  m_AnimatedSprites:
+  - {fileID: 6782710580146264794, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: 450423011, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: -109806392, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: 1838226646, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: -791863194, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: 1049453747, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: -74885636, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: 270331343, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: 1333204186, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: 1917925782, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: -116607325, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: 650497771, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: -441340801, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: -1896040315, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: -740316496, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: -356063749, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: 1182425312, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: -1432295693, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: 204873507, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: 1726435398, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 10
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0
