@@ -141058,7 +141058,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
   projectileSpeed: 400
   damageScale: 1
-  projectileCooldown: 0.5
+  projectileCooldown: 0.01
   spreadAngle: 15
   _canLaunchProjectile: 1
 --- !u!50 &1209957146
