@@ -14,7 +14,7 @@ public class MinibossController : EntityController
         Gun1 = transform.Find("gun1");
         Gun2 = transform.Find("gun2");
         Gun3 = transform.Find("gun3");
-        Center = transform.Find("Circle");
+        Center = transform;
     }
     private void FixedUpdate()
     {
