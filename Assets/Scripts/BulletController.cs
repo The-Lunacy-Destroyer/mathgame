@@ -3,13 +3,13 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
-    
+
     public float bulletDamage = 20.1f;
 
     private Camera _camera;
-    
+
     public EntityController Source { get; set; }
-    
+
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -23,7 +23,7 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     public void Launch(Vector2 direction, float force)
     {
         _rigidbody.AddForce(direction * force);
@@ -46,7 +46,7 @@ public class BulletController : MonoBehaviour
     private void DecreaseHealth(EntityController entity)
     {
         entity.CurrentHealth -= bulletDamage;
-           
+
         if (entity.CurrentHealth <= 0)
         {
             Destroy(entity.gameObject);
