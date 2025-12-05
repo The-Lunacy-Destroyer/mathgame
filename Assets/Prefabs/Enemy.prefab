@@ -1125,6 +1125,8 @@ GameObject:
   - component: {fileID: 3480370217434023851}
   - component: {fileID: 5952654188013154509}
   - component: {fileID: 667771176659950419}
+  - component: {fileID: 5669305519626642353}
+  - component: {fileID: 7457725691350374161}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -1254,20 +1256,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2ed5927c0a06e409fafae7ed3ccd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  slowdown: 5
-  speed: 1
-  maxSpeed: 12
-  maxHealth: 20
-  projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
-  projectileSpeed: 1000
-  damageScale: 1
-  projectileCooldown: 0.5
-  spreadAngle: 15
-  slowdownRadius: 4
-  shootRadius: 3
-  minSpeedScale: 0.75
-  maxSpeedScale: 0.5
   healthDrop: {fileID: 1178529517290169631, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
+  shootRadius: 3
+  <Slowdown>k__BackingField: 0.25
+  <Speed>k__BackingField: 6
+  <MaxSpeed>k__BackingField: 8
+  slowdownRadius: 5
+  minSpeedScale: 0.75
+  maxSpeedScale: 1.25
 --- !u!60 &667771176659950419
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1319,6 +1315,36 @@ PolygonCollider2D:
       - {x: 0.55, y: 0}
       - {x: 0, y: -0.55}
   m_UseDelaunayMesh: 0
+--- !u!114 &5669305519626642353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304953242648891167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89dc497054134ec1882837681df88499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health.EntityHealthController
+  maxHealth: 100
+--- !u!114 &7457725691350374161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304953242648891167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ade2e2a3c04b668b51bc31eaae2a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Projectile.EntityShootingController
+  projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
+  projectileSpeed: 300
+  damageScale: 1
+  projectileCooldown: 0.5
+  spreadAngle: 15
 --- !u!1001 &855544432733631735
 PrefabInstance:
   m_ObjectHideFlags: 0

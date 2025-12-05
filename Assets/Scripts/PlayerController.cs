@@ -1,58 +1,48 @@
+using Interfaces;
+using Projectile;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : EntityController
+public class PlayerController : EntityController, IEntityMovable
 {
-    private Camera _mainCamera;
+    private EntityShootingController _shootingSystem;
     private Transform _spaceGunTransform;
-
-    private GameObject _ingameMenu;
+    private Rigidbody2D _rigidbody;
+    private Camera _mainCamera;
+    
+    // Movement
+    [field: SerializeField] public float Slowdown { get; set; } = 1f;
+    [field: SerializeField] public float Speed { get; set; } = 1f;
+    [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
 
     public float rotationSpeed = 5f;
     public float decelerationForce = 1f;
+    
     void Start()
     {
-        _mainCamera = Camera.main;
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _shootingSystem = GetComponent<EntityShootingController>();
         _spaceGunTransform = transform.Find("SpaceGun");
-        _ingameMenu = GameObject.Find("IngameMenu");
-        _ingameMenu?.SetActive(false);
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            _ingameMenu.SetActive(!_ingameMenu.activeSelf);
-        }
+        _mainCamera = Camera.main;
     }
 
     void FixedUpdate()
     {
-        if (Keyboard.current.cKey.isPressed || Mouse.current.rightButton.isPressed)
+        if (_shootingSystem && _spaceGunTransform && 
+            (Keyboard.current.cKey.isPressed || Mouse.current.rightButton.isPressed))
         {
-            LaunchProjectile(_spaceGunTransform.position, transform.up);
+            _shootingSystem.LaunchProjectile(
+                _spaceGunTransform.position, 
+                transform.up);
         }
-        MovePlayer();
+        Move();
         RotateGun();
     }
 
-    void OnDestroy()
+    private void Move()
     {
-        if (_ingameMenu && !_ingameMenu.activeSelf)
-        {
-            _ingameMenu.SetActive(true);
-        }
-    }
-
-    private Vector3 GetPlayerToMouseVector()
-    {
-        Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.value);
-        return mousePosition - transform.position;
-    }
-
-    private void MovePlayer()
-    {
+        if (!_rigidbody) return;
+        
         Vector2 movementDirection = Vector2.zero;
 
         if (Keyboard.current.wKey.isPressed) movementDirection.y++;
@@ -62,33 +52,41 @@ public class PlayerController : EntityController
         
         if (movementDirection.magnitude > 0)
         {
-            float deceleration = Vector2.Angle(_rigidbody.totalForce, movementDirection) / 180f * decelerationForce;
-            float forceSpeed = speed * (1 + deceleration);
+            float deceleration = Vector2.Angle(_rigidbody.totalForce, movementDirection) 
+                / 180f * decelerationForce;
+            float forceSpeed = Speed * (1 + deceleration);
             _rigidbody.AddForce(movementDirection * forceSpeed);
         }
-        else if (_rigidbody.linearVelocity.magnitude >= slowdown)
+        else if (_rigidbody.linearVelocity.magnitude >= Slowdown)
         {
-            _rigidbody.linearVelocity -= _rigidbody.linearVelocity.normalized * slowdown;
+            _rigidbody.linearVelocity -= _rigidbody.linearVelocity.normalized * Slowdown;
         }
         else
         {
             _rigidbody.linearVelocity = Vector2.zero;
         }
         
-        _rigidbody.linearVelocity = Vector2.ClampMagnitude(_rigidbody.linearVelocity, maxSpeed);
+        _rigidbody.linearVelocity = Vector2.ClampMagnitude(_rigidbody.linearVelocity, MaxSpeed);
     }
 
-    private void RotateGun()
+    void RotateGun()
     {
         if (!Mouse.current.leftButton.isPressed) return;
         Vector2 mouseVector = GetPlayerToMouseVector();
         Vector2 direction = mouseVector.normalized;
         
-        // _rigidbody.transform.up = direction;
         _rigidbody.transform.up = Vector2.MoveTowards(
             _rigidbody.transform.up,
             direction,
             rotationSpeed * Time.deltaTime
         );
+    }
+    
+    Vector3 GetPlayerToMouseVector()
+    {
+        if (_mainCamera is null) return Vector3.zero;
+        
+        Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.value);
+        return mousePosition - transform.position;
     }
 }

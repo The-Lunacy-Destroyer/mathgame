@@ -1,7 +1,5 @@
-using System;
 using System.Linq;
 using Unity.Mathematics;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;

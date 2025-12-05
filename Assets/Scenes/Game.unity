@@ -452,6 +452,9 @@ GameObject:
   - component: {fileID: 188811225}
   - component: {fileID: 188811223}
   - component: {fileID: 188811226}
+  - component: {fileID: 188811229}
+  - component: {fileID: 188811228}
+  - component: {fileID: 188811227}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -573,16 +576,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad431c15efd82cccbe79daaab7905df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  slowdown: 0.15
-  speed: 5
-  maxSpeed: 10
-  maxHealth: 100
-  projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
-  projectileSpeed: 500
-  damageScale: 1
-  projectileCooldown: 0.5
-  spreadAngle: 15
-  rotationSpeed: 5
+  <Slowdown>k__BackingField: 0.1
+  <Speed>k__BackingField: 6
+  <MaxSpeed>k__BackingField: 8
+  rotationSpeed: 6
   decelerationForce: 7
 --- !u!58 &188811226
 CircleCollider2D:
@@ -620,6 +617,48 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &188811227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188811220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4861e6589af84125affdc1409e582050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.IngameMenuController
+--- !u!114 &188811228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188811220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89dc497054134ec1882837681df88499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health.EntityHealthController
+  maxHealth: 100
+--- !u!114 &188811229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188811220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ade2e2a3c04b668b51bc31eaae2a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Projectile.EntityShootingController
+  projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
+  projectileSpeed: 300
+  damageScale: 1
+  projectileCooldown: 0.5
+  spreadAngle: 15
 --- !u!1 &280216250
 GameObject:
   m_ObjectHideFlags: 0

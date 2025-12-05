@@ -1,28 +1,41 @@
 using System;
+using Health;
+using Interfaces;
+using Projectile;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class EnemyController : EntityController
+public class EnemyController : EntityController, IEntityMovable
 {
     private Transform _targetTransform;
+    private EntityShootingController _shootingSystem;
+    private EntityHealthController _healthSystem;
+    private Rigidbody2D _rigidbody;
+    
+    public GameObject healthDrop;
+    
+    public float shootRadius = 3f;
+    
+    // Movement
+    [field: SerializeField] public float Slowdown { get; set; } = 1f;
+    [field: SerializeField] public float Speed { get; set; } = 1f;
+    [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
     
     public float slowdownRadius = 4f;
-    public float shootRadius = 3f;
+    private Vector2 _movementVector;
+    private Vector2 MovementDirection => _movementVector.normalized;
 
     public float minSpeedScale = 1f;
     public float maxSpeedScale = 1f;
     private float _speedScale = 1f;
-
-    private Vector2 _movementVector;
-    private Vector2 _movementDirection;
-
-    public GameObject healthDrop;
     
-    private void Start()
+    void Start()
     {
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _shootingSystem = GetComponent<EntityShootingController>();
+        _healthSystem = GetComponent<EntityHealthController>();
         _targetTransform = GameObject.Find("Player").transform;
         _movementVector = _targetTransform.position - transform.position;
-        _movementDirection = _movementVector.normalized;
 
         minSpeedScale = Math.Min(minSpeedScale, 1);
         RandomizeStats();
@@ -33,38 +46,39 @@ public class EnemyController : EntityController
         if (_targetTransform)
         {
             _movementVector = _targetTransform.position - transform.position;
-            _movementDirection = _movementVector.normalized;
 
-            if (_movementVector.magnitude <= shootRadius)
+            if (_shootingSystem && _movementVector.magnitude <= shootRadius)
             {
-                LaunchProjectile(_rigidbody.position, _movementDirection);
+                _shootingSystem.LaunchProjectile(_rigidbody.position, MovementDirection);
             }
             
-            MoveEnemy();
+            Move();
         }
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
-        if(CurrentHealth <= 0)
+        if(_healthSystem && _healthSystem.CurrentHealth <= 0)
             Instantiate(healthDrop, transform.position, Quaternion.identity);
     }
 
-    private void MoveEnemy()
+    private void Move()
     {
-        float angle = Mathf.Atan2(_movementDirection.x, _movementDirection.y) * Mathf.Rad2Deg;
+        if (!_rigidbody) return;
+        
+        float angle = Mathf.Atan2(MovementDirection.x, MovementDirection.y) * Mathf.Rad2Deg;
         _rigidbody.rotation = angle;
         
         float forceAngle = Mathf.Atan2(_rigidbody.totalForce.x, _rigidbody.totalForce.y) * Mathf.Rad2Deg;
         
         if (_movementVector.magnitude > slowdownRadius)
         {
-            float forceSpeed = speed * (1 + Mathf.Abs(angle - forceAngle) / 360f);
-            _rigidbody.AddForce(_movementDirection * forceSpeed);
+            float forceSpeed = Speed * (1 + Mathf.Abs(angle - forceAngle) / 360f);
+            _rigidbody.AddForce(MovementDirection * forceSpeed);
         }
-        else if (_rigidbody.linearVelocity.magnitude >= slowdown)
+        else if (_rigidbody.linearVelocity.magnitude >= Slowdown)
         {
-            _rigidbody.linearVelocity -= _rigidbody.linearVelocity.normalized * slowdown;
+            _rigidbody.linearVelocity -= _rigidbody.linearVelocity.normalized * Slowdown;
         }
         else
         {
@@ -72,10 +86,10 @@ public class EnemyController : EntityController
         }
 
         _rigidbody.linearVelocity = Vector2.ClampMagnitude(
-            _rigidbody.linearVelocity, maxSpeed * _speedScale);
+            _rigidbody.linearVelocity, MaxSpeed * _speedScale);
     }
 
-    private void RandomizeStats()
+    void RandomizeStats()
     {
         _speedScale = Random.Range(1 - minSpeedScale, 1 + maxSpeedScale);
     }
