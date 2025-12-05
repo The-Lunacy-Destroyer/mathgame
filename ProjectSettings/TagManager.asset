@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - HealthDrop
+  - Enemy
   layers:
   - Default
   - TransparentFX

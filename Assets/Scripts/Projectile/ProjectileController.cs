@@ -1,3 +1,4 @@
+using Enemies;
 using Health;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace Projectile
         private Camera _camera;
     
         public float bulletDamage = 20.1f;
-        public EntityController Entity { get; set; }
+        public EntityController SourceEntity { get; set; }
     
         public void Launch(Vector2 direction, float force)
         {
@@ -35,12 +36,19 @@ namespace Projectile
             EntityController otherEntity = other.GetComponent<EntityController>();
             EntityHealthController otherEntityHealth = 
                 otherEntity?.GetComponent<EntityHealthController>();
-            
-            if (otherEntity is EnemyController enemy && Entity is PlayerController
-                || 
-                otherEntity is PlayerController player && Entity is EnemyController)
+
+            if (SourceEntity && otherEntity && otherEntityHealth)
             {
-                DecreaseHealth(otherEntityHealth);
+                if (otherEntity.gameObject.CompareTag("Enemy")
+                    &&
+                    SourceEntity.gameObject.CompareTag("Player")
+                    || 
+                    otherEntity.gameObject.CompareTag("Player")
+                    &&
+                    SourceEntity.gameObject.CompareTag("Enemy"))
+                {
+                    DecreaseHealth(otherEntityHealth);
+                }
             }
         }
 

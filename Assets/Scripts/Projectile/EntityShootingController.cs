@@ -1,5 +1,7 @@
+using Unity.Mathematics;
 using UnityEngine;
 using Utilities;
+using Random = UnityEngine.Random;
 
 namespace Projectile
 {
@@ -13,23 +15,33 @@ namespace Projectile
         public float spreadAngle = 15f;
         
         private float _launchTimer;
-        private bool _canLaunchProjectile = true;
+        private bool _canLaunchProjectile;
 
-        public void LaunchProjectile(Vector2 launchPosition, Vector2 launchDirection)
+        public void ShootMany(Vector2[] launchPosition, Vector2[] launchDirection)
         {
-            if (_canLaunchProjectile)
+            if (!_canLaunchProjectile) return;
+
+            for (int i = 0; i < math.min(launchPosition.Length, launchDirection.Length); i++)
             {
-                GameObject projectileObject = Instantiate(projectilePrefab, launchPosition, Quaternion.identity);
-                ProjectileController projectile = projectileObject.GetComponent<ProjectileController>();
-            
-                projectile.Entity = GetComponent<EntityController>();
-                projectile.bulletDamage *= damageScale;
-                _canLaunchProjectile = false;
-            
-                float spread = Random.Range(-spreadAngle, spreadAngle); 
-                launchDirection = MathUtilities.RotateVector(launchDirection, spread);
-                projectile.Launch(launchDirection, projectileSpeed);
+                LaunchProjectile(launchPosition[i], launchDirection[i]);
             }
+            _canLaunchProjectile = false;
+        }
+        public void Shoot(Vector2 launchPosition, Vector2 launchDirection)
+        {
+            ShootMany(new []{launchPosition}, new []{launchDirection});
+        }
+        private void LaunchProjectile(Vector2 launchPosition, Vector2 launchDirection)
+        {
+            GameObject projectileObject = Instantiate(projectilePrefab, launchPosition, Quaternion.identity);
+            ProjectileController projectile = projectileObject.GetComponent<ProjectileController>();
+        
+            projectile.SourceEntity = GetComponent<EntityController>();
+            projectile.bulletDamage *= damageScale;
+        
+            float spread = Random.Range(-spreadAngle, spreadAngle); 
+            launchDirection = MathUtilities.RotateVector(launchDirection, spread);
+            projectile.Launch(launchDirection, projectileSpeed);
         }
         
         void Awake()

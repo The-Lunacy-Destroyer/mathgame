@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 239934125502521290}
   - component: {fileID: 9005743548601107342}
   - component: {fileID: 387001662225999879}
+  - component: {fileID: 6130579706654392183}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -130,10 +131,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 256284739968353612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a2bf6628f01e84469a96127b9421e2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dc24e87fb002d249afe57082fa69306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  bulletDamage: 21
+  bulletDamage: 20.1
 --- !u!61 &9005743548601107342
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -202,3 +203,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6130579706654392183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256284739968353612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc24e87fb002d249afe57082fa69306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Projectile.ProjectileController
+  bulletDamage: 20.1

@@ -31,7 +31,7 @@ public class PlayerController : EntityController, IEntityMovable
         if (_shootingSystem && _spaceGunTransform && 
             (Keyboard.current.cKey.isPressed || Mouse.current.rightButton.isPressed))
         {
-            _shootingSystem.LaunchProjectile(
+            _shootingSystem.Shoot(
                 _spaceGunTransform.position, 
                 transform.up);
         }
