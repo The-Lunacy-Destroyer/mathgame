@@ -596,11 +596,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad431c15efd82cccbe79daaab7905df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  <Slowdown>k__BackingField: 0.2
-  <Speed>k__BackingField: 7
-  <MaxSpeed>k__BackingField: 8
+  <Slowdown>k__BackingField: 0.9
+  <MoveForce>k__BackingField: 8
+  <MaxSpeed>k__BackingField: 12
   rotationSpeed: 8
-  decelerationForce: 7
 --- !u!58 &188811226
 CircleCollider2D:
   m_ObjectHideFlags: 0

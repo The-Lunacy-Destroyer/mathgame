@@ -15,15 +15,14 @@ namespace Enemies
         private Rigidbody2D _rigidbody;
     
         public GameObject healthDrop;
-    
-        public float shootRadius = 3f;
-    
-        // Movement
+        
         [field: SerializeField] public float Slowdown { get; set; } = 1f;
-        [field: SerializeField] public float Speed { get; set; } = 1f;
+        [field: SerializeField] public float MoveForce { get; set; } = 1f;
         [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
     
+        // distance between enemy and target at which enemy begins shooting
         public float slowdownRadius = 4f;
+        
         private Vector2 _movementVector;
         private Vector2 MovementDirection => _movementVector.normalized;
 
@@ -31,15 +30,16 @@ namespace Enemies
         public float maxSpeedScale = 1f;
         private float _speedScale = 1f;
     
+        // distance between enemy and target at which enemy begins shooting
+        public float shootRadius = 3f;
+        
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _shootingSystem = GetComponent<EntityShootingController>();
             _healthSystem = GetComponent<EntityHealthController>();
             _targetTransform = GameObject.Find("Player").transform;
-            _movementVector = _targetTransform.position - transform.position;
 
-            minSpeedScale = Math.Min(minSpeedScale, 1);
             RandomizeStats();
         }
     
@@ -75,7 +75,7 @@ namespace Enemies
         
             if (_movementVector.magnitude > slowdownRadius)
             {
-                float forceSpeed = Speed * (1 + Mathf.Abs(angle - forceAngle) / 360f);
+                float forceSpeed = MoveForce * (1 + Mathf.Abs(angle - forceAngle) / 360f);
                 _rigidbody.AddForce(MovementDirection * forceSpeed);
             }
             else if (_rigidbody.linearVelocity.magnitude >= Slowdown)

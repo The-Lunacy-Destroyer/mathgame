@@ -11,14 +11,15 @@ public class PlayerController : EntityController, IEntityMovable
     private Camera _mainCamera;
     
     // Movement
-    [field: SerializeField] public float Slowdown { get; set; } = 1f;
-    [field: SerializeField] public float Speed { get; set; } = 1f;
+    
+    [field: SerializeField] [field: Range(0f, 1f)] 
+    public float Slowdown { get; set; } = 0.9f; 
+    [field: SerializeField] public float MoveForce { get; set; } = 8f;
     [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
 
     public float rotationSpeed = 5f;
-    public float decelerationForce = 1f;
     
-    void Start()
+    private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _shootingSystem = GetComponent<EntityShootingController>();
@@ -26,7 +27,7 @@ public class PlayerController : EntityController, IEntityMovable
         _mainCamera = Camera.main;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (_shootingSystem && _spaceGunTransform && 
             (Keyboard.current.cKey.isPressed || Mouse.current.rightButton.isPressed))
@@ -42,7 +43,24 @@ public class PlayerController : EntityController, IEntityMovable
     private void Move()
     {
         if (!_rigidbody) return;
+
+        Vector2 movementVector = GetMovementDirection();
         
+        if (movementVector.magnitude > 0)
+        {
+            movementVector *= 1 + (movementVector - _rigidbody.linearVelocity.normalized).magnitude / 2;
+            _rigidbody.AddForce(movementVector * MoveForce);
+        }
+        else
+        {
+            _rigidbody.linearVelocity *= Slowdown;
+        }
+        
+        _rigidbody.linearVelocity = Vector2.ClampMagnitude(_rigidbody.linearVelocity, MaxSpeed);
+    }
+
+    private Vector2 GetMovementDirection()
+    {
         Vector2 movementDirection = Vector2.zero;
 
         if (Keyboard.current.wKey.isPressed) movementDirection.y++;
@@ -50,39 +68,23 @@ public class PlayerController : EntityController, IEntityMovable
         if (Keyboard.current.dKey.isPressed) movementDirection.x++;
         if (Keyboard.current.aKey.isPressed) movementDirection.x--;
         
-        if (movementDirection.magnitude > 0)
-        {
-            float deceleration = Vector2.Angle(_rigidbody.totalForce, movementDirection) 
-                / 180f * decelerationForce;
-            float forceSpeed = Speed * (1 + deceleration);
-            _rigidbody.AddForce(movementDirection * forceSpeed);
-        }
-        else if (_rigidbody.linearVelocity.magnitude >= Slowdown)
-        {
-            _rigidbody.linearVelocity -= _rigidbody.linearVelocity.normalized * Slowdown;
-        }
-        else
-        {
-            _rigidbody.linearVelocity = Vector2.zero;
-        }
-        
-        _rigidbody.linearVelocity = Vector2.ClampMagnitude(_rigidbody.linearVelocity, MaxSpeed);
+        return movementDirection.normalized;
     }
 
-    void RotateGun()
+    private void RotateGun()
     {
         if (!Mouse.current.leftButton.isPressed) return;
+        
         Vector2 mouseVector = GetPlayerToMouseVector();
         Vector2 direction = mouseVector.normalized;
+        Vector2 current = _rigidbody.transform.up.normalized;
         
-        _rigidbody.transform.up = Vector2.MoveTowards(
-            _rigidbody.transform.up,
-            direction,
-            rotationSpeed * Time.deltaTime
+        _rigidbody.transform.up = Vector2.MoveTowards(current, direction,
+            rotationSpeed * (current - direction).magnitude * Time.fixedDeltaTime
         );
     }
     
-    Vector3 GetPlayerToMouseVector()
+    private Vector3 GetPlayerToMouseVector()
     {
         if (_mainCamera is null) return Vector3.zero;
         
