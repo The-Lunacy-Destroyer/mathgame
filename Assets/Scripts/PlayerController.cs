@@ -30,7 +30,7 @@ public class PlayerController : EntityController, IEntityMovable
     private void FixedUpdate()
     {
         if (_shootingSystem && _spaceGunTransform && 
-            (Keyboard.current.cKey.isPressed || Mouse.current.rightButton.isPressed))
+            (Keyboard.current.cKey.isPressed || Mouse.current.leftButton.isPressed))
         {
             _shootingSystem.Shoot(
                 _spaceGunTransform.position, 
@@ -73,8 +73,7 @@ public class PlayerController : EntityController, IEntityMovable
 
     private void RotateGun()
     {
-        if (!Mouse.current.leftButton.isPressed) return;
-        
+
         Vector2 mouseVector = GetPlayerToMouseVector();
         Vector2 direction = mouseVector.normalized;
         Vector2 current = _rigidbody.transform.up.normalized;

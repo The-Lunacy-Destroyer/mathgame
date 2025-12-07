@@ -42,6 +42,7 @@ namespace Enemies
         public float contactDamage = 5f;
         private void Start()
         {
+            gameObject.SetActive(false);
             _rigidbody = GetComponent<Rigidbody2D>();
             _targetTransform = GameObject.Find("Player").transform;
             
