@@ -200,50 +200,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: speed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: maxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: slowdown
-      value: 0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: stopRadius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: damageScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: shootRadius
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: spreadAngle
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: slowdownRadius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: projectileSpeed
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: projectilePrefab
-      value: 
-      objectReference: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
     - target: {fileID: 5993949358008537265, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
@@ -808,11 +764,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6364317199411781312, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6364317199411781312, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6408982978271192134, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Name
@@ -1173,7 +1129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &566701033
 Rigidbody2D:
   serializedVersion: 5
@@ -1694,50 +1650,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: speed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: maxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: slowdown
-      value: 0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: stopRadius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: damageScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: shootRadius
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: spreadAngle
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: slowdownRadius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: projectileSpeed
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: projectilePrefab
-      value: 
-      objectReference: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
     - target: {fileID: 5993949358008537265, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
@@ -141403,50 +141315,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: speed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: maxSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: slowdown
-      value: 0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: stopRadius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: damageScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: shootRadius
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: spreadAngle
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: slowdownRadius
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: projectileSpeed
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952654188013154509, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
-      propertyPath: projectilePrefab
-      value: 
-      objectReference: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
     - target: {fileID: 5993949358008537265, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
