@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1ad2e74065e579781ba8346cafac90b2
+guid: 663d296a6700e4a2e9d6ea2b15e16e34
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4458044083434039833
-    second: Meteor_2_0
+      213: -3741523904396901356
+    second: AA-04_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Meteor_2_0
+      name: AA-04_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 19
-        height: 24
+        width: 32
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e5d1ed9688d122c0800000000000000
-      internalID: -4458044083434039833
+      spriteID: 4144ac715df631cc0800000000000000
+      internalID: -3741523904396901356
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Meteor_2_0: -4458044083434039833
+      AA-04_0: -3741523904396901356
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
