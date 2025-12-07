@@ -35,8 +35,8 @@ namespace Enemies
         private Vector2 _randomStopRadiusVector;
 
         public float randomMovementAngle = 30f;
-        public float randomMovementCooldown = 20f;
-        private float _randomMovementTimer = 0f;
+        public int randomMovementCooldown = 20;
+        private int _randomMovementTimer = 0;
         private Vector2 _movementDirection;
 
         public float stopRadiusMoveForce = 5f;
