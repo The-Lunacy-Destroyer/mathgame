@@ -3,16 +3,10 @@
     <ui:VisualElement name="IngameContainer" style="flex-grow: 1; align-items: center; width: 100%; height: 100%; align-self: auto; align-content: flex-start; justify-content: center;">
         <ui:VisualElement name="MainSection_Main" class="MainContainer__section">
             <ui:VisualElement name="MainSection_Buttons">
-                <ui:VisualElement name="ButtonContainer">
-                    <ui:Button name="NewGame" text="Начать заново" class="ButtonContainer__Button" />
-                    <ui:Button name="LoadGame" text="Загрузить" class="ButtonContainer__Button Button_disabled" />
-                    <ui:VisualElement class="ButtonContainer__ButtonBlock">
-                        <ui:Button name="Settings" text="Настройки" class="ButtonContainer__Button Button_disabled" />
-                        <ui:Button name="Controls" text="Управление" class="ButtonContainer__Button Button_disabled" />
-                    </ui:VisualElement>
-                    <ui:Button name="LeaveToMenu" text="Выйти в меню" class="ButtonContainer__Button" />
-                    <ui:Button name="Leave" text="Выйти из игры" class="ButtonContainer__Button" />
-                </ui:VisualElement>
+                <ui:Button name="NewGame" class="ButtonContainer__Button" />
+                <ui:Button name="LoadGame" class="ButtonContainer__Button Button_disabled" />
+                <ui:Button name="LeaveToMenu" class="ButtonContainer__Button" />
+                <ui:Button name="Leave" class="ButtonContainer__Button" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
