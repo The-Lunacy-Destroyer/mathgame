@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Enemies
 {
-    public class Enemy1Controller : EntityController, IEntityMovable, IEntityRadiusStoppable
+    public class Enemy1Controller : EntityController, IEntityMovable
     {
         private Rigidbody2D _rigidbody;
         private Transform _targetTransform;
@@ -21,6 +21,8 @@ namespace Enemies
         
         [field: SerializeField] public float Slowdown { get; set; } = 0.9f;
         [field: SerializeField] public float StopRadius { get; set; } = 5f;
+        public float minStopRadiusScale = 0.75f;
+        public float maxStopRadiusScale = 1.25f;
         
         public float minDeviation = 0.95f;
         public float maxDeviation = 1.25f;
@@ -49,6 +51,7 @@ namespace Enemies
             _targetTransform = GameObject.Find("Player").transform;
             
             _deviationFactor = Random.Range(minDeviation, maxDeviation);
+            StopRadius *= Random.Range(minStopRadiusScale, maxStopRadiusScale);
             _actionCooldownTimer = actionCooldown;
         }
     

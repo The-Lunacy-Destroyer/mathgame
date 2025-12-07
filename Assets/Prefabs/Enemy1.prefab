@@ -1128,7 +1128,6 @@ GameObject:
   - component: {fileID: 5669305519626642353}
   - component: {fileID: 7457725691350374161}
   - component: {fileID: -2639861724708251551}
-  - component: {fileID: -6299366066909616252}
   - component: {fileID: 7737460689529958782}
   m_Layer: 10
   m_Name: Enemy1
@@ -1264,6 +1263,8 @@ MonoBehaviour:
   <MaxSpeed>k__BackingField: 8
   <Slowdown>k__BackingField: 0.9
   <StopRadius>k__BackingField: 6
+  minStopRadiusScale: 0.75
+  maxStopRadiusScale: 1.25
   minDeviation: 0.95
   maxDeviation: 1.25
   actionCooldown: 30
@@ -1365,20 +1366,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement.MaxSpeedRandomizer
   minSpeedScale: 0.75
   maxSpeedScale: 1.25
---- !u!114 &-6299366066909616252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7304953242648891167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2c11226e8a4f219b02d56b2e1e9f8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Movement.EntitySlowdownRadiusRandomizer
-  minStopRadiusScale: 0.75
-  maxStopRadiusScale: 1.25
 --- !u!114 &7737460689529958782
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1836936359136603363}
   - component: {fileID: 5720652601219565780}
   - component: {fileID: 5784138549394213965}
-  - component: {fileID: 1856742184162293695}
   - component: {fileID: 1946883835786170220}
   - component: {fileID: -36210537976287020}
   - component: {fileID: -1872912922194020907}
@@ -141,6 +140,8 @@ MonoBehaviour:
   <MaxSpeed>k__BackingField: 10
   <Slowdown>k__BackingField: 0.9
   <StopRadius>k__BackingField: 5
+  minStopRadiusScale: 0.75
+  maxStopRadiusScale: 1.25
   minDeviation: 2
   maxDeviation: 3
   actionCooldown: 1
@@ -149,20 +150,6 @@ MonoBehaviour:
   randomMovementCooldown: 30
   stopRadiusMoveForce: 2
   contactDamage: 5
---- !u!114 &1856742184162293695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2400070652927853476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2c11226e8a4f219b02d56b2e1e9f8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Movement.EntityStopRadiusRandomizer
-  minStopRadiusScale: 0.75
-  maxStopRadiusScale: 1.25
 --- !u!50 &1946883835786170220
 Rigidbody2D:
   serializedVersion: 5
