@@ -4,7 +4,7 @@
         <ui:VisualElement name="MainSection">
             <ui:VisualElement name="MainSection_Header" class="MainContainer__section">
                 <ui:Image name="Logo" style="--unity-image: url(&quot;project://database/Assets/Sprites/Spaceship.png?fileID=7127769706924348086&amp;guid=6cb383e1bc112e697aee862a79e6db2a&amp;type=3#SpaceShip_0&quot;);" />
-                <ui:Label name="Title" text="НАЗВАНИЕ ИГРЫ" />
+                <ui:Label name="Title" text="ASTROLABIA" />
             </ui:VisualElement>
             <ui:VisualElement name="MainSection_Main" class="MainContainer__section">
                 <ui:VisualElement name="MainSection_Buttons">

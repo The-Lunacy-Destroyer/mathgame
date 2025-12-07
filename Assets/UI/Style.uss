@@ -51,14 +51,14 @@
 }
 #Logo
 {
-    width: 180px;
-    height: 180px;
+    width: 144px;
+    height: 144px;
 }
 #Title
 {
-    font-size: 48px;
+    font-size: 64px;
     -unity-font-style: bold;
-    letter-spacing: 4px;
+    letter-spacing: 8px;
     margin-top: 20px;
 }
 #MainSection_Buttons
