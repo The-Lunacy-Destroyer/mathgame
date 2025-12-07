@@ -1,13 +1,11 @@
 using Projectile;
 using UnityEngine;
+using Utilities;
 
 namespace Enemies
 {
     public class MinibossController : EntityController
     {
-        private Transform _gun1;
-        private Transform _gun2;
-        private Transform _gun3;
         private Transform _center;
         private Transform _target;
         private EntityShootingController _shootingSystem;
@@ -21,11 +19,7 @@ namespace Enemies
             _shootingSystem = GetComponent<EntityShootingController>();
             _rigidbody = GetComponent<Rigidbody2D>();
             _target = GameObject.Find("Player").transform;
-            _gun1 = transform.Find("gun1");
-            _gun2 = transform.Find("gun2");
-            _gun3 = transform.Find("gun3");
             _center = transform;
-
         }
         
         void FixedUpdate()
@@ -48,12 +42,16 @@ namespace Enemies
 
         void LaunchProjectiles()
         {
-            Vector2 vec1 = (_gun1.position - _center.position).normalized;
-            Vector2 vec2 = (_gun2.position - _center.position).normalized;
-            Vector2 vec3 = (_gun3.position - _center.position).normalized;
+            Vector2 vec1 = transform.up.normalized;
+            Vector2 vec2 = MathUtilities.RotateVector(vec1, 120);
+            Vector2 vec3 = MathUtilities.RotateVector(vec1, -120);
 
+            Vector2 pos1 = (Vector2)_center.position + vec1 * 0.66f;
+            Vector2 pos2 = (Vector2)_center.position + MathUtilities.RotateVector(vec2, 15) * 1.25f;
+            Vector2 pos3 = (Vector2)_center.position + MathUtilities.RotateVector(vec3, -15) * 1.25f;
+            
             _shootingSystem.ShootMany(
-                new Vector2[]{_gun1.position, _gun2.position, _gun3.position}, 
+                new []{pos1, pos2, pos3}, 
                 new [] {vec1, vec2, vec3});
         }
     }
