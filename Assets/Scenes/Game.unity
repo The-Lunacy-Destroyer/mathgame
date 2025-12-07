@@ -1563,12 +1563,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2691bd7c4cd2d27b87d531f06c8cc73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForegroundStarsController
-  tiles: []
+  tiles:
+  - {fileID: 11400000, guid: 0caba204dd8edd35ebdb8cfdf02f5c66, type: 2}
+  - {fileID: 11400000, guid: 91d2bc6f6e27d75d4b65f82aa7cdc030, type: 2}
   drawPosX: 0
   drawPosY: 0
-  drawRadiusX: 100
-  drawRadiusY: 100
-  tileCount: 100
+  drawRadiusX: 70
+  drawRadiusY: 50
+  tileCount: 600
 --- !u!20 &684784366 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5304435370337387607, guid: 95bc4189c6a6933c286debf752ae8954, type: 3}
