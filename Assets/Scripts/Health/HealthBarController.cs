@@ -14,6 +14,14 @@ namespace Health
     
         public void UpdateHealthBar(float currentHealth, float maxHealth)
         {
+            if (currentHealth >= maxHealth)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(true);
+            }
             slider.value = currentHealth / maxHealth;
         }
 
