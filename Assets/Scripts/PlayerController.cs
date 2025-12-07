@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : EntityController, IEntityMovable
 {
     private EntityShootingController _shootingSystem;
-    private Transform _spaceGunTransform;
     private Rigidbody2D _rigidbody;
     private Camera _mainCamera;
     
@@ -23,17 +22,16 @@ public class PlayerController : EntityController, IEntityMovable
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _shootingSystem = GetComponent<EntityShootingController>();
-        _spaceGunTransform = transform.Find("SpaceGun");
         _mainCamera = Camera.main;
     }
 
     private void FixedUpdate()
     {
-        if (_shootingSystem && _spaceGunTransform && 
+        if (_shootingSystem && 
             (Keyboard.current.cKey.isPressed || Mouse.current.rightButton.isPressed))
         {
             _shootingSystem.Shoot(
-                _spaceGunTransform.position, 
+                transform.position + transform.up * 0.5f, 
                 transform.up);
         }
         Move();
