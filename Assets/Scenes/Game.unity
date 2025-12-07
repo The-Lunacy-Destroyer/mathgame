@@ -494,7 +494,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 1.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ade2e2a3c04b668b51bc31eaae2a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile.EntityShootingController
-  projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
+  projectilePrefab: {fileID: 6655377388589409362, guid: 27938b431c7b20cc38e49604e4d66a49, type: 3}
   projectileSpeed: 400
   damageScale: 1
   projectileCooldown: 0.5
@@ -640,7 +640,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2, y: 1.875}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 2, y: 1.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ade2e2a3c04b668b51bc31eaae2a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile.EntityShootingController
-  projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
+  projectilePrefab: {fileID: 1701417249012432286, guid: a7f124e6e9acd5a00922b9e3bb17adec, type: 3}
   projectileSpeed: 400
   damageScale: 1
   projectileCooldown: 0.5

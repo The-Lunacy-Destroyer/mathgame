@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ade2e2a3c04b668b51bc31eaae2a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile.EntityShootingController
-  projectilePrefab: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
+  projectilePrefab: {fileID: 1701417249012432286, guid: a7f124e6e9acd5a00922b9e3bb17adec, type: 3}
   projectileSpeed: 400
   damageScale: 0.5
   projectileCooldown: 0.5
