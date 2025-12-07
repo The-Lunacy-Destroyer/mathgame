@@ -1,20 +1,15 @@
 using Health;
 using Movement;
-using Projectile;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Utilities;
-using Random = UnityEngine.Random;
 
 namespace Enemies
 {
-    public class Enemy1Controller : EntityController, IEntityMovable, IEntityRadiusStoppable
+    public class Enemy2Controller : EntityController, IEntityMovable, IEntityRadiusStoppable
     {
         private Rigidbody2D _rigidbody;
         private Transform _targetTransform;
-        private EntityShootingController _shootingSystem;
-        
-        // distance between enemy and target at which enemy begins shooting
-        public float shootRadius = 8f;
         
         [field: SerializeField] public float MoveForce { get; set; } = 8f;
         [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
@@ -33,7 +28,7 @@ namespace Enemies
         private Vector2 _targetVector;
         private Vector2 TargetDirection => _targetVector.normalized;
 
-        public int randomStopRadiusVectorCooldown = 30;
+        public int randomStopRadiusVectorCooldown = 100;
         private int _randomStopRadiusVectorTimer;
         private Vector2 _randomStopRadiusVector;
 
@@ -41,11 +36,13 @@ namespace Enemies
         public float randomMovementCooldown = 30f;
         private float _randomMovementTimer = 0f;
         private Vector2 _movementDirection;
-        
+
+        public float stopRadiusMoveForce = 5f;
+
+        public float contactDamage = 5f;
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-            _shootingSystem = GetComponent<EntityShootingController>();
             _targetTransform = GameObject.Find("Player").transform;
             
             _deviationFactor = Random.Range(minDeviation, maxDeviation);
@@ -58,12 +55,8 @@ namespace Enemies
             {
                 _targetVector = _targetTransform.position - transform.position;
 
-                if (_shootingSystem && _targetVector.magnitude <= shootRadius)
-                {
-                    _shootingSystem.Shoot(_rigidbody.position, TargetDirection);
-                }
-            
                 Move();
+                Rotate();
             }
         }
 
@@ -101,6 +94,7 @@ namespace Enemies
                 
                 _actionCooldownTimer = actionCooldown;
                 _randomMovementTimer--;
+                _randomStopRadiusVectorTimer = 0;
             }
         }
 
@@ -108,15 +102,36 @@ namespace Enemies
         {
             if (_randomStopRadiusVectorTimer <= 0)
             {
-                float randomAngle = Random.value < 0.5f ?
-                    Random.Range(-50f, -90f) : 
-                    Random.Range(50f, 90f);
+                float randomAngle = Random.Range(-15f, 15f);
                 
                 _randomStopRadiusVector = MathUtilities.RotateVector(TargetDirection, randomAngle);
                 _randomStopRadiusVectorTimer = randomStopRadiusVectorCooldown;
             }
-            _rigidbody.linearVelocity = _randomStopRadiusVector.normalized * MoveForce;
+            _rigidbody.linearVelocity = _randomStopRadiusVector.normalized * (MoveForce * stopRadiusMoveForce);
             _randomStopRadiusVectorTimer--;
+        }
+
+        private void Rotate()
+        {
+            transform.up = Vector2.MoveTowards(
+                transform.up, TargetDirection, 10 * Time.fixedDeltaTime);
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            EntityController otherEntity = other.GetComponent<EntityController>();
+            EntityHealthController otherEntityHealth = 
+                otherEntity?.GetComponent<EntityHealthController>();
+
+            if (otherEntityHealth && other.gameObject.CompareTag("Player"))
+            {
+                otherEntityHealth.CurrentHealth -= contactDamage;
+                
+                if (otherEntityHealth.CurrentHealth <= 0)
+                {
+                    Destroy(otherEntityHealth.gameObject);
+                }
+            }
         }
     }
 }

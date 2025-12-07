@@ -1129,6 +1129,7 @@ GameObject:
   - component: {fileID: 7457725691350374161}
   - component: {fileID: -2639861724708251551}
   - component: {fileID: -6299366066909616252}
+  - component: {fileID: 7737460689529958782}
   m_Layer: 10
   m_Name: Enemy1
   m_TagString: Enemy
@@ -1258,7 +1259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2ed5927c0a06e409fafae7ed3ccd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  healthDrop: {fileID: 1178529517290169631, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
   shootRadius: 8
   <MoveForce>k__BackingField: 6
   <MaxSpeed>k__BackingField: 8
@@ -1379,6 +1379,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement.EntitySlowdownRadiusRandomizer
   minStopRadiusScale: 0.75
   maxStopRadiusScale: 1.25
+--- !u!114 &7737460689529958782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7304953242648891167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e35ff7445041a385967aee058f8a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Drop.EntityHealthDropController
+  healthDrop: {fileID: 1178529517290169631, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
 --- !u!1001 &855544432733631735
 PrefabInstance:
   m_ObjectHideFlags: 0
