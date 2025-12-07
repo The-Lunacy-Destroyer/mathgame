@@ -10,7 +10,7 @@ namespace Projectile
         private Camera _camera;
     
         public float bulletDamage = 20.1f;
-        public EntityController SourceEntity { get; set; }
+        public GameObject SourceObject { get; set; }
     
         public void Launch(Vector2 direction, float force)
         {
@@ -33,19 +33,14 @@ namespace Projectile
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            EntityController otherEntity = other.GetComponent<EntityController>();
             EntityHealthController otherEntityHealth = 
-                otherEntity?.GetComponent<EntityHealthController>();
+                other.GetComponent<EntityHealthController>();
 
-            if (SourceEntity && otherEntity && otherEntityHealth)
+            if (SourceObject && otherEntityHealth)
             {
-                if (otherEntity.gameObject.CompareTag("Enemy")
-                    &&
-                    SourceEntity.gameObject.CompareTag("Player")
+                if (other.CompareTag("Enemy") && SourceObject.CompareTag("Player")
                     || 
-                    otherEntity.gameObject.CompareTag("Player")
-                    &&
-                    SourceEntity.gameObject.CompareTag("Enemy"))
+                    other.CompareTag("Player") && SourceObject.CompareTag("Enemy"))
                 {
                     DecreaseHealth(otherEntityHealth);
                 }

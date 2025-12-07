@@ -32,8 +32,8 @@ namespace Enemies
         private int _randomStopRadiusVectorTimer;
         private Vector2 _randomStopRadiusVector;
 
-        public float randomMovementAngle = 45f;
-        public float randomMovementCooldown = 30f;
+        public float randomMovementAngle = 30f;
+        public float randomMovementCooldown = 20f;
         private float _randomMovementTimer = 0f;
         private Vector2 _movementDirection;
 
@@ -119,9 +119,8 @@ namespace Enemies
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            EntityController otherEntity = other.GetComponent<EntityController>();
             EntityHealthController otherEntityHealth = 
-                otherEntity?.GetComponent<EntityHealthController>();
+                other.GetComponent<EntityHealthController>();
 
             if (otherEntityHealth && other.gameObject.CompareTag("Player"))
             {

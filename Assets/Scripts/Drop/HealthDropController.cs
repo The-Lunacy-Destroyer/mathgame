@@ -7,13 +7,13 @@ namespace Drop
     {
         public float healValue = 10f;
     
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            EntityHealthController entityHealth = 
-                collision.gameObject.GetComponent<EntityHealthController>();
-            if (entityHealth)
+            EntityHealthController otherEntityHealth = 
+                other.GetComponent<EntityHealthController>();
+            if (otherEntityHealth && other.CompareTag("Player"))
             {
-                entityHealth.CurrentHealth += healValue;
+                otherEntityHealth.CurrentHealth += healValue;
                 Destroy(gameObject);
             }
         }

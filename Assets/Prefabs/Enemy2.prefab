@@ -137,14 +137,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f93eca2c22946f6987b23ea2f7054c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemies.Enemy2Controller
-  <MoveForce>k__BackingField: 8
+  <MoveForce>k__BackingField: 6
   <MaxSpeed>k__BackingField: 10
   <Slowdown>k__BackingField: 0.9
   <StopRadius>k__BackingField: 5
-  minDeviation: 1.15
-  maxDeviation: 1.5
-  actionCooldown: 3
-  randomStopRadiusVectorCooldown: 30
+  minDeviation: 2
+  maxDeviation: 3
+  actionCooldown: 1
+  randomStopRadiusVectorCooldown: 40
   randomMovementAngle: 30
   randomMovementCooldown: 30
   stopRadiusMoveForce: 2

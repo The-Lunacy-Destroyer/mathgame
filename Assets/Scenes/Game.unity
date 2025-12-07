@@ -557,8 +557,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   <Slowdown>k__BackingField: 0.9
-  <MoveForce>k__BackingField: 8
-  <MaxSpeed>k__BackingField: 12
+  <MoveForce>k__BackingField: 5
+  <MaxSpeed>k__BackingField: 6
   rotationSpeed: 8
 --- !u!58 &188811226
 CircleCollider2D:

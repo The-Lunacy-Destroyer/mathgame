@@ -36,7 +36,7 @@ namespace Projectile
             GameObject projectileObject = Instantiate(projectilePrefab, launchPosition, Quaternion.identity);
             ProjectileController projectile = projectileObject.GetComponent<ProjectileController>();
         
-            projectile.SourceEntity = GetComponent<EntityController>();
+            projectile.SourceObject = gameObject;
             projectile.bulletDamage *= damageScale;
         
             float spread = Random.Range(-spreadAngle, spreadAngle); 
