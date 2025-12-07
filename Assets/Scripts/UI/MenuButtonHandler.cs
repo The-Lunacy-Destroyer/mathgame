@@ -41,6 +41,7 @@ namespace UI
         private void NewGame()
         {
             SceneManager.LoadScene("Game");
+            Time.timeScale = 1;
         }
 
         private void Leave()

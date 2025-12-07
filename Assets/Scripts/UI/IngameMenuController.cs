@@ -18,6 +18,7 @@ namespace UI
             if (Keyboard.current.escapeKey.wasPressedThisFrame)
             {
                 _ingameMenu.SetActive(!_ingameMenu.activeSelf);
+                Time.timeScale = _ingameMenu.activeSelf ? 0 : 1;
             }
         }
         
@@ -26,6 +27,7 @@ namespace UI
             if (_ingameMenu && !_ingameMenu.activeSelf)
             {
                 _ingameMenu.SetActive(true);
+                Time.timeScale = _ingameMenu.activeSelf ? 0 : 1;
             }
         }
     }
