@@ -21,7 +21,7 @@ namespace Enemies
         [field: SerializeField] public float StopRadius { get; set; } = 6f;
         [field: SerializeField] public float TorqueForce { get; set; } = 30f;
         [field: SerializeField] public float MaxRotationSpeed { get; set; } = 50f;
-
+        
         public float randomMovementAngle = 45f;
         public int randomMovementCooldown = 30;
         private int _randomMovementTimer = 0;
@@ -40,16 +40,30 @@ namespace Enemies
         public int lasersShootDuration = 50;
         private int _lasersShootTimer;
         
+        public float laserDamageScale = 1f;
+        
         private int ActionDuration => 2 * lasersCooldown + lasersShootDuration;
         
         private Vector2 _targetVector;
         private Vector2 TargetDirection => _targetVector.normalized;
+
+        private GameObject _laser1;
+        private GameObject _laser2;
+        private GameObject _laser3;
         
         private void Start()
         {
             _shootingSystem = GetComponent<EntityShootingController>();
             _rigidbody = GetComponent<Rigidbody2D>();
             _target = GameObject.Find("Player").transform;
+            
+            _laser1 = GameObject.Find("Laser1");
+            _laser2 = GameObject.Find("Laser2");
+            _laser3 = GameObject.Find("Laser3");
+            
+            _laser1.SetActive(false);
+            _laser2.SetActive(false);
+            _laser3.SetActive(false);
             
             _actionCooldownTimer = actionCooldown;
             _actionDurationTimer = ActionDuration;
@@ -64,21 +78,14 @@ namespace Enemies
                 _targetVector = _target.position - transform.position;
                 
                 ControlActions();
-
-                if (_isLasersActive)
-                {
-                    LaunchLasers();
-                }
-                else
-                {
-                    LaunchProjectiles();
-                }
+                
                 if (_isActionActive)
                 {
                     SlowMove();
                 }
                 else
                 {
+                    LaunchProjectiles();
                     Move();
                 }
             }
@@ -107,8 +114,11 @@ namespace Enemies
                 
                     if (_lasersCooldownTimer <= 0)
                     {
+                        _laser1.SetActive(true);
+                        _laser2.SetActive(true);
+                        _laser3.SetActive(true);
+                        
                         _isLasersActive = true;
-                        _shootingSystem.projectileCooldown = 0.01f;
                         _lasersCooldownTimer = lasersCooldown;
                     }
                 }
@@ -118,8 +128,11 @@ namespace Enemies
                 
                     if (_lasersShootTimer <= 0)
                     {
+                        _laser1.SetActive(false);
+                        _laser2.SetActive(false);
+                        _laser3.SetActive(false);
+                        
                         _isLasersActive = false;
-                        _shootingSystem.projectileCooldown = 0.5f;
                         _lasersShootTimer = lasersShootDuration;
                     }
                 }
@@ -182,22 +195,13 @@ namespace Enemies
 
         private void LaunchProjectiles()
         {
-            Vector2[][] directionsAndPositions = GetLaunchDirectionsAndPositions();            
+            Vector2[][] positionsAndDirections = GetLaunchPositionsAndDirections();            
             _shootingSystem.ShootMany(
-                directionsAndPositions[0], 
-                directionsAndPositions[1]);
+                positionsAndDirections[0], 
+                positionsAndDirections[1]);
         }
         
-
-        private void LaunchLasers()
-        {
-            Vector2[][] directionsAndPositions = GetLaunchDirectionsAndPositions();            
-            _shootingSystem.ShootMany(
-                directionsAndPositions[0], 
-                directionsAndPositions[1]);
-        }
-        
-        private Vector2[][] GetLaunchDirectionsAndPositions()
+        private Vector2[][] GetLaunchPositionsAndDirections()
         {
             Vector2 dir1 = transform.up.normalized;
             Vector2 dir2 = MathUtilities.RotateVector(dir1, 120);

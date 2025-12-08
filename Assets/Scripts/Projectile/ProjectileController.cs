@@ -11,7 +11,8 @@ namespace Projectile
     
         public float bulletDamage = 20.1f;
         public GameObject SourceObject { get; set; }
-    
+        private bool _canDestroy = true;
+        
         public void Launch(Vector2 direction, float force)
         {
             _rigidbody.AddForce(direction * force);
@@ -31,23 +32,29 @@ namespace Projectile
             }
         }
 
-        void OnTriggerEnter2D(Collider2D other)
+        void OnTriggerStay2D(Collider2D other)
         {
             EntityHealthController otherEntityHealth = 
                 other.GetComponent<EntityHealthController>();
-
+            
+            if (!SourceObject)
+            {
+                SourceObject = GetComponentInParent<EntityController>().gameObject;
+                _canDestroy = false;
+            }
+            
             if (SourceObject && otherEntityHealth)
             {
                 if (other.CompareTag("Enemy") && SourceObject.CompareTag("Player")
                     || 
                     other.CompareTag("Player") && SourceObject.CompareTag("Enemy"))
                 {
-                    DecreaseHealth(otherEntityHealth);
+                    DecreaseHealth(otherEntityHealth, _canDestroy);
                 }
             }
         }
 
-        void DecreaseHealth(EntityHealthController entityHealth)
+        void DecreaseHealth(EntityHealthController entityHealth, bool canDestroyObject)
         {
             entityHealth.CurrentHealth -= bulletDamage;
            
@@ -55,7 +62,7 @@ namespace Projectile
             {
                 Destroy(entityHealth.gameObject);
             }
-            Destroy(gameObject);
+            if(canDestroyObject) Destroy(gameObject);
         }
     }
 }
