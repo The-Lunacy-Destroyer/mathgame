@@ -781,19 +781,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3961002912115288104, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Color.b
-      value: 0.6377357
+      value: 0.6392157
       objectReference: {fileID: 0}
     - target: {fileID: 3961002912115288104, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Color.g
-      value: 0.12875041
+      value: 0.12941177
       objectReference: {fileID: 0}
     - target: {fileID: 3961002912115288104, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Color.r
-      value: 0.2784635
+      value: 0.2784314
       objectReference: {fileID: 0}
     - target: {fileID: 3995826326874580632, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092099704307828885, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.2663505
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092099704307828885, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.08652468
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092099704307828885, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.10822784
       objectReference: {fileID: 0}
     - target: {fileID: 6364317199411781312, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1036,6 +1048,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 566701037}
     m_Modifications:
+    - target: {fileID: 2842538057001959339, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
       propertyPath: m_Name
       value: Laser1
@@ -141415,6 +141431,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 566701037}
     m_Modifications:
+    - target: {fileID: 2842538057001959339, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
       propertyPath: m_Name
       value: Laser2
@@ -141948,6 +141968,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 566701037}
     m_Modifications:
+    - target: {fileID: 2842538057001959339, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
       propertyPath: m_Name
       value: Laser3
