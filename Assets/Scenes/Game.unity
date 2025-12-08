@@ -1340,19 +1340,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3259bcd3142c0884a8870c77e07fc7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinibossController
-  <MoveForce>k__BackingField: 8
-  <MaxSpeed>k__BackingField: 10
-  <MinSpeed>k__BackingField: 2
-  <Slowdown>k__BackingField: 0.9
-  <StopRadius>k__BackingField: 6
-  <TorqueForce>k__BackingField: 30
-  <MaxRotationSpeed>k__BackingField: 50
-  randomMovementAngle: 90
-  randomMovementCooldown: 30
-  actionCooldown: 300
+  <MoveForce>k__BackingField: 10
+  <MaxSpeed>k__BackingField: 12
+  <MinSpeed>k__BackingField: 1
+  <Slowdown>k__BackingField: 0.875
+  <StopRadius>k__BackingField: 5
+  <TorqueForce>k__BackingField: 50
+  <MaxRotationSpeed>k__BackingField: 100
+  randomMovementAngle: 45
+  randomMovementCooldown: 25
+  actionCooldown: 400
   lasersCooldown: 30
-  lasersShootDuration: 200
+  lasersShootDuration: 300
   laserDamageScale: 1
+  lasersTorqueForce: 0.55
 --- !u!114 &566701040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1379,7 +1380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile.EntityShootingController
   projectilePrefab: {fileID: 1701417249012432286, guid: a7f124e6e9acd5a00922b9e3bb17adec, type: 3}
-  projectileSpeed: 500
+  projectileSpeed: 600
   damageScale: 1
   projectileCooldown: 0.5
   spreadAngle: 0
@@ -141968,10 +141969,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 566701037}
     m_Modifications:
-    - target: {fileID: 2842538057001959339, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
-      propertyPath: m_SortingOrder
-      value: -2
-      objectReference: {fileID: 0}
     - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
       propertyPath: m_Name
       value: Laser3

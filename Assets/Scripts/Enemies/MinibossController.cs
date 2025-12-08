@@ -41,6 +41,7 @@ namespace Enemies
         private int _lasersShootTimer;
         
         public float laserDamageScale = 1f;
+        public float lasersTorqueForce = 0.6f;
         
         private int ActionDuration => 2 * lasersCooldown + lasersShootDuration;
         
@@ -174,7 +175,7 @@ namespace Enemies
                 _randomMovementTimer = randomMovementCooldown;
                 if (!isStopRadius)
                 {
-                    _rigidbody.totalTorque *= -1;
+                    _rigidbody.totalTorque *= -2;
                 }
             }
 
@@ -185,12 +186,19 @@ namespace Enemies
 
         private void SlowMove()
         {
-            if (_rigidbody.linearVelocity.magnitude > MinSpeed)
+            if (_rigidbody.linearVelocity.magnitude > 0)
             {
                 _rigidbody.linearVelocity *= Slowdown;
             }
+            if (_rigidbody.linearVelocity.magnitude > MinSpeed)
+            {
+                _rigidbody.angularVelocity *= Slowdown;
+            }
+            else
+            {
+                _rigidbody.AddTorque(lasersTorqueForce);
+            }
 
-            _rigidbody.angularVelocity *= Slowdown;
         }
 
         private void LaunchProjectiles()
