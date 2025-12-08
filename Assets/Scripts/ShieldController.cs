@@ -11,12 +11,9 @@ public class ShieldController : MonoBehaviour
         player = GameObject.Find("Player").transform;
         pos1 = player.position;
     }
-
-    // Update is called once per frame
     void Update()
     {
         Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-        Debug.Log(rb.transform.up);
         transform.position = player.position + rb.transform.up*2;
     }
 
@@ -24,7 +21,5 @@ public class ShieldController : MonoBehaviour
     {
         MonoBehaviour otherObj = other.GetComponent<MonoBehaviour>();
         if (otherObj is ProjectileController) Destroy(other.gameObject);
-
- 
     }
 }

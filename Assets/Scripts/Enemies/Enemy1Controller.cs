@@ -44,6 +44,7 @@ namespace Enemies
         
         private void Start()
         {
+            gameObject.SetActive(false);
             _rigidbody = GetComponent<Rigidbody2D>();
             _shootingSystem = GetComponent<EntityShootingController>();
             _targetTransform = GameObject.Find("Player").transform;
