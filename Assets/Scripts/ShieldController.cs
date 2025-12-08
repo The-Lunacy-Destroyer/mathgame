@@ -4,12 +4,9 @@ using UnityEngine;
 public class ShieldController : MonoBehaviour
 {
     private Transform player;
-    private Vector2 pos1;
-    private Vector2 pos2;
     void Start()
     {
         player = GameObject.Find("Player").transform;
-        pos1 = player.position;
     }
     void Update()
     {
@@ -20,6 +17,6 @@ public class ShieldController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         MonoBehaviour otherObj = other.GetComponent<MonoBehaviour>();
-        if (otherObj is ProjectileController) Destroy(other.gameObject);
+        if (otherObj is ProjectileController projectile && !projectile.SourceObject.CompareTag("Player") ) Destroy(other.gameObject);
     }
 }
