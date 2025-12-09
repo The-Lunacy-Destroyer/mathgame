@@ -12,19 +12,18 @@ namespace Health
         public float CurrentHealth
         {
             get => _currentHealth;
-            set => _currentHealth = Mathf.Clamp(value, 0, maxHealth);
+            set
+            {
+                _currentHealth = Mathf.Clamp(value, 0, maxHealth);
+                _healthBar.UpdateHealthBar(CurrentHealth, maxHealth);
+            }
         }
 
-        void Awake()
+        void Start()
         {
-            CurrentHealth = maxHealth;
             _healthBar = GetComponentInChildren<HealthBarController>();
             _healthBar.Entity = GetComponent<EntityController>();
-        }
-
-        void Update()
-        {
-            _healthBar.UpdateHealthBar(CurrentHealth, maxHealth);
+            CurrentHealth = maxHealth;
         }
     }
 }

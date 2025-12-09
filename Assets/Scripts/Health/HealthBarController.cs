@@ -14,14 +14,7 @@ namespace Health
     
         public void UpdateHealthBar(float currentHealth, float maxHealth)
         {
-            if (currentHealth >= maxHealth)
-            {
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                gameObject.SetActive(true);
-            }
+            gameObject.SetActive(currentHealth < maxHealth);
             slider.value = currentHealth / maxHealth;
         }
 
@@ -32,9 +25,12 @@ namespace Health
         
         void LateUpdate()
         {
-            transform.rotation = _camera.transform.rotation;
-            Vector2 pos = Entity.transform.position;
-            transform.position = pos - offset;
+            if (Entity)
+            {
+                transform.rotation = _camera.transform.rotation;
+                Vector2 pos = Entity.transform.position;
+                transform.position = pos - offset;
+            }
         }
     }
 }
