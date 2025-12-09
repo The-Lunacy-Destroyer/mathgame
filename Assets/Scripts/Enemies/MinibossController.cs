@@ -16,11 +16,11 @@ namespace Enemies
     
         [field: SerializeField] public float MoveForce { get; set; } = 8f;
         [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
-        [field: SerializeField] public float MinSpeed { get; set; } = 2f;
         [field: SerializeField] public float Slowdown { get; set; } = 0.9f;
-        [field: SerializeField] public float StopRadius { get; set; } = 6f;
-        [field: SerializeField] public float TorqueForce { get; set; } = 30f;
-        [field: SerializeField] public float MaxRotationSpeed { get; set; } = 50f;
+        public float minSpeed = 2f;
+        public float stopRadius = 6f;
+        public float torqueForce = 30f;
+        public float maxRotationSpeed = 50f;
         
         public float randomMovementAngle = 45f;
         public int randomMovementCooldown = 30;
@@ -155,7 +155,7 @@ namespace Enemies
             if (!_rigidbody) return;
 
             _rigidbody.linearVelocity = Vector2.ClampMagnitude(_rigidbody.linearVelocity, MaxSpeed);
-            _rigidbody.angularVelocity = math.clamp(_rigidbody.angularVelocity, -MaxRotationSpeed, MaxRotationSpeed);
+            _rigidbody.angularVelocity = math.clamp(_rigidbody.angularVelocity, -maxRotationSpeed, maxRotationSpeed);
 
             if (_isActionActive)
             {
@@ -163,8 +163,8 @@ namespace Enemies
                 return;
             }
 
-            bool isStopRadius = _targetVector.magnitude <= StopRadius;
-            if (_rigidbody.linearVelocity.magnitude > MinSpeed && isStopRadius)
+            bool isStopRadius = _targetVector.magnitude <= stopRadius;
+            if (_rigidbody.linearVelocity.magnitude > minSpeed && isStopRadius)
             {
                 _rigidbody.linearVelocity *= Slowdown;
             }
@@ -182,7 +182,7 @@ namespace Enemies
             }
 
             _rigidbody.AddForce(_movementDirection * (deviation * MoveForce));
-            _rigidbody.AddTorque(TorqueForce);
+            _rigidbody.AddTorque(torqueForce);
             _randomMovementTimer--;
         }
 
@@ -192,7 +192,7 @@ namespace Enemies
             {
                 _rigidbody.linearVelocity *= Slowdown;
             }
-            if (_rigidbody.linearVelocity.magnitude > MinSpeed)
+            if (_rigidbody.linearVelocity.magnitude > minSpeed)
             {
                 _rigidbody.angularVelocity *= Slowdown;
             }

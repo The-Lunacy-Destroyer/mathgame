@@ -20,7 +20,7 @@ namespace Enemies
         [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
         
         [field: SerializeField] public float Slowdown { get; set; } = 0.9f;
-        [field: SerializeField] public float StopRadius { get; set; } = 5f;
+        public float stopRadius = 5f;
         public float minStopRadiusScale = 0.75f;
         public float maxStopRadiusScale = 1.25f;
         
@@ -51,7 +51,7 @@ namespace Enemies
             _targetTransform = GameObject.Find("Player").transform;
             
             _deviationFactor = Random.Range(minDeviation, maxDeviation);
-            StopRadius *= Random.Range(minStopRadiusScale, maxStopRadiusScale);
+            stopRadius *= Random.Range(minStopRadiusScale, maxStopRadiusScale);
             _actionCooldownTimer = actionCooldown;
         }
     
@@ -77,7 +77,7 @@ namespace Enemies
             _rigidbody.linearVelocity = Vector2.ClampMagnitude(_rigidbody.linearVelocity, MaxSpeed);
             
             if (_rigidbody.linearVelocity.magnitude > 0 
-                && _targetVector.magnitude <= StopRadius)
+                && _targetVector.magnitude <= stopRadius)
             {
                 if (_actionCooldownTimer <= 0)
                 {
