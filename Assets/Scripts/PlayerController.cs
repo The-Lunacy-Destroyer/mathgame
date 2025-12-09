@@ -2,6 +2,8 @@ using Movement;
 using Projectile;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 public class PlayerController : EntityController, IEntityMovable
 {
@@ -17,18 +19,33 @@ public class PlayerController : EntityController, IEntityMovable
     [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
 
     public float rotationSpeed = 5f;
-    
+
+    //Score 
+    float elapsedTime = 0f;
+    float score = 0f;
+    float scoreMultiplier = 10f;
+    public UIDocument ScoreUI;
+    private Label scoreText;
+
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _shootingSystem = GetComponent<EntityShootingController>();
         _mainCamera = Camera.main;
+        scoreText = ScoreUI.rootVisualElement.Q<Label>("ScoreLabel");
+
+    }
+    void Update()
+    {
+        elapsedTime += Time.deltaTime;
+        score = Mathf.Floor(elapsedTime * scoreMultiplier);
+        scoreText.text = "Score: " + score;
     }
 
     private void FixedUpdate()
     {
         if (_shootingSystem && 
-            (Keyboard.current.cKey.isPressed || Mouse.current.rightButton.isPressed))
+            (Keyboard.current.cKey.isPressed || Mouse.current.leftButton.isPressed))
         {
             _shootingSystem.Shoot(
                 transform.position + transform.up * 0.5f, 
@@ -71,8 +88,6 @@ public class PlayerController : EntityController, IEntityMovable
 
     private void RotateGun()
     {
-        if (!Mouse.current.leftButton.isPressed) return;
-        
         Vector2 mouseVector = GetPlayerToMouseVector();
         Vector2 direction = mouseVector.normalized;
         Vector2 current = _rigidbody.transform.up.normalized;
