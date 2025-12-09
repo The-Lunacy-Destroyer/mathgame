@@ -53,6 +53,13 @@ namespace Projectile
            
             if (entityHealth.CurrentHealth <= 0)
             {
+               
+                if (SourceObject.CompareTag("Player"))
+                {
+                    PlayerController player = SourceObject.GetComponent<PlayerController>();
+                    player.score += 100;
+
+                }
                 Destroy(entityHealth.gameObject);
             }
             Destroy(gameObject);

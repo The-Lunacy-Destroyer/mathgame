@@ -21,9 +21,7 @@ public class PlayerController : EntityController, IEntityMovable
     public float rotationSpeed = 5f;
 
     //Score 
-    float elapsedTime = 0f;
-    float score = 0f;
-    float scoreMultiplier = 10f;
+    public float score = 0f;
     public UIDocument ScoreUI;
     private Label scoreText;
 
@@ -37,8 +35,6 @@ public class PlayerController : EntityController, IEntityMovable
     }
     void Update()
     {
-        elapsedTime += Time.deltaTime;
-        score = Mathf.Floor(elapsedTime * scoreMultiplier);
         scoreText.text = "Score: " + score;
     }
 
