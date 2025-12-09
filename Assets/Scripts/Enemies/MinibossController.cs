@@ -48,23 +48,25 @@ namespace Enemies
         private Vector2 _targetVector;
         private Vector2 TargetDirection => _targetVector.normalized;
 
-        private GameObject _laser1;
-        private GameObject _laser2;
-        private GameObject _laser3;
+        private GameObject[] _lasers = new GameObject[3];
+        private SpriteRenderer[] _laserRenderers =  new SpriteRenderer[3];
+        private float _oldSpriteRendererXSize;
         
         private void Start()
         {
             _shootingSystem = GetComponent<EntityShootingController>();
             _rigidbody = GetComponent<Rigidbody2D>();
             _target = GameObject.Find("Player").transform;
-            
-            _laser1 = GameObject.Find("Laser1");
-            _laser2 = GameObject.Find("Laser2");
-            _laser3 = GameObject.Find("Laser3");
-            
-            _laser1.SetActive(false);
-            _laser2.SetActive(false);
-            _laser3.SetActive(false);
+
+            for (int i = 0; i < 3; i++)
+            {
+                _lasers[i] = GameObject.Find($"Laser{i + 1}");
+                _lasers[i].SetActive(false);
+                _laserRenderers[i] =  _lasers[i].GetComponent<SpriteRenderer>();
+                // if(i == 0)
+                //     _oldSpriteRendererXSize = _laserRenderers[0].size.x;
+                // _laserRenderers[i].size = new Vector2(_laserRenderers[i].size.x, 1);
+            }
             
             _actionCooldownTimer = actionCooldown;
             _actionDurationTimer = ActionDuration;
@@ -115,34 +117,34 @@ namespace Enemies
                 
                     if (_lasersCooldownTimer <= 0)
                     {
-                        _laser1.SetActive(true);
-                        _laser2.SetActive(true);
-                        _laser3.SetActive(true);
-                        
+                        ActivateLasers();
                         _isLasersActive = true;
                         _lasersCooldownTimer = lasersCooldown;
                     }
                 }
                 else
                 {
+                    ActivateLasersResize();
                     _lasersShootTimer--;
                 
                     if (_lasersShootTimer <= 0)
                     {
-                        _laser1.SetActive(false);
-                        _laser2.SetActive(false);
-                        _laser3.SetActive(false);
-                        
                         _isLasersActive = false;
                         _lasersShootTimer = lasersShootDuration;
                     }
                 }
+            }
+            else
+            {
+                DeactivateLasersResize();
             }
             
             _actionDurationTimer--;
             
             if (_actionDurationTimer <= 0)
             {
+                DeactivateLasers();
+
                 _isActionActive = false;
                 _actionDurationTimer = ActionDuration;
             }
@@ -207,6 +209,46 @@ namespace Enemies
             _shootingSystem.ShootMany(
                 positionsAndDirections[0], 
                 positionsAndDirections[1]);
+        }
+
+        private void ActivateLasers()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                _lasers[i].SetActive(true);
+            }
+        }
+
+        private void ActivateLasersResize()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Vector2 addVector = new Vector2(0, 0.5f);
+                // if (_laserRenderers[i].size.x < _oldSpriteRendererXSize)
+                // {
+                //     addVector.x = 0.01f;
+                // }
+                _laserRenderers[i].size += addVector;
+            }
+        }
+        private void DeactivateLasersResize()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                Vector2 addVector = new Vector2(0, 0.5f);
+                // if (_laserRenderers[i].size.x > 0f)
+                // {
+                //     addVector.x = 0.02f;
+                // }
+                _laserRenderers[i].size -= addVector;
+            }
+        }
+        private void DeactivateLasers()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                _lasers[i].SetActive(false);
+            }
         }
         
         private Vector2[][] GetLaunchPositionsAndDirections()
