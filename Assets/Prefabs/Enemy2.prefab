@@ -139,17 +139,18 @@ MonoBehaviour:
   <MoveForce>k__BackingField: 6
   <MaxSpeed>k__BackingField: 10
   <Slowdown>k__BackingField: 0.9
-  <StopRadius>k__BackingField: 5
+  randomMovementAngle: 45
+  randomMovementCooldown: 30
+  stopRadius: 5
   minStopRadiusScale: 0.75
   maxStopRadiusScale: 1.25
   minDeviation: 2
   maxDeviation: 3
   actionCooldown: 1
-  randomStopRadiusVectorCooldown: 40
-  randomMovementAngle: 30
-  randomMovementCooldown: 30
+  stopRadiusMovementCooldown: 100
   stopRadiusMoveForce: 2
   contactDamage: 5
+  stopRadiusMovementAngle: 15
 --- !u!50 &1946883835786170220
 Rigidbody2D:
   serializedVersion: 5

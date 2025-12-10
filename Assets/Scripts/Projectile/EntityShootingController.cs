@@ -44,7 +44,7 @@ namespace Projectile
             projectile.bulletDamage *= damageScale;
         
             float spread = Random.Range(-spreadAngle, spreadAngle); 
-            launchDirection = MathUtilities.RotateVector(launchDirection, spread);
+            launchDirection = Utilities.MathUtilities.RotateVector(launchDirection, spread);
             projectile.Launch(launchDirection, projectileSpeed);
             
             yield return new WaitForSeconds(projectileCooldown);

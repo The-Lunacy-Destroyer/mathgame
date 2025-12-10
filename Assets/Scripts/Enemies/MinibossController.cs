@@ -8,26 +8,14 @@ using Random = UnityEngine.Random;
 
 namespace Enemies
 {
-    public class MinibossController : EntityController, IEntityMovable
+    public class MinibossController : BaseEnemy
     {
-        private Transform _target;
         private EntityShootingController _shootingSystem;
-        private Rigidbody2D _rigidbody;
-    
-        [field: SerializeField] public float MoveForce { get; set; } = 8f;
-        [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
-        [field: SerializeField] [field: Range(0f, 1f)] 
-        public float Slowdown { get; set; } = 0.9f;
-        
+
         public float minSpeed = 2f;
         public float stopRadius = 6f;
         public float torqueForce = 30f;
         public float maxRotationSpeed = 50f;
-        
-        public float randomMovementAngle = 45f;
-        public int randomMovementCooldown = 30;
-        private int _randomMovementTimer = 0;
-        private Vector2 _movementDirection;
         
         [Min(1)]
         public int actionCooldown = 300;
@@ -42,23 +30,22 @@ namespace Enemies
         public int lasersShootDuration = 50;
         private int _lasersShootTimer;
         
-        public float laserDamageScale = 1f;
         public float lasersTorqueForce = 0.6f;
         
         private int ActionDuration => 2 * lasersCooldown + lasersShootDuration;
-        
-        private Vector2 _targetVector;
-        private Vector2 TargetDirection => _targetVector.normalized;
 
         private GameObject[] _lasers = new GameObject[3];
         private SpriteRenderer[] _laserRenderers =  new SpriteRenderer[3];
         private float _oldSpriteRendererXSize;
-        
-        private void Start()
+
+        protected override void Awake()
         {
+            base.Awake();
             _shootingSystem = GetComponent<EntityShootingController>();
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _target = GameObject.Find("Player").transform;
+        }
+        protected override void Start()
+        {
+            base.Start();
 
             for (int i = 0; i < 3; i++)
             {
@@ -78,9 +65,9 @@ namespace Enemies
         
         private void FixedUpdate()
         {
-            if (_target)
+            if (Target)
             {
-                _targetVector = _target.position - transform.position;
+                TargetVector = Target.position - transform.position;
                 
                 ControlActions();
                 
@@ -98,7 +85,7 @@ namespace Enemies
 
         private void ControlActions()
         {
-            if (!_isActionActive)
+            if (!_isActionActive) // до начала специальной атаки
             {
                 _actionCooldownTimer--;
                 
@@ -111,9 +98,9 @@ namespace Enemies
                 return;
             }
             
-            if (_actionDurationTimer > lasersCooldown)
+            if (_actionDurationTimer > lasersCooldown) // период спец. атаки до деактивации лазеров
             {
-                if (!_isLasersActive)
+                if (!_isLasersActive) // до активации лазеров
                 {
                     _lasersCooldownTimer--;
                 
@@ -124,7 +111,7 @@ namespace Enemies
                         _lasersCooldownTimer = lasersCooldown;
                     }
                 }
-                else
+                else // во время активации лазеров
                 {
                     ActivateLasersResize();
                     _lasersShootTimer--;
@@ -136,14 +123,14 @@ namespace Enemies
                     }
                 }
             }
-            else
+            else // деактивация лазеров
             {
                 DeactivateLasersResize();
             }
             
             _actionDurationTimer--;
             
-            if (_actionDurationTimer <= 0)
+            if (_actionDurationTimer <= 0) // конец спец. атаки
             {
                 DeactivateLasers();
 
@@ -154,10 +141,10 @@ namespace Enemies
 
         private void Move()
         {
-            if (!_rigidbody) return;
+            if (!Rigidbody) return;
 
-            _rigidbody.linearVelocity = Vector2.ClampMagnitude(_rigidbody.linearVelocity, MaxSpeed);
-            _rigidbody.angularVelocity = math.clamp(_rigidbody.angularVelocity, -maxRotationSpeed, maxRotationSpeed);
+            Rigidbody.linearVelocity = Vector2.ClampMagnitude(Rigidbody.linearVelocity, MaxSpeed);
+            Rigidbody.angularVelocity = math.clamp(Rigidbody.angularVelocity, -maxRotationSpeed, maxRotationSpeed);
 
             if (_isActionActive)
             {
@@ -165,42 +152,31 @@ namespace Enemies
                 return;
             }
 
-            bool isStopRadius = _targetVector.magnitude <= stopRadius;
-            if (_rigidbody.linearVelocity.magnitude > minSpeed && isStopRadius)
+            if (Rigidbody.linearVelocity.magnitude > minSpeed 
+                && TargetVector.magnitude <= stopRadius)
             {
-                _rigidbody.linearVelocity *= Slowdown;
+                Rigidbody.linearVelocity *= Slowdown;
             }
-            float deviation = 1 + (TargetDirection - _rigidbody.linearVelocity.normalized).magnitude;
-            if (_randomMovementTimer <= 0)
-            {
-                _movementDirection = MathUtilities.RotateVector(TargetDirection, 
-                    Random.Range(-randomMovementAngle, randomMovementAngle));
+            float deviation = 1 + (TargetDirection - Rigidbody.linearVelocity.normalized).magnitude;
 
-                _randomMovementTimer = randomMovementCooldown;
-                if (!isStopRadius)
-                {
-                    _rigidbody.totalTorque *= -2;
-                }
-            }
-
-            _rigidbody.AddForce(_movementDirection * (deviation * MoveForce));
-            _rigidbody.AddTorque(torqueForce);
-            _randomMovementTimer--;
+            Vector2 movementDirection = MathUtilities.RotateVector(TargetDirection, RandomAngle);
+            Rigidbody.AddForce(movementDirection * (deviation * MoveForce));
+            Rigidbody.AddTorque(torqueForce);
         }
-
+        
         private void SlowMove()
         {
-            if (_rigidbody.linearVelocity.magnitude > 0)
+            if (Rigidbody.linearVelocity.magnitude > 0)
             {
-                _rigidbody.linearVelocity *= Slowdown;
+                Rigidbody.linearVelocity *= Slowdown;
             }
-            if (_rigidbody.linearVelocity.magnitude > minSpeed)
+            if (Rigidbody.linearVelocity.magnitude > minSpeed)
             {
-                _rigidbody.angularVelocity *= Slowdown;
+                Rigidbody.angularVelocity *= Slowdown;
             }
             else
             {
-                _rigidbody.AddTorque(lasersTorqueForce);
+                Rigidbody.AddTorque(lasersTorqueForce);
             }
 
         }
@@ -256,12 +232,12 @@ namespace Enemies
         private Vector2[][] GetLaunchPositionsAndDirections()
         {
             Vector2 dir1 = transform.up.normalized;
-            Vector2 dir2 = MathUtilities.RotateVector(dir1, 120);
-            Vector2 dir3 = MathUtilities.RotateVector(dir1, -120);
+            Vector2 dir2 = Utilities.MathUtilities.RotateVector(dir1, 120);
+            Vector2 dir3 = Utilities.MathUtilities.RotateVector(dir1, -120);
 
             Vector2 pos1 = (Vector2)transform.position + dir1 * 0.66f;
-            Vector2 pos2 = (Vector2)transform.position + MathUtilities.RotateVector(dir2, 15) * 1.25f;
-            Vector2 pos3 = (Vector2)transform.position + MathUtilities.RotateVector(dir3, -15) * 1.25f;
+            Vector2 pos2 = (Vector2)transform.position + Utilities.MathUtilities.RotateVector(dir2, 15) * 1.25f;
+            Vector2 pos3 = (Vector2)transform.position + Utilities.MathUtilities.RotateVector(dir3, -15) * 1.25f;
 
             return new[]
             {

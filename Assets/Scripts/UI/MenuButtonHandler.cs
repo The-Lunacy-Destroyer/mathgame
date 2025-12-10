@@ -13,17 +13,14 @@ namespace UI
         private Button _leaveButton;
         private Button _leaveToMenuButton;
 
-        private void Awake()
+        private void OnEnable()
         {
             _root = GetComponent<UIDocument>().rootVisualElement;
         
             _newGameButton = _root.Q<Button>("NewGame");
             _leaveButton = _root.Q<Button>("Leave");
             _leaveToMenuButton = _root.Q<Button>("LeaveToMenu");
-        }
-
-        private void OnEnable()
-        {
+            
             if(_newGameButton != null)
                 _newGameButton.clicked += NewGame;
             if(_leaveButton != null)

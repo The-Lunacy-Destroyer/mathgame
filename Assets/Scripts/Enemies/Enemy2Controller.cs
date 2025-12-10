@@ -6,17 +6,8 @@ using Utilities;
 
 namespace Enemies
 {
-    public class Enemy2Controller : EntityController, IEntityMovable
+    public class Enemy2Controller : BaseEnemy
     {
-        private Rigidbody2D _rigidbody;
-        private Transform _targetTransform;
-        
-        [field: SerializeField] public float MoveForce { get; set; } = 8f;
-        [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
-        
-        [field: SerializeField] [field: Range(0f, 1f)] 
-        public float Slowdown { get; set; } = 0.9f;
-        
         public float stopRadius = 5f;
         public float minStopRadiusScale = 0.75f;
         public float maxStopRadiusScale = 1.25f;
@@ -28,37 +19,35 @@ namespace Enemies
         [Min(1)]
         public int actionCooldown = 1;
         private int _actionCooldownTimer;
-        
-        private Vector2 _targetVector;
-        private Vector2 TargetDirection => _targetVector.normalized;
 
-        public int randomStopRadiusVectorCooldown = 100;
-        private int _randomStopRadiusVectorTimer;
+        public int stopRadiusMovementCooldown = 100;
+        private int _stopRadiusMovementTimer;
         private Vector2 _randomStopRadiusVector;
 
-        public float randomMovementAngle = 30f;
-        public int randomMovementCooldown = 20;
-        private int _randomMovementTimer = 0;
-        private Vector2 _movementDirection;
-
         public float stopRadiusMoveForce = 5f;
-
         public float contactDamage = 5f;
-        private void Start()
+        public float stopRadiusMovementAngle = 15f;
+        
+        protected override void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _targetTransform = GameObject.Find("Player").transform;
-            
+            base.Awake();
+
             _deviationFactor = Random.Range(minDeviation, maxDeviation);
             stopRadius *= Random.Range(minStopRadiusScale, maxStopRadiusScale);
             _actionCooldownTimer = actionCooldown;
         }
+        
+        protected override void Start()
+        {
+            base.Start();
+            transform.up = TargetDirection;
+        }
     
         private void FixedUpdate()
         {
-            if (_targetTransform)
+            if (Target)
             {
-                _targetVector = _targetTransform.position - transform.position;
+                TargetVector = Target.position - transform.position;
 
                 Move();
                 Rotate();
@@ -67,12 +56,11 @@ namespace Enemies
 
         private void Move()
         {
-            if (!_rigidbody) return;
+            if (!Rigidbody) return;
 
-            _rigidbody.linearVelocity = Vector2.ClampMagnitude(_rigidbody.linearVelocity, MaxSpeed);
+            Rigidbody.linearVelocity = Vector2.ClampMagnitude(Rigidbody.linearVelocity, MaxSpeed);
             
-            if (_rigidbody.linearVelocity.magnitude > 0 
-                && _targetVector.magnitude <= stopRadius)
+            if (TargetVector.magnitude <= stopRadius)
             {
                 if (_actionCooldownTimer <= 0)
                 {
@@ -80,46 +68,33 @@ namespace Enemies
                     return;
                 }
                 
-                _rigidbody.linearVelocity *= Slowdown;
+                Rigidbody.linearVelocity *= Slowdown;
                 
                 _actionCooldownTimer--;
             }
             else if (TargetDirection.magnitude > 0)
             {
-                float deviation = 1 + (TargetDirection - _rigidbody.linearVelocity.normalized).magnitude * _deviationFactor;
-                if (_randomMovementTimer <= 0)
-                {
-                    _movementDirection = MathUtilities.RotateVector(TargetDirection, 
-                        Random.Range(-randomMovementAngle, randomMovementAngle));
+                float deviation = 1 + (TargetDirection - Rigidbody.linearVelocity.normalized).magnitude * _deviationFactor;
+                Vector2 movementDirection = MathUtilities.RotateVector(TargetDirection, RandomAngle);
 
-                    _randomMovementTimer = randomMovementCooldown;
-                }
-
-                _rigidbody.AddForce(_movementDirection * (deviation * MoveForce));
+                Rigidbody.AddForce(movementDirection * (deviation * MoveForce));
                 
                 _actionCooldownTimer = actionCooldown;
-                _randomMovementTimer--;
-                _randomStopRadiusVectorTimer = 0;
+                _stopRadiusMovementTimer = 0;
             }
         }
 
         private void PerformStopAction()
         {
-            if (_randomStopRadiusVectorTimer <= 0)
+            if (_stopRadiusMovementTimer <= 0)
             {
-                float randomAngle = Random.Range(-15f, 15f);
+                float randomAngle = Random.Range(-stopRadiusMovementAngle, stopRadiusMovementAngle);
                 
                 _randomStopRadiusVector = MathUtilities.RotateVector(TargetDirection, randomAngle);
-                _randomStopRadiusVectorTimer = randomStopRadiusVectorCooldown;
+                _stopRadiusMovementTimer = stopRadiusMovementCooldown;
             }
-            _rigidbody.linearVelocity = _randomStopRadiusVector.normalized * (MoveForce * stopRadiusMoveForce);
-            _randomStopRadiusVectorTimer--;
-        }
-
-        private void Rotate()
-        {
-            transform.up = Vector2.MoveTowards(
-                transform.up, TargetDirection, 10 * Time.fixedDeltaTime);
+            Rigidbody.linearVelocity = _randomStopRadiusVector.normalized * (MoveForce * stopRadiusMoveForce);
+            _stopRadiusMovementTimer--;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -136,6 +111,12 @@ namespace Enemies
                     Destroy(otherEntityHealth.gameObject);
                 }
             }
+        }
+        
+        private void Rotate()
+        {
+            transform.up = Vector2.MoveTowards(
+                transform.up, TargetDirection, 10 * Time.fixedDeltaTime);
         }
     }
 }
