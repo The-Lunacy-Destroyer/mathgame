@@ -39,7 +39,7 @@ namespace Projectile
             
             if (!SourceObject)
             {
-                SourceObject = GetComponentInParent<EntityController>().gameObject;
+                SourceObject = GetComponentInParent<EntityController>()?.gameObject;
                 _canDestroy = false;
             }
             

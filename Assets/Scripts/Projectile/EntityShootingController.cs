@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using Utilities;
@@ -14,24 +16,26 @@ namespace Projectile
         public float projectileCooldown = 0.5f;
         public float spreadAngle = 15f;
         
-        private float _launchTimer;
-        private bool _canLaunchProjectile;
+        private bool _canShoot = true;
 
         public void ShootMany(Vector2[] launchPosition, Vector2[] launchDirection)
         {
-            if (!_canLaunchProjectile) return;
-
-            for (int i = 0; i < math.min(launchPosition.Length, launchDirection.Length); i++)
+            if (!_canShoot) return;
+            
+            for (int i = 0; i < launchPosition.Length; i++)
             {
-                LaunchProjectile(launchPosition[i], launchDirection[i]);
+                StartCoroutine(LaunchProjectile(launchPosition[i], launchDirection[i]));
             }
-            _canLaunchProjectile = false;
+
+            _canShoot = false;
         }
         public void Shoot(Vector2 launchPosition, Vector2 launchDirection)
         {
-            ShootMany(new []{launchPosition}, new []{launchDirection});
+            if (!_canShoot) return;
+            StartCoroutine(LaunchProjectile(launchPosition, launchDirection));
+            _canShoot = false;
         }
-        private void LaunchProjectile(Vector2 launchPosition, Vector2 launchDirection)
+        IEnumerator LaunchProjectile(Vector2 launchPosition, Vector2 launchDirection)
         {
             GameObject projectileObject = Instantiate(projectilePrefab, launchPosition, Quaternion.identity);
             ProjectileController projectile = projectileObject.GetComponent<ProjectileController>();
@@ -42,27 +46,9 @@ namespace Projectile
             float spread = Random.Range(-spreadAngle, spreadAngle); 
             launchDirection = MathUtilities.RotateVector(launchDirection, spread);
             projectile.Launch(launchDirection, projectileSpeed);
-        }
-        
-        void Awake()
-        {
-            _launchTimer = projectileCooldown;
-            _canLaunchProjectile = false;
-        }
-        
-        void Update()
-        {
-            AddProjectileLaunchDelay();
-        }
-
-        void AddProjectileLaunchDelay()
-        {
-            _launchTimer -= Time.deltaTime;
-            if (_launchTimer < 0)
-            {
-                _canLaunchProjectile = true;
-                _launchTimer = projectileCooldown;
-            }
+            
+            yield return new WaitForSeconds(projectileCooldown);
+            _canShoot = true;
         }
     }
 }
