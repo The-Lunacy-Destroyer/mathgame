@@ -1,5 +1,6 @@
 using Enemies;
 using Health;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Projectile
@@ -56,8 +57,23 @@ namespace Projectile
                
                 if (SourceObject.CompareTag("Player"))
                 {
+                    
                     PlayerController player = SourceObject.GetComponent<PlayerController>();
-                    player.score += 100;
+                    string enemy_name = entityHealth.name.Substring(0, 6);
+
+                    switch (enemy_name)
+                    {
+                        case "Enemy1":
+                            player.score += 30;
+                            break;
+                        case "Enemy2":
+                            player.score += 10;
+                            break;
+                        case "Minibo":
+                            player.score += 1000;
+                            break;
+                    }
+                    player.enemy_kill_counter++;
 
                 }
                 Destroy(entityHealth.gameObject);

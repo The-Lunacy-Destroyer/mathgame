@@ -22,8 +22,10 @@ public class PlayerController : EntityController, IEntityMovable
 
     //Score 
     public float score = 0f;
+    public int enemy_kill_counter = 0;
     public UIDocument ScoreUI;
     private Label scoreText;
+    private Label enemykillcounterText;
 
     private void Start()
     {
@@ -31,11 +33,13 @@ public class PlayerController : EntityController, IEntityMovable
         _shootingSystem = GetComponent<EntityShootingController>();
         _mainCamera = Camera.main;
         scoreText = ScoreUI.rootVisualElement.Q<Label>("ScoreLabel");
+        enemykillcounterText= ScoreUI.rootVisualElement.Q<Label>("EnemykillLabel");
 
     }
     void Update()
     {
         scoreText.text = "Score: " + score;
+        enemykillcounterText.text="Enemies killed: "+ enemy_kill_counter;
     }
 
     private void FixedUpdate()

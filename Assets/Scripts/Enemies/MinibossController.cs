@@ -16,7 +16,7 @@ namespace Enemies
     
         void Start()
         {
-            gameObject.SetActive(false);
+           // gameObject.SetActive(false);
             _shootingSystem = GetComponent<EntityShootingController>();
             _rigidbody = GetComponent<Rigidbody2D>();
             _target = GameObject.Find("Player").transform;
