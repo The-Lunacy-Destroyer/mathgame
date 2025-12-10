@@ -140914,6 +140914,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 2266194998180874804, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266194998180874804, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2266194998180874804, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7088940098386361968, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
       propertyPath: m_IsTrigger
       value: 0

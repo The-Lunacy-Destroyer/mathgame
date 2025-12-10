@@ -145,14 +145,16 @@ MonoBehaviour:
   <Slowdown>k__BackingField: 0.875
   randomMovementAngle: 45
   randomMovementCooldown: 25
-  minSpeed: 2
+  minSpeed: 1.9999998
   stopRadius: 6
-  torqueForce: 30
-  maxRotationSpeed: 50
+  torqueForce: 70
+  maxRotationSpeed: 150
   actionCooldown: 400
-  lasersCooldown: 30
-  lasersShootDuration: 300
-  lasersTorqueForce: 0.55
+  lasersCooldown: 50
+  lasersShootDuration: 400
+  minLasersTorqueForce: 0.5
+  maxLasersTorqueForce: 0.6
+  contactDamage: 33.33
 --- !u!114 &4591838992153462741
 MonoBehaviour:
   m_ObjectHideFlags: 0

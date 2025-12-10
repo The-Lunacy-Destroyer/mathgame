@@ -31,7 +31,9 @@ namespace Enemies
         public int lasersShootDuration = 50;
         private int _lasersShootTimer;
         
-        public float lasersTorqueForce = 0.6f;
+        private float _lasersTorqueForce;
+        public float minLasersTorqueForce = 0.6f;
+        public float maxLasersTorqueForce = 0.7f;
         public float contactDamage = 35f;
         
         private int ActionDuration => 2 * lasersCooldown + lasersShootDuration;
@@ -44,6 +46,7 @@ namespace Enemies
         {
             base.Awake();
             _shootingSystem = GetComponent<EntityShootingController>();
+            _lasersTorqueForce = Random.Range(minLasersTorqueForce, maxLasersTorqueForce);
         }
         protected override void Start()
         {
@@ -75,7 +78,7 @@ namespace Enemies
                 
                 if (_isActionActive)
                 {
-                    SlowMove();
+                    MoveWithLasers();
                 }
                 else
                 {
@@ -122,6 +125,7 @@ namespace Enemies
                     {
                         _isLasersActive = false;
                         _lasersShootTimer = lasersShootDuration;
+                        _lasersTorqueForce = Random.Range(minLasersTorqueForce, maxLasersTorqueForce);
                     }
                 }
             }
@@ -148,12 +152,6 @@ namespace Enemies
             Rigidbody.linearVelocity = Vector2.ClampMagnitude(Rigidbody.linearVelocity, MaxSpeed);
             Rigidbody.angularVelocity = math.clamp(Rigidbody.angularVelocity, -maxRotationSpeed, maxRotationSpeed);
 
-            if (_isActionActive)
-            {
-                SlowMove();
-                return;
-            }
-
             if (Rigidbody.linearVelocity.magnitude > minSpeed 
                 && TargetVector.magnitude <= stopRadius)
             {
@@ -166,21 +164,20 @@ namespace Enemies
             Rigidbody.AddTorque(torqueForce);
         }
         
-        private void SlowMove()
+        private void MoveWithLasers()
         {
-            if (Rigidbody.linearVelocity.magnitude > 0)
+            if (!_isLasersActive)
             {
-                Rigidbody.linearVelocity *= Slowdown;
-            }
-            if (Rigidbody.linearVelocity.magnitude > minSpeed)
-            {
-                Rigidbody.angularVelocity *= Slowdown;
+                float state = _actionDurationTimer > lasersCooldown ? actionCooldown : lasersShootDuration;
+                float multiplier = 3f / (2 * lasersCooldown) * (state / lasersCooldown);
+                Rigidbody.AddForce(-Rigidbody.linearVelocity * multiplier);
+                Rigidbody.AddTorque(-Rigidbody.angularVelocity * multiplier);
             }
             else
             {
-                Rigidbody.AddTorque(lasersTorqueForce);
+                Rigidbody.linearVelocity = Vector2.zero;
+                Rigidbody.AddTorque(-_lasersTorqueForce);
             }
-
         }
 
         private void LaunchProjectiles()
@@ -252,7 +249,6 @@ namespace Enemies
         {
             EntityHealthController otherEntityHealth = 
                 collision.collider.GetComponent<EntityHealthController>();
-            Debug.Log(otherEntityHealth);
 
             if (otherEntityHealth && collision.gameObject.CompareTag("Player"))
             {
