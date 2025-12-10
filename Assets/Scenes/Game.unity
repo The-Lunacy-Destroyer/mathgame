@@ -140910,6 +140910,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Miniboss
       objectReference: {fileID: 0}
+    - target: {fileID: 957390865753769895, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088940098386361968, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7481599649845918983, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.8

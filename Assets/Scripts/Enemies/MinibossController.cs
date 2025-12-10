@@ -1,3 +1,4 @@
+using Health;
 using Movement;
 using Projectile;
 using Unity.Mathematics;
@@ -31,6 +32,7 @@ namespace Enemies
         private int _lasersShootTimer;
         
         public float lasersTorqueForce = 0.6f;
+        public float contactDamage = 35f;
         
         private int ActionDuration => 2 * lasersCooldown + lasersShootDuration;
 
@@ -244,6 +246,23 @@ namespace Enemies
                 new[] { pos1, pos2, pos3 },
                 new[] { dir1, dir2, dir3 }
             };
+        }
+        
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            EntityHealthController otherEntityHealth = 
+                collision.collider.GetComponent<EntityHealthController>();
+            Debug.Log(otherEntityHealth);
+
+            if (otherEntityHealth && collision.gameObject.CompareTag("Player"))
+            {
+                otherEntityHealth.CurrentHealth -= contactDamage;
+                
+                if (otherEntityHealth.CurrentHealth <= 0)
+                {
+                    Destroy(otherEntityHealth.gameObject);
+                }
+            }
         }
 
     }
