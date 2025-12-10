@@ -1,169 +1,10 @@
 fileFormatVersion: 2
-guid: 2fd8fdfa9d64e4b17bf3cd836a17770d
+guid: 589177469ceced747aa52951d5f008e7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8550627331700638114
-    second: AnimationSky_0
-  - first:
-      213: -5668091597524458458
-    second: AnimationSky_1
-  - first:
-      213: 7838445105387692332
-    second: AnimationSky_2
-  - first:
-      213: 5965903818037564868
-    second: AnimationSky_3
-  - first:
-      213: 5657653661443724897
-    second: AnimationSky_4
-  - first:
-      213: 2521978099753844323
-    second: AnimationSky_5
-  - first:
-      213: -8447872933849275737
-    second: AnimationSky_6
-  - first:
-      213: -7546249512189257073
-    second: AnimationSky_7
-  - first:
-      213: 3038980610635207129
-    second: AnimationSky_8
-  - first:
-      213: 8932217290091480984
-    second: AnimationSky_9
-  - first:
-      213: 387901189965895626
-    second: AnimationSky_10
-  - first:
-      213: -2739947765505493220
-    second: AnimationSky_11
-  - first:
-      213: -7700196470257840921
-    second: AnimationSky_12
-  - first:
-      213: 1475076379433960190
-    second: AnimationSky_13
-  - first:
-      213: -3226372779849185661
-    second: AnimationSky_14
-  - first:
-      213: -4883436610945368964
-    second: AnimationSky_15
-  - first:
-      213: 4215607108516356530
-    second: AnimationSky_16
-  - first:
-      213: 6099404221675726990
-    second: AnimationSky_17
-  - first:
-      213: 8976018644140247260
-    second: AnimationSky_18
-  - first:
-      213: -7713716928508363482
-    second: AnimationSky_19
-  - first:
-      213: -7175028547797915502
-    second: AnimationSky_20
-  - first:
-      213: 1909554271268228405
-    second: AnimationSky_21
-  - first:
-      213: -6663812256311297420
-    second: AnimationSky_22
-  - first:
-      213: 4847861528390227998
-    second: AnimationSky_23
-  - first:
-      213: -5441459107623801222
-    second: AnimationSky_24
-  - first:
-      213: -8323164372647229659
-    second: AnimationSky_25
-  - first:
-      213: -3849368828151284561
-    second: AnimationSky_26
-  - first:
-      213: -6931254350360695827
-    second: AnimationSky_27
-  - first:
-      213: -1050081840293261110
-    second: AnimationSky_28
-  - first:
-      213: 5068509775362489298
-    second: AnimationSky_29
-  - first:
-      213: -7043497662479559667
-    second: AnimationSky_30
-  - first:
-      213: -3173466485178052860
-    second: AnimationSky_31
-  - first:
-      213: 3338669828229996190
-    second: AnimationSky_32
-  - first:
-      213: 1051197596498253778
-    second: AnimationSky_33
-  - first:
-      213: 6980007172584996032
-    second: AnimationSky_34
-  - first:
-      213: -4435174570105240032
-    second: AnimationSky_35
-  - first:
-      213: 5748878329910991360
-    second: AnimationSky_36
-  - first:
-      213: -7402777201714102256
-    second: AnimationSky_37
-  - first:
-      213: 173867073488037212
-    second: AnimationSky_38
-  - first:
-      213: -4971883431771199572
-    second: AnimationSky_39
-  - first:
-      213: -9034131616007927922
-    second: AnimationSky_40
-  - first:
-      213: 5387737199362366449
-    second: AnimationSky_41
-  - first:
-      213: -7427346606382644289
-    second: AnimationSky_42
-  - first:
-      213: 3460348238930874005
-    second: AnimationSky_43
-  - first:
-      213: 6962578180482469873
-    second: AnimationSky_44
-  - first:
-      213: 3990016698208116562
-    second: AnimationSky_45
-  - first:
-      213: 950448054467750531
-    second: AnimationSky_46
-  - first:
-      213: -462363820656761687
-    second: AnimationSky_47
-  - first:
-      213: -6656811949947590647
-    second: AnimationSky_48
-  - first:
-      213: -7458715071352787238
-    second: AnimationSky_49
-  - first:
-      213: -392224292809279703
-    second: AnimationSky_50
-  - first:
-      213: -2144463359265221484
-    second: AnimationSky_51
-  - first:
-      213: 451923717598213766
-    second: AnimationSky_52
-  - first:
-      213: -7205901447319857173
-    second: AnimationSky_53
+      213: 6782710580146264794
+    second: AnimationSky_(2)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -207,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
@@ -272,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AnimationSky_0
+      name: AnimationSky_(2)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -287,14 +128,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e5ebc37beb1165980800000000000000
-      internalID: -8550627331700638114
+      spriteID: adad6e71657012e50800000000000000
+      internalID: 6782710580146264794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_1
+      name: AnimationSky_(2)_1
       rect:
         serializedVersion: 2
         x: 129
@@ -307,16 +148,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 624ad2f09b4e651b0800000000000000
-      internalID: -5668091597524458458
+      spriteID: bd4ce210818a72781b521a2a56d4a1db
+      internalID: -434943353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_2
+      name: AnimationSky_(2)_2
       rect:
         serializedVersion: 2
         x: 258
@@ -329,16 +170,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c2168022b40c7cc60800000000000000
-      internalID: 7838445105387692332
+      spriteID: 10e456acd3858b076b1799bd58e7784b
+      internalID: -1320093685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_3
+      name: AnimationSky_(2)_3
       rect:
         serializedVersion: 2
         x: 387
@@ -351,16 +192,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4c5964ee9e52bc250800000000000000
-      internalID: 5965903818037564868
+      spriteID: 25b32745158f9b6e1b33fb6f5b803497
+      internalID: 248889347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_4
+      name: AnimationSky_(2)_4
       rect:
         serializedVersion: 2
         x: 516
@@ -373,16 +214,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1669a809706048e40800000000000000
-      internalID: 5657653661443724897
+      spriteID: 4640e2cb0c81c7595a3915a9a36263bf
+      internalID: 1095962711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_5
+      name: AnimationSky_(2)_5
       rect:
         serializedVersion: 2
         x: 645
@@ -395,16 +236,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 36e742f38bddff220800000000000000
-      internalID: 2521978099753844323
+      spriteID: c1017f73a34b83243adc4e453f639ae1
+      internalID: -1418707030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_6
+      name: AnimationSky_(2)_6
       rect:
         serializedVersion: 2
         x: 774
@@ -417,16 +258,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7a2e64e435023ca80800000000000000
-      internalID: -8447872933849275737
+      spriteID: ac2b1519ebd5f46118304b46acfbdf33
+      internalID: 1548551587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_7
+      name: AnimationSky_(2)_7
       rect:
         serializedVersion: 2
         x: 903
@@ -439,16 +280,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f8a9e77ec06564790800000000000000
-      internalID: -7546249512189257073
+      spriteID: d9c962f2a6698e34d99308788c5cd595
+      internalID: 1039244330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_8
+      name: AnimationSky_(2)_8
       rect:
         serializedVersion: 2
         x: 1032
@@ -461,16 +302,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9d11630a3c0ac2a20800000000000000
-      internalID: 3038980610635207129
+      spriteID: a08748246fde8d5418c7613cea292d47
+      internalID: 26247951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_9
+      name: AnimationSky_(2)_9
       rect:
         serializedVersion: 2
         x: 1161
@@ -483,16 +324,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8974188ec4c95fb70800000000000000
-      internalID: 8932217290091480984
+      spriteID: 610f7f5130812c79e8c8047eaa537e70
+      internalID: 947947297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_10
+      name: AnimationSky_(2)_10
       rect:
         serializedVersion: 2
         x: 1290
@@ -505,16 +346,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ac75edbb31a126500800000000000000
-      internalID: 387901189965895626
+      spriteID: 0020a3da4a51fba218ccc79c1eaf807f
+      internalID: 239143344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_11
+      name: AnimationSky_(2)_11
       rect:
         serializedVersion: 2
         x: 1419
@@ -527,16 +368,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c177bed2600c9f9d0800000000000000
-      internalID: -2739947765505493220
+      spriteID: 20ccf5a88daff985e892ca778ea03c7c
+      internalID: -1647158100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_12
+      name: AnimationSky_(2)_12
       rect:
         serializedVersion: 2
         x: 1548
@@ -549,16 +390,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ec80919b18632590800000000000000
-      internalID: -7700196470257840921
+      spriteID: ec1f883bd549664168b24920675ffddd
+      internalID: -983754269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_13
+      name: AnimationSky_(2)_13
       rect:
         serializedVersion: 2
         x: 1677
@@ -571,16 +412,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ef20bbcd626887410800000000000000
-      internalID: 1475076379433960190
+      spriteID: 2896d292684d9c902a602aaa54224f88
+      internalID: -2192333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_14
+      name: AnimationSky_(2)_14
       rect:
         serializedVersion: 2
         x: 1806
@@ -593,16 +434,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 38689100d0f9933d0800000000000000
-      internalID: -3226372779849185661
+      spriteID: 0ab27dac89bbdfd839f24d736a5cb1e1
+      internalID: -2125042327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_15
+      name: AnimationSky_(2)_15
       rect:
         serializedVersion: 2
         x: 1935
@@ -615,16 +456,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c7cb671a64c8a3cb0800000000000000
-      internalID: -4883436610945368964
+      spriteID: ee762ed61b033ad01aa299b918aff6b5
+      internalID: -720567021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_16
+      name: AnimationSky_(2)_16
       rect:
         serializedVersion: 2
         x: 2064
@@ -637,16 +478,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2b1aab77458d08a30800000000000000
-      internalID: 4215607108516356530
+      spriteID: 51b3cc525a1aef139994063660c0ff74
+      internalID: 900472223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_17
+      name: AnimationSky_(2)_17
       rect:
         serializedVersion: 2
         x: 2193
@@ -659,16 +500,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e88ef76d2df65a450800000000000000
-      internalID: 6099404221675726990
+      spriteID: f738fa30629f897cd8841d6adaff1f91
+      internalID: 1261592193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_18
+      name: AnimationSky_(2)_18
       rect:
         serializedVersion: 2
         x: 2322
@@ -681,16 +522,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cd8434d5669319c70800000000000000
-      internalID: 8976018644140247260
+      spriteID: 7933a366fb7ab666f9814da4f7a8e4cd
+      internalID: 135656096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AnimationSky_19
+      name: AnimationSky_(2)_19
       rect:
         serializedVersion: 2
         x: 2451
@@ -703,10 +544,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 62d7752925f53f490800000000000000
-      internalID: -7713716928508363482
+      spriteID: aecbf5b6168b23058964ccabcce39721
+      internalID: 1097448959
       vertices: []
       indices: 
       edges: []
@@ -715,7 +556,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a509115d69317883bb96c0dccd836198
+    spriteID: 106ab6c19dc7f14029703bdbb4496075
     internalID: 0
     vertices: []
     indices: 
@@ -727,26 +568,26 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":1.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      AnimationSky_0: -8550627331700638114
-      AnimationSky_1: -5668091597524458458
-      AnimationSky_10: 387901189965895626
-      AnimationSky_11: -2739947765505493220
-      AnimationSky_12: -7700196470257840921
-      AnimationSky_13: 1475076379433960190
-      AnimationSky_14: -3226372779849185661
-      AnimationSky_15: -4883436610945368964
-      AnimationSky_16: 4215607108516356530
-      AnimationSky_17: 6099404221675726990
-      AnimationSky_18: 8976018644140247260
-      AnimationSky_19: -7713716928508363482
-      AnimationSky_2: 7838445105387692332
-      AnimationSky_3: 5965903818037564868
-      AnimationSky_4: 5657653661443724897
-      AnimationSky_5: 2521978099753844323
-      AnimationSky_6: -8447872933849275737
-      AnimationSky_7: -7546249512189257073
-      AnimationSky_8: 3038980610635207129
-      AnimationSky_9: 8932217290091480984
+      AnimationSky_(2)_0: 6782710580146264794
+      AnimationSky_(2)_1: -434943353
+      AnimationSky_(2)_10: 239143344
+      AnimationSky_(2)_11: -1647158100
+      AnimationSky_(2)_12: -983754269
+      AnimationSky_(2)_13: -2192333
+      AnimationSky_(2)_14: -2125042327
+      AnimationSky_(2)_15: -720567021
+      AnimationSky_(2)_16: 900472223
+      AnimationSky_(2)_17: 1261592193
+      AnimationSky_(2)_18: 135656096
+      AnimationSky_(2)_19: 1097448959
+      AnimationSky_(2)_2: -1320093685
+      AnimationSky_(2)_3: 248889347
+      AnimationSky_(2)_4: 1095962711
+      AnimationSky_(2)_5: -1418707030
+      AnimationSky_(2)_6: 1548551587
+      AnimationSky_(2)_7: 1039244330
+      AnimationSky_(2)_8: 26247951
+      AnimationSky_(2)_9: 947947297
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

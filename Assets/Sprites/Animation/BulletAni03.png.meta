@@ -1,49 +1,49 @@
 fileFormatVersion: 2
-guid: 43205ddb4f33681a9bd95fe1e42650b0
+guid: 181729479d0eb029f9769e2ff16f8acc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5606301559664984675
-    second: BulletAni02_0
+      213: -7207309371404702219
+    second: BulletAni03_0
   - first:
-      213: -1042257304486583178
-    second: BulletAni02_1
+      213: -7781258452328396962
+    second: BulletAni03_1
   - first:
-      213: 2086323029991920325
-    second: BulletAni02_2
+      213: -3498833424822348480
+    second: BulletAni03_2
   - first:
-      213: -3530517289791833919
-    second: BulletAni02_3
+      213: -1391757974012598905
+    second: BulletAni03_3
   - first:
-      213: -7645089705328113248
-    second: BulletAni02_4
+      213: 6128339367257544162
+    second: BulletAni03_4
   - first:
-      213: -5026281193557120027
-    second: BulletAni02_5
+      213: -1479521914066739203
+    second: BulletAni03_5
   - first:
-      213: -1380876034552637866
-    second: BulletAni02_6
+      213: -2973242665095595536
+    second: BulletAni03_6
   - first:
-      213: 708274020351840954
-    second: BulletAni02_7
+      213: 3048184161741236207
+    second: BulletAni03_7
   - first:
-      213: 2759877995871626120
-    second: BulletAni02_8
+      213: 2458364344151607342
+    second: BulletAni03_8
   - first:
-      213: -5284354035204643500
-    second: BulletAni02_9
+      213: -8893162807913388386
+    second: BulletAni03_9
   - first:
-      213: -6471560461877796661
-    second: BulletAni02_10
+      213: 6661122355869625488
+    second: BulletAni03_10
   - first:
-      213: -5815694384777597145
-    second: BulletAni02_11
+      213: 5627112543546019553
+    second: BulletAni03_11
   - first:
-      213: -8398708381436163622
-    second: BulletAni02_12
+      213: 2833086330464128012
+    second: BulletAni03_12
   - first:
-      213: -3470100583767162351
-    second: BulletAni02_13
+      213: 665923876152008602
+    second: BulletAni03_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -152,7 +152,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BulletAni02_0
+      name: BulletAni03_0
       rect:
         serializedVersion: 2
         x: 0
@@ -167,14 +167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9d33785f6a6232b0800000000000000
-      internalID: -5606301559664984675
+      spriteID: 5fd241b005e7afb90800000000000000
+      internalID: -7207309371404702219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_1
+      name: BulletAni03_1
       rect:
         serializedVersion: 2
         x: 19
@@ -189,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6746581f0882981f0800000000000000
-      internalID: -1042257304486583178
+      spriteID: e57c57b1aaa630490800000000000000
+      internalID: -7781258452328396962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_2
+      name: BulletAni03_2
       rect:
         serializedVersion: 2
         x: 38
@@ -211,14 +211,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c29261fdbb14fc10800000000000000
-      internalID: 2086323029991920325
+      spriteID: 0455339a985a17fc0800000000000000
+      internalID: -3498833424822348480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_3
+      name: BulletAni03_3
       rect:
         serializedVersion: 2
         x: 57
@@ -233,14 +233,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1c8359cfa35110fc0800000000000000
-      internalID: -3530517289791833919
+      spriteID: 78569a91f7b7face0800000000000000
+      internalID: -1391757974012598905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_4
+      name: BulletAni03_4
       rect:
         serializedVersion: 2
         x: 76
@@ -255,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a90ced1b6f27e590800000000000000
-      internalID: -7645089705328113248
+      spriteID: 2e59d686f2c3c0550800000000000000
+      internalID: 6128339367257544162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_5
+      name: BulletAni03_5
       rect:
         serializedVersion: 2
         x: 95
@@ -277,14 +277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5eb2dc482ef0f3ab0800000000000000
-      internalID: -5026281193557120027
+      spriteID: dff55a278aea77be0800000000000000
+      internalID: -1479521914066739203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_6
+      name: BulletAni03_6
       rect:
         serializedVersion: 2
         x: 114
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 656d3a1109426dce0800000000000000
-      internalID: -1380876034552637866
+      spriteID: 0f9f0fb8c8becb6d0800000000000000
+      internalID: -2973242665095595536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_7
+      name: BulletAni03_7
       rect:
         serializedVersion: 2
         x: 133
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab295ba087b44d900800000000000000
-      internalID: 708274020351840954
+      spriteID: fe7ee8a58535d4a20800000000000000
+      internalID: 3048184161741236207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_8
+      name: BulletAni03_8
       rect:
         serializedVersion: 2
         x: 152
@@ -343,14 +343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 883685f2a6e0d4620800000000000000
-      internalID: 2759877995871626120
+      spriteID: e2884a5985ddd1220800000000000000
+      internalID: 2458364344151607342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_9
+      name: BulletAni03_9
       rect:
         serializedVersion: 2
         x: 171
@@ -365,14 +365,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 455a930b0043aa6b0800000000000000
-      internalID: -5284354035204643500
+      spriteID: e966b905b83259480800000000000000
+      internalID: -8893162807913388386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_10
+      name: BulletAni03_10
       rect:
         serializedVersion: 2
         x: 190
@@ -387,14 +387,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc0af473c066036a0800000000000000
-      internalID: -6471560461877796661
+      spriteID: 09ca5039d7f017c50800000000000000
+      internalID: 6661122355869625488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_11
+      name: BulletAni03_11
       rect:
         serializedVersion: 2
         x: 209
@@ -409,14 +409,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 72fe81915c08a4fa0800000000000000
-      internalID: -5815694384777597145
+      spriteID: 1ee843d6b05871e40800000000000000
+      internalID: 5627112543546019553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_12
+      name: BulletAni03_12
       rect:
         serializedVersion: 2
         x: 228
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad9c660b93bc17b80800000000000000
-      internalID: -8398708381436163622
+      spriteID: c0c4459d105215720800000000000000
+      internalID: 2833086330464128012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletAni02_13
+      name: BulletAni03_13
       rect:
         serializedVersion: 2
         x: 247
@@ -453,8 +453,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 112cea987e9b7dfc0800000000000000
-      internalID: -3470100583767162351
+      spriteID: a9fdd75bc36dd3900800000000000000
+      internalID: 665923876152008602
       vertices: []
       indices: 
       edges: []
@@ -463,7 +463,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 21e121ac10666f6c4996f246227d9eab
+    spriteID: 95e1887dd21d4b2528bf92b988ad85e7
     internalID: 0
     vertices: []
     indices: 
@@ -475,20 +475,20 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":18.0,"y":18.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":1.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      BulletAni02_0: -5606301559664984675
-      BulletAni02_1: -1042257304486583178
-      BulletAni02_10: -6471560461877796661
-      BulletAni02_11: -5815694384777597145
-      BulletAni02_12: -8398708381436163622
-      BulletAni02_13: -3470100583767162351
-      BulletAni02_2: 2086323029991920325
-      BulletAni02_3: -3530517289791833919
-      BulletAni02_4: -7645089705328113248
-      BulletAni02_5: -5026281193557120027
-      BulletAni02_6: -1380876034552637866
-      BulletAni02_7: 708274020351840954
-      BulletAni02_8: 2759877995871626120
-      BulletAni02_9: -5284354035204643500
+      BulletAni03_0: -7207309371404702219
+      BulletAni03_1: -7781258452328396962
+      BulletAni03_10: 6661122355869625488
+      BulletAni03_11: 5627112543546019553
+      BulletAni03_12: 2833086330464128012
+      BulletAni03_13: 665923876152008602
+      BulletAni03_2: -3498833424822348480
+      BulletAni03_3: -1391757974012598905
+      BulletAni03_4: 6128339367257544162
+      BulletAni03_5: -1479521914066739203
+      BulletAni03_6: -2973242665095595536
+      BulletAni03_7: 3048184161741236207
+      BulletAni03_8: 2458364344151607342
+      BulletAni03_9: -8893162807913388386
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

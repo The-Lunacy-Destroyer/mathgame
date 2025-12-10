@@ -13,26 +13,26 @@ MonoBehaviour:
   m_Name: ForegroundStars2
   m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
   m_AnimatedSprites:
-  - {fileID: 6782710580146264794, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: 450423011, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: -109806392, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: 1838226646, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: -791863194, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: 1049453747, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: -74885636, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: 270331343, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: 1333204186, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: 1917925782, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: -116607325, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: 650497771, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: -441340801, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: -1896040315, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: -740316496, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: -356063749, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: 1182425312, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: -1432295693, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: 204873507, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
-  - {fileID: 1726435398, guid: 746c4938260258ae28b9d733a862ce85, type: 3}
+  - {fileID: 6782710580146264794, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: -434943353, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: -1320093685, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: 248889347, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: 1095962711, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: -1418707030, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: 1548551587, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: 1039244330, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: 26247951, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: 947947297, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: 239143344, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: -1647158100, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: -983754269, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: -2192333, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: -2125042327, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: -720567021, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: 900472223, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: 1261592193, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: 135656096, guid: 589177469ceced747aa52951d5f008e7, type: 3}
+  - {fileID: 1097448959, guid: 589177469ceced747aa52951d5f008e7, type: 3}
   m_MinSpeed: 10
   m_MaxSpeed: 10
   m_AnimationStartTime: 0

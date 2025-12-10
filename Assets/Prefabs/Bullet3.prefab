@@ -10,12 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 256284739968353612, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
       propertyPath: m_Name
-      value: Bullet2
+      value: Bullet3
       objectReference: {fileID: 0}
     - target: {fileID: 387001662225999879, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 026c6306f625287538e3ac22294002cd, type: 2}
+      objectReference: {fileID: 9100000, guid: 0c48aacd751525c8c8c594e9c8aa5cc4, type: 2}
     - target: {fileID: 387001662225999879, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
       propertyPath: m_UpdateMode
       value: 0
@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 2797379130632693836, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -5606301559664984675, guid: 93a87e2aa20bef310979e349da89abae, type: 3}
+      objectReference: {fileID: -7207309371404702219, guid: 181729479d0eb029f9769e2ff16f8acc, type: 3}
     - target: {fileID: 2797379130632693836, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
       propertyPath: m_SortingOrder
       value: -2

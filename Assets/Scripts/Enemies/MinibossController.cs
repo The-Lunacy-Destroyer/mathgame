@@ -232,12 +232,12 @@ namespace Enemies
         private Vector2[][] GetLaunchPositionsAndDirections()
         {
             Vector2 dir1 = transform.up.normalized;
-            Vector2 dir2 = Utilities.MathUtilities.RotateVector(dir1, 120);
-            Vector2 dir3 = Utilities.MathUtilities.RotateVector(dir1, -120);
+            Vector2 dir2 = MathUtilities.RotateVector(dir1, 120);
+            Vector2 dir3 = MathUtilities.RotateVector(dir1, -120);
 
             Vector2 pos1 = (Vector2)transform.position + dir1 * 0.66f;
-            Vector2 pos2 = (Vector2)transform.position + Utilities.MathUtilities.RotateVector(dir2, 15) * 1.25f;
-            Vector2 pos3 = (Vector2)transform.position + Utilities.MathUtilities.RotateVector(dir3, -15) * 1.25f;
+            Vector2 pos2 = (Vector2)transform.position + MathUtilities.RotateVector(dir2, 15) * 1.25f;
+            Vector2 pos3 = (Vector2)transform.position + MathUtilities.RotateVector(dir3, -15) * 1.25f;
 
             return new[]
             {

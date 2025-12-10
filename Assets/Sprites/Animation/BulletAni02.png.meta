@@ -1,61 +1,49 @@
 fileFormatVersion: 2
-guid: f19ffeeda7967b3efb369793030224c5
+guid: 93a87e2aa20bef310979e349da89abae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 33085249058313889
-    second: MiniBoss_0
+      213: -5606301559664984675
+    second: BulletAni02_0
   - first:
-      213: 3485887101695555176
-    second: MiniBoss_1
+      213: -1042257304486583178
+    second: BulletAni02_1
   - first:
-      213: -1265876092780782870
-    second: MiniBoss_2
+      213: 2086323029991920325
+    second: BulletAni02_2
   - first:
-      213: 3488622363070417983
-    second: MiniBoss_3
+      213: -3530517289791833919
+    second: BulletAni02_3
   - first:
-      213: -719789286682768662
-    second: MiniBoss_4
+      213: -7645089705328113248
+    second: BulletAni02_4
   - first:
-      213: 5115004326873472345
-    second: MiniBoss_5
+      213: -5026281193557120027
+    second: BulletAni02_5
   - first:
-      213: -1044540947017745015
-    second: MiniBoss_6
+      213: -1380876034552637866
+    second: BulletAni02_6
   - first:
-      213: 3061016460140847068
-    second: MiniBoss_7
+      213: 708274020351840954
+    second: BulletAni02_7
   - first:
-      213: -5250082346828272358
-    second: MiniBoss_8
+      213: 2759877995871626120
+    second: BulletAni02_8
   - first:
-      213: 9038047693338132018
-    second: MiniBoss_9
+      213: -5284354035204643500
+    second: BulletAni02_9
   - first:
-      213: -1178188122964114085
-    second: MiniBoss_10
+      213: -6471560461877796661
+    second: BulletAni02_10
   - first:
-      213: 3662067845995217810
-    second: MiniBoss_11
+      213: -5815694384777597145
+    second: BulletAni02_11
   - first:
-      213: 1007202512627654608
-    second: MiniBoss_12
+      213: -8398708381436163622
+    second: BulletAni02_12
   - first:
-      213: 5854294216896186203
-    second: MiniBoss_13
-  - first:
-      213: -2677752566667621245
-    second: MiniBoss_14
-  - first:
-      213: 6446441029686396764
-    second: MiniBoss_15
-  - first:
-      213: 4488184165128264049
-    second: MiniBoss_16
-  - first:
-      213: 9220919505614323400
-    second: MiniBoss_17
+      213: -3470100583767162351
+    second: BulletAni02_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -164,397 +152,309 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MiniBoss_0
+      name: BulletAni02_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 117
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a61d65dbda857000800000000000000
-      internalID: 33085249058313889
+      spriteID: d9d33785f6a6232b0800000000000000
+      internalID: -5606301559664984675
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_1
+      name: BulletAni02_1
       rect:
         serializedVersion: 2
-        x: 116
+        x: 19
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 866fda799db506030800000000000000
-      internalID: 3485887101695555176
+      spriteID: 6746581f0882981f0800000000000000
+      internalID: -1042257304486583178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_2
+      name: BulletAni02_2
       rect:
         serializedVersion: 2
-        x: 233
+        x: 38
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aea54288664be6ee0800000000000000
-      internalID: -1265876092780782870
+      spriteID: 5c29261fdbb14fc10800000000000000
+      internalID: 2086323029991920325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_3
+      name: BulletAni02_3
       rect:
         serializedVersion: 2
-        x: 350
+        x: 57
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3ccb424e831a6030800000000000000
-      internalID: 3488622363070417983
+      spriteID: 1c8359cfa35110fc0800000000000000
+      internalID: -3530517289791833919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_4
+      name: BulletAni02_4
       rect:
         serializedVersion: 2
-        x: 467
+        x: 76
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aea4426157bc206f0800000000000000
-      internalID: -719789286682768662
+      spriteID: 0a90ced1b6f27e590800000000000000
+      internalID: -7645089705328113248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_5
+      name: BulletAni02_5
       rect:
         serializedVersion: 2
-        x: 584
+        x: 95
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95d11e7b5552cf640800000000000000
-      internalID: 5115004326873472345
+      spriteID: 5eb2dc482ef0f3ab0800000000000000
+      internalID: -5026281193557120027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_6
+      name: BulletAni02_6
       rect:
         serializedVersion: 2
-        x: 701
+        x: 114
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98d38abfa8b0181f0800000000000000
-      internalID: -1044540947017745015
+      spriteID: 656d3a1109426dce0800000000000000
+      internalID: -1380876034552637866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_7
+      name: BulletAni02_7
       rect:
         serializedVersion: 2
-        x: 818
+        x: 133
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cdf9156a04aea7a20800000000000000
-      internalID: 3061016460140847068
+      spriteID: ab295ba087b44d900800000000000000
+      internalID: 708274020351840954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_8
+      name: BulletAni02_8
       rect:
         serializedVersion: 2
-        x: 935
+        x: 152
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1d60c3fbe5f327b0800000000000000
-      internalID: -5250082346828272358
+      spriteID: 883685f2a6e0d4620800000000000000
+      internalID: 2759877995871626120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_9
+      name: BulletAni02_9
       rect:
         serializedVersion: 2
-        x: 1052
+        x: 171
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23e3570dd789d6d70800000000000000
-      internalID: 9038047693338132018
+      spriteID: 455a930b0043aa6b0800000000000000
+      internalID: -5284354035204643500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_10
+      name: BulletAni02_10
       rect:
         serializedVersion: 2
-        x: 1169
+        x: 190
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b55c32cf42c36afe0800000000000000
-      internalID: -1178188122964114085
+      spriteID: bc0af473c066036a0800000000000000
+      internalID: -6471560461877796661
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_11
+      name: BulletAni02_11
       rect:
         serializedVersion: 2
-        x: 1286
+        x: 209
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 293ccefad4742d230800000000000000
-      internalID: 3662067845995217810
+      spriteID: 72fe81915c08a4fa0800000000000000
+      internalID: -5815694384777597145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_12
+      name: BulletAni02_12
       rect:
         serializedVersion: 2
-        x: 1403
+        x: 228
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0df5d0e495d4afd00800000000000000
-      internalID: 1007202512627654608
+      spriteID: ad9c660b93bc17b80800000000000000
+      internalID: -8398708381436163622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_13
+      name: BulletAni02_13
       rect:
         serializedVersion: 2
-        x: 1520
+        x: 247
         y: 0
-        width: 118
-        height: 100
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5788b8a291ae3150800000000000000
-      internalID: 5854294216896186203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MiniBoss_14
-      rect:
-        serializedVersion: 2
-        x: 1637
-        y: 0
-        width: 118
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 38cc26b5a36b6dad0800000000000000
-      internalID: -2677752566667621245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MiniBoss_15
-      rect:
-        serializedVersion: 2
-        x: 1754
-        y: 0
-        width: 118
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c5706f736fb567950800000000000000
-      internalID: 6446441029686396764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MiniBoss_16
-      rect:
-        serializedVersion: 2
-        x: 1871
-        y: 0
-        width: 118
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 179d00108bb394e30800000000000000
-      internalID: 4488184165128264049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MiniBoss_17
-      rect:
-        serializedVersion: 2
-        x: 1988
-        y: 0
-        width: 117
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8cebc929f6947ff70800000000000000
-      internalID: 9220919505614323400
+      spriteID: 112cea987e9b7dfc0800000000000000
+      internalID: -3470100583767162351
       vertices: []
       indices: 
       edges: []
@@ -563,7 +463,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 0448c1892b8bff478bcf801e3618c886
     internalID: 0
     vertices: []
     indices: 
@@ -571,26 +471,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":18.0,"y":18.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":1.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      MiniBoss_0: 33085249058313889
-      MiniBoss_1: 3485887101695555176
-      MiniBoss_10: -1178188122964114085
-      MiniBoss_11: 3662067845995217810
-      MiniBoss_12: 1007202512627654608
-      MiniBoss_13: 5854294216896186203
-      MiniBoss_14: -2677752566667621245
-      MiniBoss_15: 6446441029686396764
-      MiniBoss_16: 4488184165128264049
-      MiniBoss_17: 9220919505614323400
-      MiniBoss_2: -1265876092780782870
-      MiniBoss_3: 3488622363070417983
-      MiniBoss_4: -719789286682768662
-      MiniBoss_5: 5115004326873472345
-      MiniBoss_6: -1044540947017745015
-      MiniBoss_7: 3061016460140847068
-      MiniBoss_8: -5250082346828272358
-      MiniBoss_9: 9038047693338132018
+      BulletAni02_0: -5606301559664984675
+      BulletAni02_1: -1042257304486583178
+      BulletAni02_10: -6471560461877796661
+      BulletAni02_11: -5815694384777597145
+      BulletAni02_12: -8398708381436163622
+      BulletAni02_13: -3470100583767162351
+      BulletAni02_2: 2086323029991920325
+      BulletAni02_3: -3530517289791833919
+      BulletAni02_4: -7645089705328113248
+      BulletAni02_5: -5026281193557120027
+      BulletAni02_6: -1380876034552637866
+      BulletAni02_7: 708274020351840954
+      BulletAni02_8: 2759877995871626120
+      BulletAni02_9: -5284354035204643500
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
