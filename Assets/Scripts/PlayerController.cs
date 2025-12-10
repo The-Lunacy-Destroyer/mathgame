@@ -1,5 +1,6 @@
 using Movement;
 using Projectile;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,8 +10,6 @@ public class PlayerController : EntityController, IEntityMovable
     private Rigidbody2D _rigidbody;
     private Camera _mainCamera;
     
-    // Movement
-    
     [field: SerializeField] [field: Range(0f, 1f)] 
     public float Slowdown { get; set; } = 0.9f; 
     [field: SerializeField] public float MoveForce { get; set; } = 8f;
@@ -18,7 +17,7 @@ public class PlayerController : EntityController, IEntityMovable
 
     public float rotationSpeed = 5f;
     
-    private void Start()
+    private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _shootingSystem = GetComponent<EntityShootingController>();
@@ -28,7 +27,7 @@ public class PlayerController : EntityController, IEntityMovable
     private void FixedUpdate()
     {
         if (_shootingSystem && 
-            (Keyboard.current.cKey.isPressed || Mouse.current.rightButton.isPressed))
+            (Keyboard.current.cKey.isPressed || Mouse.current.leftButton.isPressed))
         {
             _shootingSystem.Shoot(
                 transform.position + transform.up * 0.5f, 
@@ -71,14 +70,12 @@ public class PlayerController : EntityController, IEntityMovable
 
     private void RotateGun()
     {
-        if (!Mouse.current.leftButton.isPressed) return;
-        
         Vector2 mouseVector = GetPlayerToMouseVector();
         Vector2 direction = mouseVector.normalized;
         Vector2 current = _rigidbody.transform.up.normalized;
         
         _rigidbody.transform.up = Vector2.MoveTowards(current, direction,
-            rotationSpeed * (current - direction).magnitude * Time.fixedDeltaTime
+            rotationSpeed * math.radians(Vector2.Angle(current, direction)) * 0.01f
         );
     }
     

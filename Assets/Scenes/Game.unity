@@ -558,7 +558,7 @@ MonoBehaviour:
   <Slowdown>k__BackingField: 0.9
   <MoveForce>k__BackingField: 8
   <MaxSpeed>k__BackingField: 10
-  rotationSpeed: 8
+  rotationSpeed: 15
 --- !u!114 &188811227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1342,11 +1342,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MinibossController
   <MoveForce>k__BackingField: 10
   <MaxSpeed>k__BackingField: 12
-  <MinSpeed>k__BackingField: 1
   <Slowdown>k__BackingField: 0.875
-  <StopRadius>k__BackingField: 5
-  <TorqueForce>k__BackingField: 50
-  <MaxRotationSpeed>k__BackingField: 100
+  minSpeed: 2
+  stopRadius: 6
+  torqueForce: 30
+  maxRotationSpeed: 50
   randomMovementAngle: 45
   randomMovementCooldown: 25
   actionCooldown: 400

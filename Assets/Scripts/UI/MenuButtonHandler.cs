@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -11,15 +12,18 @@ namespace UI
         private Button _newGameButton;
         private Button _leaveButton;
         private Button _leaveToMenuButton;
-    
-        private void OnEnable()
+
+        private void Awake()
         {
             _root = GetComponent<UIDocument>().rootVisualElement;
         
             _newGameButton = _root.Q<Button>("NewGame");
             _leaveButton = _root.Q<Button>("Leave");
             _leaveToMenuButton = _root.Q<Button>("LeaveToMenu");
-        
+        }
+
+        private void OnEnable()
+        {
             if(_newGameButton != null)
                 _newGameButton.clicked += NewGame;
             if(_leaveButton != null)

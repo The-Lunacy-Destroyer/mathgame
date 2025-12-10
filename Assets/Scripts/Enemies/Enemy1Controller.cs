@@ -19,7 +19,8 @@ namespace Enemies
         [field: SerializeField] public float MoveForce { get; set; } = 8f;
         [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
         
-        [field: SerializeField] public float Slowdown { get; set; } = 0.9f;
+        [field: SerializeField] [field: Range(0f, 1f)] 
+        public float Slowdown { get; set; } = 0.9f;
         public float stopRadius = 5f;
         public float minStopRadiusScale = 0.75f;
         public float maxStopRadiusScale = 1.25f;
