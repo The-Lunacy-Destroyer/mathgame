@@ -3,20 +3,29 @@ using UnityEngine;
 
 public class ShieldController : MonoBehaviour
 {
-    private Transform player;
+    private Transform _owner;
+    private Rigidbody2D _rb;
+
+    public float shieldOffset = 1.5f;
+    
     void Start()
     {
-        player = GameObject.Find("Player").transform;
+        _owner = GameObject.Find("Player").transform;
+        _rb = _owner.GetComponent<Rigidbody2D>();
     }
     void Update()
     {
-        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-        transform.position = player.position + rb.transform.up*2;
+        transform.position = _owner.position + _rb.transform.up * shieldOffset;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         MonoBehaviour otherObj = other.GetComponent<MonoBehaviour>();
-        if (otherObj is ProjectileController projectile && !projectile.SourceObject.CompareTag("Player") ) Destroy(other.gameObject);
+        if (otherObj is ProjectileController projectile
+            && other.CompareTag("Bullet")
+            && !projectile.SourceObject.CompareTag("Player"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
