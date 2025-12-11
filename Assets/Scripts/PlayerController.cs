@@ -8,7 +8,7 @@ using Unity.Mathematics;
 
 public class PlayerController : EntityController, IEntityMovable
 {
-    private EntityShootingController _shootingSystem;
+    private EntityBulletController _bulletSystem;
     private Rigidbody2D _rigidbody;
     private Camera _mainCamera;
     
@@ -26,33 +26,33 @@ public class PlayerController : EntityController, IEntityMovable
     public int enemyKillCounter = 0;
     public UIDocument scoreUI;
     private Label _scoreText;
-    private Label _enemykillcounterText;
+    private Label _enemyKillCounterText;
     
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _shootingSystem = GetComponent<EntityShootingController>();
+        _bulletSystem = GetComponent<EntityBulletController>();
         _mainCamera = Camera.main;
     }
 
     private void Start()
     {
         _scoreText = scoreUI.rootVisualElement.Q<Label>("ScoreLabel");
-        _enemykillcounterText= scoreUI.rootVisualElement.Q<Label>("EnemykillLabel");
+        _enemyKillCounterText= scoreUI.rootVisualElement.Q<Label>("EnemyKillLabel");
     }
     
     private void Update()
     {
         _scoreText.text = "Score: " + score;
-        _enemykillcounterText.text="Enemies killed: "+ enemyKillCounter;
+        _enemyKillCounterText.text = "Enemies killed: "+ enemyKillCounter;
     }
 
     private void FixedUpdate()
     {
-        if (_shootingSystem && 
+        if (_bulletSystem && 
             (Keyboard.current.cKey.isPressed || Mouse.current.leftButton.isPressed))
         {
-            _shootingSystem.Shoot(
+            _bulletSystem.Shoot(
                 transform.position + transform.up * 0.5f, 
                 transform.up);
         }

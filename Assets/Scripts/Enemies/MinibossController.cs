@@ -12,7 +12,7 @@ namespace Enemies
 {
     public class MinibossController : BaseEnemy
     {
-        private EntityShootingController _shootingSystem;
+        private EntityBulletController _bulletSystem;
         private ActionController _actionController;
 
         public float minSpeed = 2f;
@@ -39,7 +39,7 @@ namespace Enemies
         protected override void Awake()
         {
             base.Awake();
-            _shootingSystem = GetComponent<EntityShootingController>();
+            _bulletSystem = GetComponent<EntityBulletController>();
             _actionController = GetComponent<ActionController>();
         }
         protected override void Start()
@@ -51,8 +51,8 @@ namespace Enemies
                 _lasers[i] = GameObject.Find($"Laser{i + 1}");
                 _lasers[i].SetActive(false);
                 _laserRenderers[i] = _lasers[i].GetComponent<SpriteRenderer>();
-                _initialProjectileCooldown = _shootingSystem.projectileCooldown;
-                _initialProjectileSpeed = _shootingSystem.projectileSpeed;
+                _initialProjectileCooldown = _bulletSystem.projectileCooldown;
+                _initialProjectileSpeed = _bulletSystem.projectileSpeed;
             }
             
             _actionController.OnDefaultStart += OnDefaultStart;
@@ -121,8 +121,8 @@ namespace Enemies
             if (!_isLasersAction)
             {
                 _actionController.AITimer *= 2;
-                _shootingSystem.projectileCooldown = minProjectileCooldown;
-                _shootingSystem.projectileSpeed = minProjectileSpeed;
+                _bulletSystem.projectileCooldown = minProjectileCooldown;
+                _bulletSystem.projectileSpeed = minProjectileSpeed;
             }
                 
             if (Rigidbody.linearVelocity.magnitude > 0)
@@ -141,8 +141,8 @@ namespace Enemies
             if (!_isLasersAction)
             {
                 _actionController.AITimer = (int)(2.25f * _actionController.AITimer);
-                _shootingSystem.projectileCooldown = _initialProjectileCooldown;
-                _shootingSystem.projectileSpeed = _initialProjectileSpeed;
+                _bulletSystem.projectileCooldown = _initialProjectileCooldown;
+                _bulletSystem.projectileSpeed = _initialProjectileSpeed;
             }
             _laserSize = _laserRenderers[0].size.y;
         }
@@ -182,7 +182,7 @@ namespace Enemies
         private void LaunchProjectiles()
         {
             Vector2[][] positionsAndDirections = GetLaunchPositionsAndDirections();            
-            _shootingSystem.ShootMany(
+            _bulletSystem.ShootMany(
                 positionsAndDirections[0], 
                 positionsAndDirections[1]);
         }

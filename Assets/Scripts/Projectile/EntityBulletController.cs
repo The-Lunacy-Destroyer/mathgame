@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Projectile
 {
-    public class EntityShootingController : MonoBehaviour
+    public class EntityBulletController : MonoBehaviour
     {
         public GameObject projectilePrefab;
         
@@ -38,10 +38,10 @@ namespace Projectile
         IEnumerator LaunchProjectile(Vector2 launchPosition, Vector2 launchDirection)
         {
             GameObject projectileObject = Instantiate(projectilePrefab, launchPosition, Quaternion.identity);
-            ProjectileController projectile = projectileObject.GetComponent<ProjectileController>();
+            BulletController projectile = projectileObject.GetComponent<BulletController>();
         
             projectile.SourceObject = gameObject;
-            projectile.bulletDamage *= damageScale;
+            projectile.damage *= damageScale;
         
             float spread = Random.Range(-spreadAngle, spreadAngle); 
             launchDirection = Utilities.MathUtilities.RotateVector(launchDirection, spread);

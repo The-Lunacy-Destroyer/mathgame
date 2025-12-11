@@ -150,7 +150,7 @@ MonoBehaviour:
   stopRadius: 6
   torqueForce: 70
   maxRotationSpeed: 150
-  specialTorqueForce: 1
+  specialTorqueForce: 0.75
   contactDamage: 33.33
   minProjectileCooldown: 0.15
   minProjectileSpeed: 100

@@ -8,7 +8,7 @@ namespace Enemies
 {
     public class Enemy1Controller : BaseEnemy
     {
-        private EntityShootingController _shootingSystem;
+        private EntityBulletController _bulletSystem;
         public float stopRadius = 5f;
         public float minStopRadiusScale = 0.75f;
         public float maxStopRadiusScale = 1.25f;
@@ -30,7 +30,7 @@ namespace Enemies
         protected override void Awake()
         {
             base.Awake();
-            _shootingSystem = GetComponent<EntityShootingController>();
+            _bulletSystem = GetComponent<EntityBulletController>();
             
             _deviationFactor = Random.Range(minDeviation, maxDeviation);
             stopRadius *= Random.Range(minStopRadiusScale, maxStopRadiusScale);
@@ -49,9 +49,9 @@ namespace Enemies
             {
                 TargetVector = Target.position - transform.position;
                 
-                if (_shootingSystem&& TargetVector.magnitude <= shootRadius)
+                if (_bulletSystem&& TargetVector.magnitude <= shootRadius)
                 {
-                    _shootingSystem.Shoot(Rigidbody.position, transform.up);
+                    _bulletSystem.Shoot(Rigidbody.position, transform.up);
                 }
                 Move();
                 Rotate();
