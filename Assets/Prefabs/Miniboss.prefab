@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2258616954432905974}
   - component: {fileID: 7088940098386361968}
   - component: {fileID: 3499572466362682411}
+  - component: {fileID: 7333871701622295094}
   m_Layer: 10
   m_Name: Miniboss
   m_TagString: Enemy
@@ -149,12 +150,11 @@ MonoBehaviour:
   stopRadius: 6
   torqueForce: 70
   maxRotationSpeed: 150
-  actionCooldown: 400
-  lasersCooldown: 50
-  lasersShootDuration: 400
-  minLasersTorqueForce: 0.5
-  maxLasersTorqueForce: 0.6
+  specialTorqueForce: 1
   contactDamage: 33.33
+  minProjectileCooldown: 0.15
+  minProjectileSpeed: 100
+  laserMaxSize: 50
 --- !u!114 &4591838992153462741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +276,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Drop.EntityHealthDropController
   healthDrop: {fileID: 1178529517290169631, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
+--- !u!114 &7333871701622295094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957390865753769895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae42076126ca489b9b42e4643a984bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityAI.ActionController
+  aiDurations: 2c0100001e0000002c0100001e000000
 --- !u!1001 &672551356681506294
 PrefabInstance:
   m_ObjectHideFlags: 0

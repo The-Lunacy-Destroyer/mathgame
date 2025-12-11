@@ -14,5 +14,11 @@ namespace Utilities
                 vector.x * Mathf.Sin(angle) + vector.y * Mathf.Cos(angle)
             );
         }
+
+        public static float RoundTo(float value, int digits)
+        {
+            float scale = Mathf.Pow(10, digits);
+            return Mathf.Round(value * scale) / scale;
+        }
     }
 }

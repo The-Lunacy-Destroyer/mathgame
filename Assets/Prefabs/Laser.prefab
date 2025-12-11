@@ -173,4 +173,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc24e87fb002d249afe57082fa69306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile.ProjectileController
-  bulletDamage: 1.5
+  bulletDamage: 20.1

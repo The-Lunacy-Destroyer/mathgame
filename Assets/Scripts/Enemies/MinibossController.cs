@@ -1,3 +1,4 @@
+using EntityAI;
 using Health;
 using Movement;
 using Projectile;
@@ -12,41 +13,34 @@ namespace Enemies
     public class MinibossController : BaseEnemy
     {
         private EntityShootingController _shootingSystem;
+        private ActionController _actionController;
 
         public float minSpeed = 2f;
         public float stopRadius = 6f;
         public float torqueForce = 30f;
         public float maxRotationSpeed = 50f;
         
-        [Min(1)]
-        public int actionCooldown = 300;
-        private int _actionCooldownTimer;
-        private int _actionDurationTimer;
-        private bool _isActionActive;
-
-        public int lasersCooldown = 5;
-        private int _lasersCooldownTimer;
-        private bool _isLasersActive;
-
-        public int lasersShootDuration = 50;
-        private int _lasersShootTimer;
-        
-        private float _lasersTorqueForce;
-        public float minLasersTorqueForce = 0.6f;
-        public float maxLasersTorqueForce = 0.7f;
+        public float specialTorqueForce = 0.66f;
         public float contactDamage = 35f;
-        
-        private int ActionDuration => 2 * lasersCooldown + lasersShootDuration;
 
+        public float minProjectileCooldown = 0.1f;
+        public float minProjectileSpeed = 100f;
+        private float _initialProjectileCooldown;
+        private float _initialProjectileSpeed;
+        
+        public float laserMaxSize = 50f;
+        private float _laserSize;
+        
         private GameObject[] _lasers = new GameObject[3];
         private SpriteRenderer[] _laserRenderers =  new SpriteRenderer[3];
-        private float _oldSpriteRendererXSize;
 
+        private bool _isLasersAction;
+        
         protected override void Awake()
         {
             base.Awake();
             _shootingSystem = GetComponent<EntityShootingController>();
-            _lasersTorqueForce = Random.Range(minLasersTorqueForce, maxLasersTorqueForce);
+            _actionController = GetComponent<ActionController>();
         }
         protected override void Start()
         {
@@ -56,93 +50,99 @@ namespace Enemies
             {
                 _lasers[i] = GameObject.Find($"Laser{i + 1}");
                 _lasers[i].SetActive(false);
-                _laserRenderers[i] =  _lasers[i].GetComponent<SpriteRenderer>();
+                _laserRenderers[i] = _lasers[i].GetComponent<SpriteRenderer>();
                 // if(i == 0)
                 //     _oldSpriteRendererXSize = _laserRenderers[0].size.x;
                 // _laserRenderers[i].size = new Vector2(_laserRenderers[i].size.x, 1);
+                _initialProjectileCooldown = _shootingSystem.projectileCooldown;
+                _initialProjectileSpeed = _shootingSystem.projectileSpeed;
             }
             
-            _actionCooldownTimer = actionCooldown;
-            _actionDurationTimer = ActionDuration;
-            _lasersCooldownTimer = lasersCooldown;
-            _lasersShootTimer = lasersShootDuration;
+            _actionController.OnDefaultStart += () =>
+            {
+                if (Rigidbody.angularVelocity > 0)
+                {
+                    Rigidbody.totalTorque = 0;
+                    Rigidbody.angularVelocity = 0;
+                }
+                if (_isLasersAction)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        _lasers[i].SetActive(false);
+                    }
+                }
+                _isLasersAction = !_isLasersAction;
+            };
+            _actionController.OnPreSpecialStart += () =>
+            {
+                if (_isLasersAction)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        _lasers[i].SetActive(true);
+                    }
+                }
+            };
+            _actionController.OnSpecialStart += () =>
+            {
+                if (!_isLasersAction)
+                {
+                    _actionController.AITimer *= 2;
+                    _shootingSystem.projectileCooldown = minProjectileCooldown;
+                    _shootingSystem.projectileSpeed = minProjectileSpeed;
+                }
+                
+                if (Rigidbody.linearVelocity.magnitude > 0)
+                {
+                    Rigidbody.totalForce = Vector2.zero;
+                    Rigidbody.linearVelocity = Vector2.zero;
+                }
+                if (Rigidbody.angularVelocity > 0)
+                {
+                    Rigidbody.totalTorque = 0;
+                    Rigidbody.angularVelocity = 0;
+                }
+            };
+            _actionController.OnPostSpecialStart += () =>
+            {
+                if (!_isLasersAction)
+                {
+                    _actionController.AITimer = (int)(2.25f * _actionController.AITimer);
+                    _shootingSystem.projectileCooldown = _initialProjectileCooldown;
+                    _shootingSystem.projectileSpeed = _initialProjectileSpeed;
+                }
+                _laserSize = _laserRenderers[0].size.y;
+            };
+            
+            _actionController.OnDefault += Move;
+            _actionController.OnPreSpecial += PreSpecialMove;
+            _actionController.OnSpecial += () =>
+            {
+                if (_isLasersAction) SpecialMove(specialTorqueForce);
+                else SpecialMove(specialTorqueForce * 2f);
+            };
+            _actionController.OnPostSpecial += PostSpecialMove;
+            
+            _actionController.OnDefault += LaunchProjectiles;
+            _actionController.OnPreSpecial += () =>
+            {
+                if (!_isLasersAction) LaunchProjectiles();
+            };
+            _actionController.OnSpecial += () =>
+            {
+                if (_isLasersAction) ActivateLasers();
+                else LaunchProjectiles();
+            };
+            _actionController.OnPostSpecial += () =>
+            {
+                if (_isLasersAction) DeactivateLasers();
+            };
         }
         
         private void FixedUpdate()
         {
-            if (Target)
-            {
-                TargetVector = Target.position - transform.position;
-                
-                ControlActions();
-                
-                if (_isActionActive)
-                {
-                    MoveWithLasers();
-                }
-                else
-                {
-                    LaunchProjectiles();
-                    Move();
-                }
-            }
-        }
-
-        private void ControlActions()
-        {
-            if (!_isActionActive) // до начала специальной атаки
-            {
-                _actionCooldownTimer--;
-                
-                if (_actionCooldownTimer <= 0)
-                {
-                    _isActionActive = true;
-                    _actionCooldownTimer = actionCooldown;
-                }
-
-                return;
-            }
-            
-            if (_actionDurationTimer > lasersCooldown) // период спец. атаки до деактивации лазеров
-            {
-                if (!_isLasersActive) // до активации лазеров
-                {
-                    _lasersCooldownTimer--;
-                
-                    if (_lasersCooldownTimer <= 0)
-                    {
-                        ActivateLasers();
-                        _isLasersActive = true;
-                        _lasersCooldownTimer = lasersCooldown;
-                    }
-                }
-                else // во время активации лазеров
-                {
-                    ActivateLasersResize();
-                    _lasersShootTimer--;
-                
-                    if (_lasersShootTimer <= 0)
-                    {
-                        _isLasersActive = false;
-                        _lasersShootTimer = lasersShootDuration;
-                        _lasersTorqueForce = Random.Range(minLasersTorqueForce, maxLasersTorqueForce);
-                    }
-                }
-            }
-            else // деактивация лазеров
-            {
-                DeactivateLasersResize();
-            }
-            
-            _actionDurationTimer--;
-            
-            if (_actionDurationTimer <= 0) // конец спец. атаки
-            {
-                DeactivateLasers();
-
-                _isActionActive = false;
-                _actionDurationTimer = ActionDuration;
-            }
+            if (Target) TargetVector = Target.position - transform.position;
         }
 
         private void Move()
@@ -163,23 +163,20 @@ namespace Enemies
             Rigidbody.AddForce(movementDirection * (deviation * MoveForce));
             Rigidbody.AddTorque(torqueForce);
         }
-        
-        private void MoveWithLasers()
+        private void PreSpecialMove()
         {
-            if (!_isLasersActive)
-            {
-                float state = _actionDurationTimer > lasersCooldown ? actionCooldown : lasersShootDuration;
-                float multiplier = 3f / (2 * lasersCooldown) * (state / lasersCooldown);
-                Rigidbody.AddForce(-Rigidbody.linearVelocity * multiplier);
-                Rigidbody.AddTorque(-Rigidbody.angularVelocity * multiplier);
-            }
-            else
-            {
-                Rigidbody.linearVelocity = Vector2.zero;
-                Rigidbody.AddTorque(-_lasersTorqueForce);
-            }
+            Rigidbody.AddTorque(-Rigidbody.angularVelocity / _actionController.AITimer);
+            Rigidbody.AddForce(-Rigidbody.linearVelocity / _actionController.AITimer);
         }
-
+        private void PostSpecialMove()
+        {
+            Rigidbody.AddTorque(-Rigidbody.angularVelocity / _actionController.AITimer);
+            Rigidbody.AddForce(-Rigidbody.linearVelocity / _actionController.AITimer);
+        }
+        private void SpecialMove(float tForce)
+        {
+            Rigidbody.AddTorque(tForce);
+        }
         private void LaunchProjectiles()
         {
             Vector2[][] positionsAndDirections = GetLaunchPositionsAndDirections();            
@@ -187,20 +184,13 @@ namespace Enemies
                 positionsAndDirections[0], 
                 positionsAndDirections[1]);
         }
-
         private void ActivateLasers()
         {
+            if (_laserRenderers[0].size.y > laserMaxSize) return;
+            
             for (int i = 0; i < 3; i++)
             {
-                _lasers[i].SetActive(true);
-            }
-        }
-
-        private void ActivateLasersResize()
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                Vector2 addVector = new Vector2(0, 0.5f);
+                Vector2 addVector = new Vector2(0, 1f);
                 // if (_laserRenderers[i].size.x < _oldSpriteRendererXSize)
                 // {
                 //     addVector.x = 0.01f;
@@ -208,25 +198,40 @@ namespace Enemies
                 _laserRenderers[i].size += addVector;
             }
         }
-        private void DeactivateLasersResize()
+        private void DeactivateLasers()
         {
+            if (_laserRenderers[0].size.y == 0) return;
+            
             for (int i = 0; i < 3; i++)
             {
-                Vector2 addVector = new Vector2(0, 0.5f);
+                Vector2 addVector = new Vector2(0, (_laserSize + 2f) / _actionController.aiDurations[3]);
+                
+                Vector2 newSize = _laserRenderers[i].size - addVector;
+                if (newSize.y < 0) newSize = new Vector2(_laserRenderers[i].size.x, 0);
+
                 // if (_laserRenderers[i].size.x > 0f)
                 // {
                 //     addVector.x = 0.02f;
                 // }
-                _laserRenderers[i].size -= addVector;
+                _laserRenderers[i].size = newSize;
             }
         }
-        private void DeactivateLasers()
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                _lasers[i].SetActive(false);
-            }
-        }
+
+        // private void StartBulletHell()
+        // {
+        //     float t = (float)(_actionController.aiDurations[1] - _actionController.AITimer) /
+        //               _actionController.aiDurations[1];
+        //     _shootingSystem.projectileCooldown = Mathf.Lerp(_initialProjectileCooldown, minProjectileCooldown, t);
+        //     _shootingSystem.projectileSpeed = Mathf.Lerp(_initialProjectileSpeed, minProjectileSpeed, t);
+        // }
+        //
+        // private void EndBulletHell()
+        // {
+        //     float t = (float)(_actionController.aiDurations[3] - _actionController.AITimer) /
+        //                                     _actionController.aiDurations[3];
+        //     _shootingSystem.projectileCooldown = Mathf.Lerp(minProjectileCooldown, _initialProjectileCooldown, t);
+        //     _shootingSystem.projectileSpeed = Mathf.Lerp(minProjectileSpeed, _initialProjectileSpeed, t);
+        // }
         
         private Vector2[][] GetLaunchPositionsAndDirections()
         {
