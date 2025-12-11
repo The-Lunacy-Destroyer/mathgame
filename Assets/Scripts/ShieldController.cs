@@ -20,7 +20,7 @@ public class ShieldController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        MonoBehaviour otherObj = other.GetComponent<MonoBehaviour>();
+        MonoBehaviour otherObj = other?.GetComponent<MonoBehaviour>();
         if (otherObj is ProjectileController projectile
             && other.CompareTag("Bullet")
             && !projectile.SourceObject.CompareTag("Player"))

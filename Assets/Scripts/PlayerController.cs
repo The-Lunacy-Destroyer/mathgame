@@ -1,14 +1,18 @@
+using System;
 using Movement;
 using Projectile;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
+using Unity.Mathematics;
 
 public class PlayerController : EntityController, IEntityMovable
 {
     private EntityShootingController _shootingSystem;
     private Rigidbody2D _rigidbody;
     private Camera _mainCamera;
+    
+    // Movement
     
     [field: SerializeField] [field: Range(0f, 1f)] 
     public float Slowdown { get; set; } = 0.9f; 
@@ -17,11 +21,30 @@ public class PlayerController : EntityController, IEntityMovable
 
     public float rotationSpeed = 5f;
     
+    //Score 
+    public float score = 0f;
+    public int enemyKillCounter = 0;
+    public UIDocument scoreUI;
+    private Label _scoreText;
+    private Label _enemykillcounterText;
+    
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _shootingSystem = GetComponent<EntityShootingController>();
         _mainCamera = Camera.main;
+    }
+
+    private void Start()
+    {
+        _scoreText = scoreUI.rootVisualElement.Q<Label>("ScoreLabel");
+        _enemykillcounterText= scoreUI.rootVisualElement.Q<Label>("EnemykillLabel");
+    }
+    
+    private void Update()
+    {
+        _scoreText.text = "Score: " + score;
+        _enemykillcounterText.text="Enemies killed: "+ enemyKillCounter;
     }
 
     private void FixedUpdate()
