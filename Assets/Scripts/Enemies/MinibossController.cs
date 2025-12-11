@@ -51,69 +51,14 @@ namespace Enemies
                 _lasers[i] = GameObject.Find($"Laser{i + 1}");
                 _lasers[i].SetActive(false);
                 _laserRenderers[i] = _lasers[i].GetComponent<SpriteRenderer>();
-                // if(i == 0)
-                //     _oldSpriteRendererXSize = _laserRenderers[0].size.x;
-                // _laserRenderers[i].size = new Vector2(_laserRenderers[i].size.x, 1);
                 _initialProjectileCooldown = _shootingSystem.projectileCooldown;
                 _initialProjectileSpeed = _shootingSystem.projectileSpeed;
             }
             
-            _actionController.OnDefaultStart += () =>
-            {
-                if (Rigidbody.angularVelocity > 0)
-                {
-                    Rigidbody.totalTorque = 0;
-                    Rigidbody.angularVelocity = 0;
-                }
-                if (_isLasersAction)
-                {
-                    for (int i = 0; i < 3; i++)
-                    {
-                        _lasers[i].SetActive(false);
-                    }
-                }
-                _isLasersAction = !_isLasersAction;
-            };
-            _actionController.OnPreSpecialStart += () =>
-            {
-                if (_isLasersAction)
-                {
-                    for (int i = 0; i < 3; i++)
-                    {
-                        _lasers[i].SetActive(true);
-                    }
-                }
-            };
-            _actionController.OnSpecialStart += () =>
-            {
-                if (!_isLasersAction)
-                {
-                    _actionController.AITimer *= 2;
-                    _shootingSystem.projectileCooldown = minProjectileCooldown;
-                    _shootingSystem.projectileSpeed = minProjectileSpeed;
-                }
-                
-                if (Rigidbody.linearVelocity.magnitude > 0)
-                {
-                    Rigidbody.totalForce = Vector2.zero;
-                    Rigidbody.linearVelocity = Vector2.zero;
-                }
-                if (Rigidbody.angularVelocity > 0)
-                {
-                    Rigidbody.totalTorque = 0;
-                    Rigidbody.angularVelocity = 0;
-                }
-            };
-            _actionController.OnPostSpecialStart += () =>
-            {
-                if (!_isLasersAction)
-                {
-                    _actionController.AITimer = (int)(2.25f * _actionController.AITimer);
-                    _shootingSystem.projectileCooldown = _initialProjectileCooldown;
-                    _shootingSystem.projectileSpeed = _initialProjectileSpeed;
-                }
-                _laserSize = _laserRenderers[0].size.y;
-            };
+            _actionController.OnDefaultStart += OnDefaultStart;
+            _actionController.OnPreSpecialStart += OnPreSpecialStart;
+            _actionController.OnSpecialStart += OnSpecialStart;
+            _actionController.OnPostSpecialStart += OnPostSpecialStart;
             
             _actionController.OnDefault += Move;
             _actionController.OnPreSpecial += PreSpecialMove;
@@ -144,7 +89,64 @@ namespace Enemies
         {
             if (Target) TargetVector = Target.position - transform.position;
         }
-
+        
+        private void OnDefaultStart()
+        {
+            if (Rigidbody.angularVelocity > 0)
+            {
+                Rigidbody.totalTorque = 0;
+                Rigidbody.angularVelocity = 0;
+            }
+            if (_isLasersAction)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    _lasers[i].SetActive(false);
+                }
+            }
+            _isLasersAction = !_isLasersAction;
+        }
+        private void OnPreSpecialStart()
+        {
+            if (_isLasersAction)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    _lasers[i].SetActive(true);
+                }
+            }
+        }
+        private void OnSpecialStart()
+        {
+            if (!_isLasersAction)
+            {
+                _actionController.AITimer *= 2;
+                _shootingSystem.projectileCooldown = minProjectileCooldown;
+                _shootingSystem.projectileSpeed = minProjectileSpeed;
+            }
+                
+            if (Rigidbody.linearVelocity.magnitude > 0)
+            {
+                Rigidbody.totalForce = Vector2.zero;
+                Rigidbody.linearVelocity = Vector2.zero;
+            }
+            if (Rigidbody.angularVelocity > 0)
+            {
+                Rigidbody.totalTorque = 0;
+                Rigidbody.angularVelocity = 0;
+            }
+        }
+        private void OnPostSpecialStart()
+        {
+            if (!_isLasersAction)
+            {
+                _actionController.AITimer = (int)(2.25f * _actionController.AITimer);
+                _shootingSystem.projectileCooldown = _initialProjectileCooldown;
+                _shootingSystem.projectileSpeed = _initialProjectileSpeed;
+            }
+            _laserSize = _laserRenderers[0].size.y;
+        }
+        
         private void Move()
         {
             if (!Rigidbody) return;
