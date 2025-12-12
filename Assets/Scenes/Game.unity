@@ -438,7 +438,7 @@ MonoBehaviour:
   projectileSpeed: 450
   damageScale: 1
   projectileCooldown: 0.5
-  spreadAngle: 15
+  spreadAngle: 9
 --- !u!114 &188811229
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -53,7 +53,7 @@ public class PlayerController : EntityController, IEntityMovable
             (Keyboard.current.cKey.isPressed || Mouse.current.leftButton.isPressed))
         {
             _bulletSystem.Shoot(
-                transform.position + transform.up * 0.5f, 
+                transform.position + transform.up * 0.3f, 
                 transform.up);
         }
         Move();

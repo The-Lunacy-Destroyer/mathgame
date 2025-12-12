@@ -51,7 +51,7 @@ namespace Enemies
                 
                 if (_bulletSystem&& TargetVector.magnitude <= shootRadius)
                 {
-                    _bulletSystem.Shoot(Rigidbody.position, transform.up);
+                    _bulletSystem.Shoot(transform.position + transform.up * 0.25f, transform.up);
                 }
                 Move();
                 Rotate();

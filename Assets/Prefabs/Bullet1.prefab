@@ -202,3 +202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile.BulletController
   damage: 20.1
+  flashPrefab: {fileID: 8106413968970030787, guid: 725f614dfe10be09daec94b5736f71ec, type: 3}
+  shootingPrefab: {fileID: 1193584265746661030, guid: 5aed4b68e065f21f49b7fd5c17a9b541, type: 3}
+  shootingOffset: 0.15
