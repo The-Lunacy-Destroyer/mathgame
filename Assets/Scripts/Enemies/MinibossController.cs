@@ -237,6 +237,8 @@ namespace Enemies
         
         private Vector2[][] GetLaunchPositionsAndDirections()
         {
+            float a = Rigidbody.angularVelocity * _bulletSystem.projectileCooldown;
+            
             Vector2 dir1 = transform.up.normalized;
             Vector2 dir2 = MathUtilities.RotateVector(dir1, 120);
             Vector2 dir3 = MathUtilities.RotateVector(dir1, -120);
@@ -248,7 +250,11 @@ namespace Enemies
             return new[]
             {
                 new[] { pos1, pos2, pos3 },
-                new[] { dir1, dir2, dir3 }
+                new[] { 
+                    MathUtilities.RotateVector(dir1, a), 
+                    MathUtilities.RotateVector(dir2, a), 
+                    MathUtilities.RotateVector(dir3, a)
+                }
             };
         }
         
