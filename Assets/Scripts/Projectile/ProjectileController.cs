@@ -13,9 +13,10 @@ namespace Projectile
         public float bulletDamage = 20.1f;
         public GameObject SourceObject { get; set; }
         private bool _canDestroy = true;
-        
+        public Vector2 dir;
         public void Launch(Vector2 direction, float force)
         {
+            dir = direction;
             _rigidbody.AddForce(direction * force);
         }
         

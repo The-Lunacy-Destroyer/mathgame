@@ -1,3 +1,4 @@
+using Projectile;
 using UnityEngine;
 
 public class MeteorsController : MonoBehaviour
@@ -20,5 +21,15 @@ public class MeteorsController : MonoBehaviour
     {
         rb.position += moveDirection * 0.05f;
         rb.transform.up = Utilities.MathUtilities.RotateVector(rb.transform.up, rng1 + Mathf.Sign(rng1) * 0.5f);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        MonoBehaviour otherObj = other.GetComponent<MonoBehaviour>();
+        if (otherObj is ProjectileController projectile)
+        {
+            rb.AddForce(projectile.dir * 100f);
+            Destroy(projectile.gameObject);
+        }
     }
 }
