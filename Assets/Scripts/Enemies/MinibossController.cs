@@ -15,6 +15,9 @@ namespace Enemies
         private EntityBulletController _bulletSystem;
         private ActionController _actionController;
 
+        private GameObject _laserStartSound;
+        private GameObject _laserEndSound;
+        
         public float minSpeed = 2f;
         public float stopRadius = 6f;
         public float torqueForce = 30f;
@@ -46,9 +49,12 @@ namespace Enemies
         {
             base.Start();
 
+            _laserStartSound = transform.Find("LaserStart").gameObject;
+            _laserEndSound = transform.Find("LaserEnd").gameObject;
+            
             for (int i = 0; i < 3; i++)
             {
-                _lasers[i] = GameObject.Find($"Laser{i + 1}");
+                _lasers[i] = transform.Find($"Laser{i + 1}").gameObject;
                 _lasers[i].SetActive(false);
                 _laserRenderers[i] = _lasers[i].GetComponent<SpriteRenderer>();
                 _initialProjectileCooldown = _bulletSystem.projectileCooldown;
@@ -56,7 +62,6 @@ namespace Enemies
             }
             
             _actionController.OnDefaultStart += OnDefaultStart;
-            _actionController.OnPreSpecialStart += OnPreSpecialStart;
             _actionController.OnSpecialStart += OnSpecialStart;
             _actionController.OnPostSpecialStart += OnPostSpecialStart;
             
@@ -106,16 +111,6 @@ namespace Enemies
             }
             _isLasersAction = !_isLasersAction;
         }
-        private void OnPreSpecialStart()
-        {
-            if (_isLasersAction)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    _lasers[i].SetActive(true);
-                }
-            }
-        }
         private void OnSpecialStart()
         {
             if (!_isLasersAction)
@@ -123,6 +118,15 @@ namespace Enemies
                 _actionController.AITimer *= 2;
                 _bulletSystem.projectileCooldown = minProjectileCooldown;
                 _bulletSystem.projectileSpeed = minProjectileSpeed;
+            }
+            else
+            {
+                _laserStartSound.SetActive(true);
+                _laserEndSound.SetActive(false);
+                for (int i = 0; i < 3; i++)
+                {
+                    _lasers[i].SetActive(true);
+                }
             }
                 
             if (Rigidbody.linearVelocity.magnitude > 0)
@@ -144,7 +148,12 @@ namespace Enemies
                 _bulletSystem.projectileCooldown = _initialProjectileCooldown;
                 _bulletSystem.projectileSpeed = _initialProjectileSpeed;
             }
-            _laserSize = _laserRenderers[0].size.y;
+            else
+            {
+                _laserSize = _laserRenderers[0].size.y;
+                _laserStartSound.SetActive(false);
+                _laserEndSound.SetActive(true);
+            }
         }
         
         private void Move()
