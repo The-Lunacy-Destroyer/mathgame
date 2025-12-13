@@ -7,7 +7,6 @@ namespace Projectile
     public class BulletController : ProjectileController
     {
         private Rigidbody2D _rigidbody;
-        private Camera _camera;
 
         public GameObject flashPrefab;
         public GameObject shootingPrefab;
@@ -15,7 +14,6 @@ namespace Projectile
         
         private void Awake()
         {
-            _camera = Camera.main;
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
@@ -34,14 +32,6 @@ namespace Projectile
             _rigidbody.AddForce(direction * force);
             transform.up = direction;
         }
-        
-        private void Update()
-        {
-            if ((_camera.transform.position - transform.position).magnitude > 40.0f)
-            {
-                Destroy(gameObject);
-            }
-        }
 
         protected override void DecreaseHealth(EntityHealthController entityHealth)
         {
@@ -55,6 +45,14 @@ namespace Projectile
             
             GameObject flash = Instantiate(flashPrefab, transform.position, Quaternion.identity);
             flash.transform.up = -transform.up;
+        }
+
+        protected override void OnTriggerStay2D(Collider2D other)
+        {
+            base.OnTriggerStay2D(other);
+            if (other.gameObject.layer != LayerMask.NameToLayer("Projectiles")
+                && !other.gameObject.CompareTag(SourceObject.tag)) 
+                Destroy(gameObject);
         }
     }
 }
