@@ -32,7 +32,6 @@ namespace Projectile
                 Destroy(gameObject);
             }
         }
-
         void OnTriggerStay2D(Collider2D other)
         {
             EntityHealthController otherEntityHealth = 

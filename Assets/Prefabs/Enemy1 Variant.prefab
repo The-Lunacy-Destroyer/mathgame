@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 667771176659950419, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667771176659950419, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.90625
       objectReference: {fileID: 0}
@@ -66,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: a04bee24e50fbe72ebcfcf27f709766e, type: 3}
     - target: {fileID: 7304953242648891167, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_Name
-      value: Enemy1 (2) Variant
+      value: Enemy1 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7304953242648891167, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

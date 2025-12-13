@@ -37,6 +37,8 @@ public class PlayerController : EntityController, IEntityMovable
 
     private void Start()
     {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.color = new Color(1, 1, 1);
         _scoreText = scoreUI.rootVisualElement.Q<Label>("ScoreLabel");
         _enemykillcounterText= scoreUI.rootVisualElement.Q<Label>("EnemykillLabel");
     }
