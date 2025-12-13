@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.90625
       objectReference: {fileID: 0}
+    - target: {fileID: 2430068860209497107, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bffb5bb6de1781b8e91c65e4098a0d3e, type: 3}
+    - target: {fileID: 3472903883311435257, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a04bee24e50fbe72ebcfcf27f709766e, type: 3}
+    - target: {fileID: 4104404185064860980, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a04bee24e50fbe72ebcfcf27f709766e, type: 3}
     - target: {fileID: 4777557795078623837, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.519199
@@ -66,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: a04bee24e50fbe72ebcfcf27f709766e, type: 3}
     - target: {fileID: 7304953242648891167, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_Name
-      value: Enemy1 (2) Variant
+      value: Enemy1 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

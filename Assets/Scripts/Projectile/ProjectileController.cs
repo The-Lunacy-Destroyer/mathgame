@@ -1,3 +1,4 @@
+using System.Collections;
 using Enemies;
 using Health;
 using Unity.VisualScripting;
@@ -9,7 +10,7 @@ namespace Projectile
     {
         public float damage = 20.1f;
         public GameObject SourceObject { get; set; }
-
+        
         protected virtual void OnTriggerStay2D(Collider2D other)
         {
             EntityHealthController otherEntityHealth = 
@@ -21,6 +22,8 @@ namespace Projectile
                     || 
                     other.CompareTag("Player") && SourceObject.CompareTag("Enemy"))
                 {
+                    FlashMaskController flashMask = other.GetComponent<FlashMaskController>();
+                    if (flashMask) flashMask.Flash();
                     DecreaseHealth(otherEntityHealth);
                 }
             }
