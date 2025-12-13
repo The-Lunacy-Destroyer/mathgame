@@ -138,7 +138,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f2ed5927c0a06e409fafae7ed3ccd84, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  m_EditorClassIdentifier: Assembly-CSharp::Enemies.Enemy1Controller
+  shakeTotalCount: 2
+  shakeIncreaseCount: 3
+  shakeDecreaseCount: 3
+  shakeDelay: 0.003
+  minShake: 0.125
+  maxShake: 0.15
   <MoveForce>k__BackingField: 6
   <MaxSpeed>k__BackingField: 8
   <Slowdown>k__BackingField: 0.9
@@ -198,10 +204,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.55, y: 0}
-      - {x: 0, y: 0.55}
-      - {x: 0.55, y: 0}
-      - {x: 0, y: -0.55}
+    - - {x: -0.3955698, y: -0.39947367}
+      - {x: -0.41567612, y: -0.10837555}
+      - {x: -0.21362573, y: 0.35883236}
+      - {x: -0.00030326843, y: 0.22633743}
+      - {x: 0.21881104, y: 0.34212095}
+      - {x: 0.4421032, y: -0.078513145}
+      - {x: 0.3851986, y: -0.41611576}
+      - {x: 0.0031356812, y: -0.4281724}
   m_UseDelaunayMesh: 0
 --- !u!114 &5669305519626642353
 MonoBehaviour:
@@ -289,7 +299,7 @@ GameObject:
   - component: {fileID: 2430068860209497107}
   m_Layer: 0
   m_Name: FlashMask
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -490,6 +500,10 @@ PrefabInstance:
     - target: {fileID: 6408982978271192134, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408982978271192134, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7254330523021348923, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_AnchoredPosition.y

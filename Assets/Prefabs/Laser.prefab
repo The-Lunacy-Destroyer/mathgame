@@ -173,4 +173,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c6ccb98a9d4a65ad2e8376b528bc66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile.LaserController
+  flashPrefab: {fileID: 8106413968970030787, guid: 725f614dfe10be09daec94b5736f71ec, type: 3}
   damage: 20.1

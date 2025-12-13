@@ -408,6 +408,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad431c15efd82cccbe79daaab7905df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  shakeTotalCount: 2
+  shakeIncreaseCount: 3
+  shakeDecreaseCount: 3
+  shakeDelay: 0.003
+  minShake: 0.02
+  maxShake: 0.03
   <Slowdown>k__BackingField: 0.9
   <MoveForce>k__BackingField: 8
   <MaxSpeed>k__BackingField: 10
@@ -47534,7 +47540,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
@@ -49793,51 +49799,9 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1089010504}
-    m_ColliderPaths:
-    - - X: 310000000
-        Y: -9999999
-      - X: 310000000
-        Y: 210000000
-      - X: -310000000
-        Y: 210000000
-      - X: -310000000
-        Y: 10000000
-      - X: -300000000
-        Y: 10000000
-      - X: -300000000
-        Y: 200000000
-      - X: 300000000
-        Y: 200000000
-      - X: 300000000
-        Y: -10000000
-    - - X: 310000000
-        Y: -10000000
-      - X: 300000000
-        Y: -10000000
-      - X: 300000000
-        Y: -200000000
-      - X: -300000000
-        Y: -200000000
-      - X: -300000000
-        Y: 10000000
-      - X: -310000000
-        Y: 9999999
-      - X: -310000000
-        Y: -210000000
-      - X: 310000000
-        Y: -210000000
+  m_ColliderPaths: []
   m_CompositePaths:
-    m_Paths:
-    - - {x: 30.999971, y: -21}
-      - {x: 30.999971, y: 21}
-      - {x: -31, y: 20.999971}
-      - {x: -30.999971, y: -21}
-    - - {x: 30, y: -19.999971}
-      - {x: -30, y: -19.999971}
-      - {x: -29.999971, y: 20}
-      - {x: 30, y: 19.999971}
+    m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -49867,7 +49831,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1001 &1435400629
 PrefabInstance:
@@ -50420,7 +50384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 957390865753769895, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1391113331848303625, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
       propertyPath: m_Size.y
@@ -50491,6 +50455,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -7199023062175336757, guid: 2b7ffd370cfc2681592ced8845ccd0b0, type: 3}
     - target: {fileID: 5399203395976931074, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399203395976931074, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -50505,6 +50473,10 @@ PrefabInstance:
     - target: {fileID: 5755978529598683549, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755978529598683549, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6326793419917021101, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
       propertyPath: bulletHellSpeedScale
@@ -50572,11 +50544,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9057259853647185572, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9057259853647185572, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9219084306883740554, guid: 9e417de66f7190e7da6880ea476d42db, type: 3}
       propertyPath: m_LocalPosition.y
@@ -50666,6 +50638,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7830140397504136162, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
+      propertyPath: maxOpacity
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4777557795078623837, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.82
@@ -50708,11 +50684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020496748311456311, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6020496748311456311, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7304953242648891167, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_Name
@@ -50720,7 +50696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7304953242648891167, guid: 47738a5400246d5459ff9ab81f56b6ad, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

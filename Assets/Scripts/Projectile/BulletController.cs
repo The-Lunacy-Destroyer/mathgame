@@ -8,7 +8,6 @@ namespace Projectile
     {
         private Rigidbody2D _rigidbody;
 
-        public GameObject flashPrefab;
         public GameObject shootingPrefab;
         public float shootingOffset = 0.1f;
         
@@ -32,27 +31,15 @@ namespace Projectile
             _rigidbody.AddForce(direction * force);
             transform.up = direction;
         }
-
-        protected override void DecreaseHealth(EntityHealthController entityHealth)
-        {
-            base.DecreaseHealth(entityHealth);
-            Destroy(gameObject);
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if(other.gameObject == SourceObject) return;
-            
-            GameObject flash = Instantiate(flashPrefab, transform.position, Quaternion.identity);
-            flash.transform.up = -transform.up;
-        }
-
+        
         protected override void OnTriggerStay2D(Collider2D other)
         {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Borders"))
+            {
+                InstantiateFlash();
+            }
             base.OnTriggerStay2D(other);
-            if (other.gameObject.layer != LayerMask.NameToLayer("Projectiles")
-                && !other.gameObject.CompareTag(SourceObject.tag)) 
-                Destroy(gameObject);
+            if(SourceObject != other.gameObject) Destroy(gameObject);
         }
     }
 }

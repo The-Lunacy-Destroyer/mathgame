@@ -18,7 +18,7 @@ namespace Enemies
         private float _deviationFactor;
 
         [Min(1)]
-        public int actionCooldown = 1;
+        public int actionCooldown = 30;
         private int _actionCooldownTimer;
 
         public int stopRadiusMovementCooldown = 30;

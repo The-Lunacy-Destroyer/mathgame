@@ -138,6 +138,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f93eca2c22946f6987b23ea2f7054c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemies.Enemy2Controller
+  shakeTotalCount: 2
+  shakeIncreaseCount: 3
+  shakeDecreaseCount: 3
+  shakeDelay: 0.003
+  minShake: 0.125
+  maxShake: 0.15
   <MoveForce>k__BackingField: 6
   <MaxSpeed>k__BackingField: 10
   <Slowdown>k__BackingField: 0.9
@@ -273,7 +279,7 @@ GameObject:
   - component: {fileID: 4587606656269040101}
   m_Layer: 0
   m_Name: FlashMask
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -506,6 +512,10 @@ PrefabInstance:
     - target: {fileID: 6408982978271192134, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6408982978271192134, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7254330523021348923, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_LocalScale.x

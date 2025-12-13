@@ -33,11 +33,11 @@ public class PlayerController : EntityController, IEntityMovable
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _bulletSystem = GetComponent<EntityBulletController>();
-        _mainCamera = Camera.main;
     }
 
     private void Start()
     {
+        _mainCamera = Camera.main;
         _scoreText = scoreUI.rootVisualElement.Q<Label>("ScoreLabel");
         _enemyKillCounterText= scoreUI.rootVisualElement.Q<Label>("EnemyKillLabel");
     }

@@ -143,6 +143,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3259bcd3142c0884a8870c77e07fc7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinibossController
+  shakeTotalCount: 2
+  shakeIncreaseCount: 3
+  shakeDecreaseCount: 3
+  shakeDelay: 0.003
+  minShake: 0.125
+  maxShake: 0.15
   <MoveForce>k__BackingField: 10
   <MaxSpeed>k__BackingField: 12
   <Slowdown>k__BackingField: 0.875
@@ -320,7 +326,7 @@ GameObject:
   - component: {fileID: 2542786884426957530}
   m_Layer: 0
   m_Name: FlashMask
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,6 +423,10 @@ PrefabInstance:
     - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -644,6 +654,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6408982978271192134, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7254330523021348923, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_SizeDelta.x
       value: 613.5968
@@ -697,6 +711,10 @@ PrefabInstance:
     - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -783,6 +801,10 @@ PrefabInstance:
     - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4303563373356665554, guid: a1056b5c82856137f86350d1fe9d4c94, type: 3}
       propertyPath: m_StaticEditorFlags

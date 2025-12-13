@@ -1,16 +1,25 @@
+using System;
 using System.Collections;
 using Enemies;
 using Health;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
+using Random = UnityEngine.Random;
 
 namespace Projectile
 {
     public class ProjectileController : MonoBehaviour
     {
+        public GameObject flashPrefab;
         public float damage = 20.1f;
         public GameObject SourceObject { get; set; }
-        
+
+        public void InstantiateFlash()
+        {
+            GameObject flash = Instantiate(flashPrefab, transform.position, Quaternion.identity);
+            flash.transform.up = -transform.up;
+        }
         protected virtual void OnTriggerStay2D(Collider2D other)
         {
             EntityHealthController otherEntityHealth = 
@@ -22,14 +31,20 @@ namespace Projectile
                     || 
                     other.CompareTag("Player") && SourceObject.CompareTag("Enemy"))
                 {
+                    InstantiateFlash();
+                    
                     FlashMaskController flashMask = other.GetComponent<FlashMaskController>();
-                    if (flashMask) flashMask.Flash();
+                    flashMask?.Flash();
+                    
+                    EntityController otherEntity = other.GetComponent<EntityController>();
+                    otherEntity?.Shake();
+                    
                     DecreaseHealth(otherEntityHealth);
                 }
             }
         }
 
-        protected virtual void DecreaseHealth(EntityHealthController entityHealth)
+        private void DecreaseHealth(EntityHealthController entityHealth)
         {
             entityHealth.CurrentHealth -= damage;
            

@@ -258,13 +258,18 @@ namespace Enemies
             };
         }
         
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnCollisionEnter2D(Collision2D other)
         {
             EntityHealthController otherEntityHealth = 
-                collision.collider.GetComponent<EntityHealthController>();
+                other.collider.GetComponent<EntityHealthController>();
 
-            if (otherEntityHealth && collision.gameObject.CompareTag("Player"))
+            if (otherEntityHealth && other.gameObject.CompareTag("Player"))
             {
+                FlashMaskController flashMask = other.gameObject.GetComponent<FlashMaskController>();
+                flashMask?.Flash();
+                EntityController otherEntity = other.gameObject.GetComponent<EntityController>();
+                otherEntity?.Shake();
+                
                 otherEntityHealth.CurrentHealth -= contactDamage;
                 
                 if (otherEntityHealth.CurrentHealth <= 0)
