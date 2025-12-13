@@ -9,6 +9,8 @@ namespace Projectile
         private Rigidbody2D _rigidbody;
 
         public GameObject shootingPrefab;
+        public GameObject collisionSoundPrefab;
+        
         public float shootingOffset = 0.1f;
         
         private void Awake()
@@ -39,7 +41,12 @@ namespace Projectile
                 InstantiateFlash();
             }
             base.OnTriggerStay2D(other);
-            if(SourceObject != other.gameObject) Destroy(gameObject);
+            if (SourceObject != other.gameObject)
+            {
+                GameObject collisionSound = Instantiate(collisionSoundPrefab, transform.position, Quaternion.identity);
+                Destroy(collisionSound, 1f);
+                Destroy(gameObject);
+            }
         }
     }
 }
