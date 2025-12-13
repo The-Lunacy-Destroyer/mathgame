@@ -1,8 +1,12 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EntityController : MonoBehaviour
 {
+    public GameObject deathSoundPrefab;
+    
     public int shakeTotalCount = 2;
     public int shakeIncreaseCount = 3;
     public int shakeDecreaseCount = 3;
@@ -31,5 +35,11 @@ public class EntityController : MonoBehaviour
                 yield return new WaitForSeconds(shakeDelay / shakeDecreaseCount);  
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameObject deathSound = Instantiate(deathSoundPrefab, transform.position, Quaternion.identity);
+        Destroy(deathSound, 1f);
     }
 }

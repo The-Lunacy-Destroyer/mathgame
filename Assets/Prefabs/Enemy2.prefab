@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f93eca2c22946f6987b23ea2f7054c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemies.Enemy2Controller
+  deathSoundPrefab: {fileID: 4404108502473601490, guid: e4b34a32726275392b92cacdce3acfec, type: 3}
   shakeTotalCount: 2
   shakeIncreaseCount: 3
   shakeDecreaseCount: 3

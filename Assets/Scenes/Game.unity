@@ -408,6 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad431c15efd82cccbe79daaab7905df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  deathSoundPrefab: {fileID: 1026810158950595084, guid: 813b42deb69642b7d93547f05f1d47fd, type: 3}
   shakeTotalCount: 2
   shakeIncreaseCount: 3
   shakeDecreaseCount: 3
