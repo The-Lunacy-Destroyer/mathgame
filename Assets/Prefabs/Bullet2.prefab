@@ -13,6 +13,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5557673121184987538, guid: 528483e6479569427b477f2467dbcd47, type: 3}
     - target: {fileID: -6060305643698956761, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
+      propertyPath: flashPrefab1
+      value: 
+      objectReference: {fileID: 5557673121184987538, guid: 528483e6479569427b477f2467dbcd47, type: 3}
+    - target: {fileID: -6060305643698956761, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
+      propertyPath: flashPrefab2
+      value: 
+      objectReference: {fileID: 6646588931317989736, guid: 3823239a7c55092a2a2cc211c3c76682, type: 3}
+    - target: {fileID: -6060305643698956761, guid: 66b7955d1eb476b4c9b3acd7bc17b895, type: 3}
       propertyPath: shootingPrefab
       value: 
       objectReference: {fileID: 6860806089416399860, guid: a0349acdcc5d2f51ea40e2c59a702f6d, type: 3}

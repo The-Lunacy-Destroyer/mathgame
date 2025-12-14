@@ -11,13 +11,18 @@ namespace Projectile
 {
     public class ProjectileController : MonoBehaviour
     {
-        public GameObject flashPrefab;
+        public GameObject flashPrefab1;
+        public GameObject flashPrefab2;
+        public float flashPositionOffset = 0.2f;
         public float damage = 20.1f;
         public GameObject SourceObject { get; set; }
 
         protected void InstantiateFlash()
         {
-            GameObject flash = Instantiate(flashPrefab, transform.position, Quaternion.identity);
+            Vector3 flashPosition = transform.position - transform.up * flashPositionOffset;
+            GameObject flash = Random.value < 0.5 ? 
+                Instantiate(flashPrefab1, flashPosition, Quaternion.identity)
+                : Instantiate(flashPrefab2, flashPosition, Quaternion.identity);
             flash.transform.up = -transform.up;
         }
         protected virtual void OnTriggerStay2D(Collider2D other)
