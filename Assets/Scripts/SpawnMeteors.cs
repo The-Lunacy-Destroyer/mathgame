@@ -9,10 +9,13 @@ public class SpawnMeteors : MonoBehaviour
     {
         for(int i = 0; i < amount; i++)
         {
-            float rng1 = Random.Range(-1.0f, 1f);
-            float rng2 = Random.Range(-1.0f, 1f);
-            float rng3 = Random.Range(3.0f, 100f);
-            Vector3 pos = rng3 * new Vector3(rng1, rng2);
+            Rigidbody2D meteor_rb = meteor.GetComponent<Rigidbody2D>();
+            float rng = Random.Range(0.5f, 2.0f);
+
+            meteor_rb.mass = Random.Range(0.5f, 2.0f);
+            meteor.transform.localScale = new Vector3(rng, rng, 0);
+            Vector3 pos = Random.Range(3.0f, 100f) * Random.insideUnitCircle;
+
             Instantiate(meteor, pos , Quaternion.identity);
         }
     }
