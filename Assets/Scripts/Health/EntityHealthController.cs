@@ -4,6 +4,7 @@ namespace Health
 {
     public class EntityHealthController : MonoBehaviour
     {
+        private FlashMaskController _flashMask;
         private HealthBarController _healthBar;
 
         public float maxHealth = 100.0f;
@@ -14,6 +15,11 @@ namespace Health
             get => _currentHealth;
             set
             {
+                if (value < _currentHealth)
+                {
+                    _flashMask?.Flash();
+                    _healthBar.Entity.Shake();
+                }
                 _currentHealth = Mathf.Clamp(value, 0, maxHealth);
                 _healthBar.UpdateHealthBar(CurrentHealth, maxHealth);
             }
@@ -21,6 +27,8 @@ namespace Health
 
         void Start()
         {
+            _flashMask = GetComponent<FlashMaskController>();
+
             _healthBar = GetComponentInChildren<HealthBarController>();
             _healthBar.Entity = GetComponent<EntityController>();
             CurrentHealth = maxHealth;

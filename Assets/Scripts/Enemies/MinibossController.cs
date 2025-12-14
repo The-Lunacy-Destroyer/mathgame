@@ -274,11 +274,6 @@ namespace Enemies
 
             if (otherEntityHealth && other.gameObject.CompareTag("Player"))
             {
-                FlashMaskController flashMask = other.gameObject.GetComponent<FlashMaskController>();
-                flashMask?.Flash();
-                EntityController otherEntity = other.gameObject.GetComponent<EntityController>();
-                otherEntity?.Shake();
-                
                 otherEntityHealth.CurrentHealth -= contactDamage;
                 
                 if (otherEntityHealth.CurrentHealth <= 0)

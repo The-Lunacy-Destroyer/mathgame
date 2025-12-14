@@ -15,7 +15,7 @@ namespace Projectile
         public float damage = 20.1f;
         public GameObject SourceObject { get; set; }
 
-        public void InstantiateFlash()
+        protected void InstantiateFlash()
         {
             GameObject flash = Instantiate(flashPrefab, transform.position, Quaternion.identity);
             flash.transform.up = -transform.up;
@@ -32,13 +32,6 @@ namespace Projectile
                     other.CompareTag("Player") && SourceObject.CompareTag("Enemy"))
                 {
                     InstantiateFlash();
-                    
-                    FlashMaskController flashMask = other.GetComponent<FlashMaskController>();
-                    flashMask?.Flash();
-                    
-                    EntityController otherEntity = other.GetComponent<EntityController>();
-                    otherEntity?.Shake();
-                    
                     DecreaseHealth(otherEntityHealth);
                 }
             }
