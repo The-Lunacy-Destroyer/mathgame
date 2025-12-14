@@ -39,13 +39,13 @@ public class PlayerController : EntityController, IEntityMovable
     {
         _mainCamera = Camera.main;
         _scoreText = scoreUI.rootVisualElement.Q<Label>("ScoreLabel");
-        _enemyKillCounterText= scoreUI.rootVisualElement.Q<Label>("EnemyKillLabel");
+        _enemyKillCounterText = scoreUI.rootVisualElement.Q<Label>("EnemyKillLabel");
     }
     
     private void Update()
     {
-        _scoreText.text = "Score: " + score;
-        _enemyKillCounterText.text = "Enemies killed: "+ enemyKillCounter;
+        _scoreText.text = $"Score: {score}";
+        _enemyKillCounterText.text = $"Enemies killed: {enemyKillCounter}";
     }
 
     private void FixedUpdate()

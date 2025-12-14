@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class WaveSystem : MonoBehaviour
@@ -10,10 +11,10 @@ public class WaveSystem : MonoBehaviour
     {
         [Min(1)] public int waveDuration;
         [Min(1)] public int waveBreakDuration;
-        public GameObject waveObject;
     }
 
     public WaveInfo[] waves;
+    private int _waveCount;
     private int _currentWave = -1;
 
     private int _waveTimer;
@@ -27,9 +28,14 @@ public class WaveSystem : MonoBehaviour
             if (value <= 0)
             {
                 _breakTimer = waves[_currentWave].waveBreakDuration;
+                _timerText.text = $"Break timer: {_breakTimer}";
                 _waveTimer = 0;
             }
-            else _waveTimer = value;
+            else
+            {
+                _waveTimer = value;
+                _timerText.text = $"Wave timer: {_waveTimer}";
+            }
         }
     }
     private int BreakTimer
@@ -39,21 +45,41 @@ public class WaveSystem : MonoBehaviour
         {
             if (value <= 0)
             {
-                if (_currentWave < waves.Length)
+                if (_currentWave < _waveCount)
                 {
                     _currentWave++;
+                    _waveText.text = $"Wave: {_currentWave + 1}";
+                    
                     _waveTimer = waves[_currentWave].waveDuration;
+                    _timerText.text = $"Wave timer: {_waveTimer}";
                     SpawnEnemies();
                 }
                 _breakTimer = 0;
             }
-            else _breakTimer = value;
+            else
+            {
+                _breakTimer = value;
+                _timerText.text = $"Break timer: {_breakTimer}";
+            }
         }
+    }
+
+    public UIDocument waveUI;
+    private Label _waveText;
+    private Label _timerText;
+
+    private void Awake()
+    {
+        _waveCount = Mathf.Min(waves.Length, transform.childCount);
     }
 
     private void Start()
     {
         ControlWaves();
+        _waveText = waveUI.rootVisualElement.Q<Label>("WaveLabel");
+        _timerText = waveUI.rootVisualElement.Q<Label>("TimerLabel");
+        _waveText.text = $"Wave: {_currentWave + 1}";
+        _timerText.text = $"Break timer: {_breakTimer}";
     }
 
     private void ControlWaves()
@@ -68,7 +94,6 @@ public class WaveSystem : MonoBehaviour
         WaveTimer--;
         ControlWaves();
     }
-
     IEnumerator DecreaseBreakTimer()
     {
         yield return new WaitForSeconds(1f);
@@ -78,6 +103,6 @@ public class WaveSystem : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        waves[_currentWave].waveObject.SetActive(true);
+        transform.GetChild(_currentWave).gameObject.SetActive(true);
     }
 }
