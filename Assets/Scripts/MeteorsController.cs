@@ -1,3 +1,4 @@
+using Health;
 using Projectile;
 using UnityEngine;
 
@@ -7,7 +8,8 @@ public class MeteorsController : MonoBehaviour
     Vector2 moveDirection;
     float rng1;
     float rng2;
-    float force = 100f;
+    float force = 10f;
+
     void Start()
     {
         rng1 = Random.Range(-1.0f, 1f);
@@ -27,8 +29,13 @@ public class MeteorsController : MonoBehaviour
         MonoBehaviour otherObj = other.GetComponent<MonoBehaviour>();
         if (otherObj is ProjectileController projectile)
         {
-            rb.AddForce(projectile.dir * force);
+            Rigidbody2D proj_rb = projectile.GetComponent<Rigidbody2D>();
+            rb.AddForce(proj_rb.linearVelocity * force);
             Destroy(projectile.gameObject);
+        }
+        else if (otherObj is EntityHealthController entity)
+        {
+            entity.CurrentHealth -= rb.linearVelocity.magnitude * rb.mass;
         }
     }
 }
