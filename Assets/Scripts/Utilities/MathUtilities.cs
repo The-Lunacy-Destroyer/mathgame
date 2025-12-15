@@ -20,5 +20,10 @@ namespace Utilities
             float scale = Mathf.Pow(10, digits);
             return Mathf.Round(value * scale) / scale;
         }
+
+        public static Vector3 RandomRectPosition(float xMin, float xMax, float yMin, float yMax)
+        {
+            return new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
+        }
     }
 }
