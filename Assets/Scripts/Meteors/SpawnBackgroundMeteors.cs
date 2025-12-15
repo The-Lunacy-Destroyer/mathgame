@@ -8,8 +8,8 @@ namespace Meteors
         public int amount = 50;
         public float minScale = 0.25f, maxScale = 1f;
         
-        public float minXPos = -64f, maxXPos = 64f; 
-        public float minYPos = -64f, maxYPos = 64f;
+        public float minXPos = -40f, maxXPos = 40f; 
+        public float minYPos = -27f, maxYPos = 27f;
         
         void Start()
         {

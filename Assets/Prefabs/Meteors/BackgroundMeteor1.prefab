@@ -131,9 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b7243eb9a34a34a9feddf145d93a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackGroundMeteors
-  velocityMaxScale: 1
-  rotationMaxScale: 2
-  minXPos: -64
-  maxXPos: 64
-  minYPos: -64
-  maxYPos: 64
+  velocityMaxScale: 1.5
+  rotationMaxScale: 90
+  minXPos: -42
+  maxXPos: 42
+  minYPos: -29
+  maxYPos: 29

@@ -9,8 +9,8 @@ namespace Meteors
         public float minScale = 0.5f, maxScale = 3f;
         public float minMass = 0.5f, maxMass = 5f;
         
-        public float minXPos = -64f, maxXPos = 64f; 
-        public float minYPos = -64f, maxYPos = 64f;
+        public float minXPos = -28f, maxXPos = 28f; 
+        public float minYPos = -18f, maxYPos = 18f;
 
         void Start()
         {

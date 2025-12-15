@@ -25,7 +25,7 @@ namespace Meteors
         {
             float torqueScale = Random.Range(-torqueMaxScale, torqueMaxScale);
             float forceScale = Random.Range(-forceMaxScale, forceMaxScale);
-            float forceAngle = Random.Range(0, 2 * Mathf.PI);
+            float forceAngle = Random.Range(-180f, 180f);
             
             _rigidbody.AddTorque(torqueScale, ForceMode2D.Impulse);
             _rigidbody.AddForce(

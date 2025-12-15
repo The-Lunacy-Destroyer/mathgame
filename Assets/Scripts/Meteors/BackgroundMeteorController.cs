@@ -6,10 +6,10 @@ namespace Meteors
     public class BackgroundMeteorController : MonoBehaviour
     {
         public float velocityMaxScale = 2f;
-        public float rotationMaxScale = 2f;
+        public float rotationMaxScale = 90f;
         
-        public float minXPos = -64f, maxXPos = 64f; 
-        public float minYPos = -64f, maxYPos = 64f;
+        public float minXPos = -42f, maxXPos = 42f; 
+        public float minYPos = -29f, maxYPos = 29f;
 
         private Rigidbody2D _rigidbody;
         private Vector2 _moveVector;
@@ -22,7 +22,7 @@ namespace Meteors
         private void Start()
         {
             float velocityScale = Random.Range(-velocityMaxScale, velocityMaxScale);
-            float velocityAngle = Random.Range(0, 2 * Mathf.PI);
+            float velocityAngle = Random.Range(-180f, 180f);
 
             _rotation = Random.Range(-rotationMaxScale, rotationMaxScale);
             _moveVector = MathUtilities.RotateVector(Vector2.up, velocityAngle) * velocityScale;

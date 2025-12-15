@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4383919162513742778}
   - component: {fileID: 752554051878457922}
   - component: {fileID: 2152909816113015858}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: Meteor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -191,11 +191,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936d0844f987ac145a691598dcca6ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeteorsController
-  torqueMaxScale: 2
-  forceMaxScale: 2
-  minDamageSpeed: 3
+  deathSoundPrefab: {fileID: 0}
+  shakeTotalCount: 2
+  shakeIncreaseCount: 3
+  shakeDecreaseCount: 3
+  shakeDelay: 0.004
+  minShake: 0.05
+  maxShake: 0.075
+  torqueMaxScale: 1.5
+  forceMaxScale: 3
+  minDamageSpeed: 2.5
   maxDamageSpeed: 50
-  damageScale: 1
+  damageScale: 2
 --- !u!114 &2152909816113015858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,27 +310,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3961002912115288104, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Color.b
-      value: 0.4415095
+      value: 0.54556376
       objectReference: {fileID: 0}
     - target: {fileID: 3961002912115288104, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Color.g
-      value: 0.4415095
+      value: 0.5153308
       objectReference: {fileID: 0}
     - target: {fileID: 3961002912115288104, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Color.r
-      value: 0.4415095
+      value: 0.5092554
       objectReference: {fileID: 0}
     - target: {fileID: 4092099704307828885, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Color.b
-      value: 0.16226411
+      value: 0.30094433
       objectReference: {fileID: 0}
     - target: {fileID: 4092099704307828885, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Color.g
-      value: 0.16226411
+      value: 0.26942158
       objectReference: {fileID: 0}
     - target: {fileID: 4092099704307828885, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Color.r
-      value: 0.16226411
+      value: 0.26829487
       objectReference: {fileID: 0}
     - target: {fileID: 6364317199411781312, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -344,6 +351,18 @@ PrefabInstance:
     - target: {fileID: 7254330523021348923, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.0036665401
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263681368331372078, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263681368331372078, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263681368331372078, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_Color.r
+      value: 0.50980395
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
