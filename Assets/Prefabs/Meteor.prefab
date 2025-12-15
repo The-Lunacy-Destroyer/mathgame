@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 752554051878457922}
   - component: {fileID: 2152909816113015858}
   m_Layer: 14
-  m_Name: Meteor_03
+  m_Name: Meteor
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,9 +30,9 @@ Transform:
   m_GameObject: {fileID: 840653777926419913}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.16, y: -3.65, z: 0}
-  m_LocalScale: {x: 1.8256167, y: 1.8256167, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5120490491467729139}
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 22b425bb9e5c881159716ef8a4bf964a, type: 3}
-  m_Color: {r: 0.8209293, g: 0.7313939, b: 0.7313939, a: 1}
+  m_Color: {r: 0.8577962, g: 0.7866942, b: 0.7866942, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -142,15 +142,15 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0.011938855, y: 0.30266327}
-      - {x: -0.29319128, y: 0.373784}
+      - {x: -0.30476505, y: 0.32961115}
       - {x: -0.3676319, y: 0.20725963}
       - {x: -0.2886143, y: 0.04224146}
-      - {x: -0.46313232, y: -0.14773905}
-      - {x: -0.3725436, y: -0.3196746}
-      - {x: 0.00034819543, y: -0.21145496}
-      - {x: 0.17289367, y: -0.42967018}
-      - {x: 0.4350443, y: -0.36837333}
-      - {x: 0.43504393, y: 0.34131828}
+      - {x: -0.40658942, y: -0.15611151}
+      - {x: -0.33458248, y: -0.26869953}
+      - {x: 0.07947133, y: -0.17264786}
+      - {x: 0.25725418, y: -0.3855992}
+      - {x: 0.41156965, y: -0.31142092}
+      - {x: 0.39708698, y: 0.3481702}
   m_UseDelaunayMesh: 0
 --- !u!50 &4383919162513742778
 Rigidbody2D:
@@ -164,7 +164,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2.9854538
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -191,7 +191,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936d0844f987ac145a691598dcca6ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeteorsController
-  is_background_meteor: 0
+  torqueMaxScale: 2
+  forceMaxScale: 2
+  minDamageSpeed: 3
+  maxDamageSpeed: 50
+  damageScale: 1
 --- !u!114 &2152909816113015858
 MonoBehaviour:
   m_ObjectHideFlags: 0

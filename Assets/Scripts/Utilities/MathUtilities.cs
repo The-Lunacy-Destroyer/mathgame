@@ -21,11 +21,9 @@ namespace Utilities
             return Mathf.Round(value * scale) / scale;
         }
 
-        public static Vector3 RectRandomPos(float x_min, float x_max, float y_min, float y_max)
+        public static Vector3 RandomRectPosition(float xMin, float xMax, float yMin, float yMax)
         {
-            float rand_x = Random.Range(x_min, x_max);
-            float rand_y = Random.Range(y_min, y_max);
-            return new Vector3(rand_x, rand_y);
+            return new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
         }
     }
 }
