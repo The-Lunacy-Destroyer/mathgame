@@ -48678,13 +48678,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   waves:
-  - waveDuration: 25
-    waveBreakDuration: 5
-  - waveDuration: 25
+  - waveDuration: 30
     waveBreakDuration: 5
   - waveDuration: 35
     waveBreakDuration: 5
   - waveDuration: 35
+    waveBreakDuration: 5
+  - waveDuration: 40
     waveBreakDuration: 5
   - waveDuration: 50
     waveBreakDuration: 5

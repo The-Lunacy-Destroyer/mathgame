@@ -84,7 +84,12 @@ public class WaveSystem : MonoBehaviour
 
     private void ControlWaves()
     {
-        if (BreakTimer > 0) StartCoroutine(nameof(DecreaseBreakTimer));
+        if (BreakTimer == 0 && transform.GetChild(_currentWave).childCount == 0)
+        {
+            WaveTimer = 0;
+            ControlWaves();
+        }
+        else if (BreakTimer > 0) StartCoroutine(nameof(DecreaseBreakTimer));
         else if (WaveTimer > 0) StartCoroutine(nameof(DecreaseWaveTimer));
     }
 
