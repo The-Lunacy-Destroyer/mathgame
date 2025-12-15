@@ -227,8 +227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Projectile.EntityShootingController
   projectilePrefab: {fileID: 1701417249012432286, guid: a1ea18ddeaac616b4815cbf9737e4935, type: 3}
   projectileSpeed: 500
-  damageScale: 0.5
-  projectileCooldown: 0.5
+  damageScale: 1
+  projectileCooldown: 0.4
   spreadAngle: 15
 --- !u!114 &-2639861724708251551
 MonoBehaviour:

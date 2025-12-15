@@ -144,7 +144,7 @@ MonoBehaviour:
   actionCooldown: 1
   stopRadiusMovementCooldown: 100
   stopRadiusMoveForce: 2
-  contactDamage: 5
+  contactDamage: 10
   stopRadiusMovementAngle: 15
 --- !u!50 &1946883835786170220
 Rigidbody2D:

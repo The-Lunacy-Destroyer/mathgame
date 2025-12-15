@@ -34,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957390865753769895}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.76, y: 2.77, z: 0}
   m_LocalScale: {x: 1.2517978, y: 1.2176251, z: 2.9976}
   m_ConstrainProportionsScale: 0
@@ -593,11 +593,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4813645323632324030, guid: 901a04af48b4b4043a14171e0bc4959d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.1670103
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4813645323632324030, guid: 901a04af48b4b4043a14171e0bc4959d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.493628
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4813645323632324030, guid: 901a04af48b4b4043a14171e0bc4959d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -635,6 +635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserEnd
       objectReference: {fileID: 0}
+    - target: {fileID: 8662908270835614342, guid: 901a04af48b4b4043a14171e0bc4959d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -663,11 +667,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 903838547211281228, guid: 0bdabf83f67ca3b049758632bd4f75e5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.1670103
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 903838547211281228, guid: 0bdabf83f67ca3b049758632bd4f75e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.493628
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 903838547211281228, guid: 0bdabf83f67ca3b049758632bd4f75e5, type: 3}
       propertyPath: m_LocalPosition.z
