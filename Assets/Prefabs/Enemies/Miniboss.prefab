@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 2266194998180874804}
   - component: {fileID: 6326793419917021101}
   - component: {fileID: 4591838992153462741}
-  - component: {fileID: 2603160195789809897}
   - component: {fileID: 2258616954432905974}
   - component: {fileID: 7088940098386361968}
   - component: {fileID: 3499572466362682411}
   - component: {fileID: 7333871701622295094}
   - component: {fileID: 1522753860124802447}
+  - component: {fileID: 2128117541374492133}
   m_Layer: 10
   m_Name: Miniboss
   m_TagString: Enemy
@@ -145,7 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3259bcd3142c0884a8870c77e07fc7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinibossController
-  deathSoundPrefab: {fileID: 1026810158950595084, guid: 813b42deb69642b7d93547f05f1d47fd, type: 3}
   shakeTotalCount: 2
   shakeIncreaseCount: 3
   shakeDecreaseCount: 3
@@ -183,19 +182,6 @@ MonoBehaviour:
   damageScale: 1
   projectileCooldown: 0.5
   spreadAngle: 0
---- !u!114 &2603160195789809897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 957390865753769895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89dc497054134ec1882837681df88499, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health.EntityHealthController
-  maxHealth: 1000
 --- !u!95 &2258616954432905974
 Animator:
   serializedVersion: 7
@@ -317,6 +303,20 @@ MonoBehaviour:
   decreaseOpacityRate: 0.01
   opacityDecrement: 0.33
   maxOpacity: 0.1
+--- !u!114 &2128117541374492133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957390865753769895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed94e59897594f38a07971414b8eb21a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health.EnemyHealthController
+  deathSoundPrefab: {fileID: 4404108502473601490, guid: e4b34a32726275392b92cacdce3acfec, type: 3}
+  maxHealth: 1000
 --- !u!1 &6722435234597022725
 GameObject:
   m_ObjectHideFlags: 0

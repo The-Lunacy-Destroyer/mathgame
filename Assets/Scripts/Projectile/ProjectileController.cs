@@ -37,40 +37,8 @@ namespace Projectile
                     other.CompareTag("Player") && SourceObject.CompareTag("Enemy"))
                 {
                     InstantiateFlash();
-                    DecreaseHealth(otherEntityHealth);
+                    otherEntityHealth.CurrentHealth -= damage;
                 }
-            }
-        }
-
-        private void DecreaseHealth(EntityHealthController entityHealth)
-        {
-            entityHealth.CurrentHealth -= damage;
-           
-            if (entityHealth.CurrentHealth <= 0)
-            {
-               
-                if (SourceObject.CompareTag("Player"))
-                {
-                    
-                    PlayerController player = SourceObject.GetComponent<PlayerController>();
-                    string enemyName = entityHealth.name.Substring(0, 6);
-
-                    switch (enemyName)
-                    {
-                        case "Enemy1":
-                            player.score += 30;
-                            break;
-                        case "Enemy2":
-                            player.score += 10;
-                            break;
-                        case "Minibo":
-                            player.score += 1000;
-                            break;
-                    }
-                    player.enemyKillCounter++;
-
-                }
-                Destroy(entityHealth.gameObject);
             }
         }
     }

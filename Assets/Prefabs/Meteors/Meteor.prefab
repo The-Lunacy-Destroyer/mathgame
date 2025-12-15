@@ -191,7 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936d0844f987ac145a691598dcca6ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeteorsController
-  deathSoundPrefab: {fileID: 0}
   shakeTotalCount: 2
   shakeIncreaseCount: 3
   shakeDecreaseCount: 3
@@ -215,7 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dc497054134ec1882837681df88499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health.EntityHealthController
-  maxHealth: 100
+  deathSoundPrefab: {fileID: 4404108502473601490, guid: e4b34a32726275392b92cacdce3acfec, type: 3}
+  maxHealth: 1000
 --- !u!1001 &6049999127101412523
 PrefabInstance:
   m_ObjectHideFlags: 0

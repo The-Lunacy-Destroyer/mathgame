@@ -23,8 +23,27 @@ public class PlayerController : EntityController, IEntityMovable
     public float rotationSpeed = 5f;
     
     //Score 
-    public float score = 0f;
-    public int enemyKillCounter = 0;
+    private float _score;
+    public float Score
+    {
+        get => _score;
+        set
+        {
+            _score = value;
+            _scoreText.text = $"Score: {_score}";
+        }
+    }
+    private int _enemyKillCounter;
+    public int EnemyKillCounter
+    {
+        get => _enemyKillCounter;
+        set
+        {
+            _enemyKillCounter = value;
+            _enemyKillCounterText.text = $"Enemies killed: {_enemyKillCounter}";
+        }
+    }
+    
     public UIDocument scoreUI;
     private Label _scoreText;
     private Label _enemyKillCounterText;
@@ -40,12 +59,6 @@ public class PlayerController : EntityController, IEntityMovable
         _mainCamera = Camera.main;
         _scoreText = scoreUI.rootVisualElement.Q<Label>("ScoreLabel");
         _enemyKillCounterText = scoreUI.rootVisualElement.Q<Label>("EnemyKillLabel");
-    }
-    
-    private void Update()
-    {
-        _scoreText.text = $"Score: {score}";
-        _enemyKillCounterText.text = $"Enemies killed: {enemyKillCounter}";
     }
 
     private void FixedUpdate()

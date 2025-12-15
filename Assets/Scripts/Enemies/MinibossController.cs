@@ -275,11 +275,6 @@ namespace Enemies
             if (otherEntityHealth && other.gameObject.CompareTag("Player"))
             {
                 otherEntityHealth.CurrentHealth -= contactDamage;
-                
-                if (otherEntityHealth.CurrentHealth <= 0)
-                {
-                    Destroy(otherEntityHealth.gameObject);
-                }
             }
         }
 

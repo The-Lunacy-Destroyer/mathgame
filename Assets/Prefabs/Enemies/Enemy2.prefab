@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4654280110855218124}
   - component: {fileID: 2537000223998958690}
-  - component: {fileID: 1836936359136603363}
   - component: {fileID: 5720652601219565780}
   - component: {fileID: 5784138549394213965}
   - component: {fileID: 1946883835786170220}
   - component: {fileID: -36210537976287020}
   - component: {fileID: -1872912922194020907}
   - component: {fileID: -3651167733087096682}
+  - component: {fileID: -5543004558406289125}
   m_Layer: 11
   m_Name: Enemy2
   m_TagString: Enemy
@@ -99,19 +99,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1836936359136603363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2400070652927853476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89dc497054134ec1882837681df88499, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health.EntityHealthController
-  maxHealth: 33
 --- !u!114 &5720652601219565780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f93eca2c22946f6987b23ea2f7054c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemies.Enemy2Controller
-  deathSoundPrefab: {fileID: 4404108502473601490, guid: e4b34a32726275392b92cacdce3acfec, type: 3}
   shakeTotalCount: 2
   shakeIncreaseCount: 3
   shakeDecreaseCount: 3
@@ -268,6 +254,20 @@ MonoBehaviour:
   decreaseOpacityRate: 0.01
   opacityDecrement: 0.33
   maxOpacity: 0.1
+--- !u!114 &-5543004558406289125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400070652927853476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed94e59897594f38a07971414b8eb21a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health.EnemyHealthController
+  deathSoundPrefab: {fileID: 4404108502473601490, guid: e4b34a32726275392b92cacdce3acfec, type: 3}
+  maxHealth: 33
 --- !u!1 &2759829504780883476
 GameObject:
   m_ObjectHideFlags: 0

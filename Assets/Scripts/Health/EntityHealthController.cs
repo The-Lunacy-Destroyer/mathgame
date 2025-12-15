@@ -4,18 +4,26 @@ namespace Health
 {
     public class EntityHealthController : MonoBehaviour
     {
+        public GameObject deathSoundPrefab;
+
         private FlashMaskController _flashMask;
         private HealthBarController _healthBar;
 
         public float maxHealth = 100.0f;
         
         private float _currentHealth;
-        public float CurrentHealth
+        public virtual float CurrentHealth
         {
             get => _currentHealth;
             set
             {
-                if (value < _currentHealth)
+                if (value <= 0)
+                {
+                    GameObject deathSound = Instantiate(deathSoundPrefab, transform.position, Quaternion.identity);
+                    Destroy(deathSound, 1f);
+                    Destroy(transform.gameObject);
+                }
+                else if (value < _currentHealth)
                 {
                     _flashMask?.Flash();
                     _healthBar.Entity.Shake();
@@ -25,7 +33,7 @@ namespace Health
             }
         }
 
-        void Start()
+        protected virtual void Start()
         {
             _flashMask = GetComponent<FlashMaskController>();
 
