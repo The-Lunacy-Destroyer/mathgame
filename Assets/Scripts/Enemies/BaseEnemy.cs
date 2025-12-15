@@ -22,9 +22,13 @@ namespace Enemies
         private int _randomMovementTimer;
         protected float RandomAngle { get; private set; }
         
+        private Canvas _healthBarCanvas;
+        
         protected virtual void Awake()
         {
             Rigidbody = GetComponent<Rigidbody2D>();
+            
+            _healthBarCanvas = GetComponentInChildren<Canvas>();
         }
 
         protected virtual void Start()
@@ -41,6 +45,14 @@ namespace Enemies
                 _randomMovementTimer = randomMovementCooldown;
             }
             _randomMovementTimer--;
+        }
+
+        private void LateUpdate()
+        {
+            if (_healthBarCanvas)
+            {
+                _healthBarCanvas.transform.rotation = Quaternion.identity;
+            }
         }
     }
 }

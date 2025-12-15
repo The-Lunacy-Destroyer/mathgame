@@ -144,6 +144,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.57254905
       objectReference: {fileID: 0}
+    - target: {fileID: 5715724585062042836, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6364317199411781312, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -154,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6408982978271192134, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Name
-      value: HealthBarCanvas Variant
+      value: Enemy HealthBarCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6408982978271192134, guid: 52ddce1e33d3db1bf97b935ae04fc6c0, type: 3}
       propertyPath: m_Layer
