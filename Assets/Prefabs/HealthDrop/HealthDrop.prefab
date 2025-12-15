@@ -82,15 +82,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 574275470812490541, guid: 8b504de150c8d5e82a0d7fc30e2d0cc1, type: 3}
+  m_Sprite: {fileID: 574275470812490541, guid: 278815b29e8a196ebbaf9ff5557ea64d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &1932317261677607947
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4405c3eaad66cd05b4ef4a3aef4a5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthDropController
-  healValue: 25
+  healValue: 30
 --- !u!95 &-4170197055561649270
 Animator:
   serializedVersion: 7

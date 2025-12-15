@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5840306697914125246
+--- !u!1001 &6738488373124093764
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,24 +9,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 201085589478239458, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 201085589478239458, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 201085589478239458, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 201085589478239458, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 14.246184
       objectReference: {fileID: 0}
     - target: {fileID: 201085589478239458, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.7162924
       objectReference: {fileID: 0}
     - target: {fileID: 201085589478239458, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -62,19 +50,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 240000943121709248, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
       propertyPath: healValue
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1178529517290169631, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
       propertyPath: m_Name
-      value: SmallHealthDrop
+      value: BigHealthDrop
       objectReference: {fileID: 0}
     - target: {fileID: 9044153682911385385, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.990005
       objectReference: {fileID: 0}
     - target: {fileID: 9044153682911385385, guid: 57d9752eae7b51b69b44b662b0238be3, type: 3}
       propertyPath: m_Color.r
-      value: 0.8949356
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

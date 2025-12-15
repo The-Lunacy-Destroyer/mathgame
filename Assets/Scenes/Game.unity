@@ -2338,6 +2338,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3373824323723970495, guid: 2c87b0e7eff2fe8b1b937563ce3b3b12, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373824323723970495, guid: 2c87b0e7eff2fe8b1b937563ce3b3b12, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4540463023978753757, guid: 2c87b0e7eff2fe8b1b937563ce3b3b12, type: 3}
       propertyPath: m_Name
       value: Enemy1 Variant

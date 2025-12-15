@@ -131,21 +131,21 @@ MonoBehaviour:
   shakeDelay: 0.003
   minShake: 0.125
   maxShake: 0.15
-  <MoveForce>k__BackingField: 6
-  <MaxSpeed>k__BackingField: 10
-  <Slowdown>k__BackingField: 0.9
+  <MoveForce>k__BackingField: 4
+  <MaxSpeed>k__BackingField: 12
+  <Slowdown>k__BackingField: 0.851
   randomMovementAngle: 45
-  randomMovementCooldown: 30
-  stopRadius: 5
+  randomMovementCooldown: 20
+  stopRadius: 4
   minStopRadiusScale: 0.75
   maxStopRadiusScale: 1.25
   minDeviation: 2
-  maxDeviation: 3
-  actionCooldown: 1
-  stopRadiusMovementCooldown: 100
-  stopRadiusMoveForce: 2
+  maxDeviation: 2.75
+  actionCooldown: 5
+  stopRadiusMovementCooldown: 125
+  stopRadiusMoveForce: 3
   contactDamage: 10
-  stopRadiusMovementAngle: 15
+  stopRadiusMovementAngle: 20
 --- !u!50 &1946883835786170220
 Rigidbody2D:
   serializedVersion: 5
