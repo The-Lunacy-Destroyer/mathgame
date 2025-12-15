@@ -105,6 +105,7 @@
 #IngameContainer
 {
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
 }
 #IngameContainer #MainSection_Main
 {
