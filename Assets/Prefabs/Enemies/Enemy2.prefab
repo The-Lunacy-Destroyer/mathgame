@@ -43,6 +43,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2537000223998958690
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -88,6 +89,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 663d296a6700e4a2e9d6ea2b15e16e34, type: 3}
   m_Color: {r: 0.9245283, g: 0.53640085, b: 0.8591594, a: 1}
   m_FlipX: 0
@@ -97,7 +99,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5720652601219565780
 MonoBehaviour:
@@ -131,21 +132,21 @@ MonoBehaviour:
   shakeDelay: 0.003
   minShake: 0.125
   maxShake: 0.15
-  <MoveForce>k__BackingField: 4
-  <MaxSpeed>k__BackingField: 12
-  <Slowdown>k__BackingField: 0.851
+  <MoveForce>k__BackingField: 1.5
+  <MaxSpeed>k__BackingField: 10.33
+  <Slowdown>k__BackingField: 1
   randomMovementAngle: 45
   randomMovementCooldown: 20
-  stopRadius: 4
+  stopRadius: 4.5
   minStopRadiusScale: 0.75
   maxStopRadiusScale: 1.25
-  minDeviation: 2
-  maxDeviation: 2.75
-  actionCooldown: 5
-  stopRadiusMovementCooldown: 125
-  stopRadiusMoveForce: 3
-  contactDamage: 10
-  stopRadiusMovementAngle: 20
+  minDeviation: 3
+  maxDeviation: 4
+  actionCooldown: 6
+  stopRadiusMovementCooldown: 66
+  stopRadiusMoveForce: 15
+  contactDamage: 5.5
+  stopRadiusMovementAngle: 23
 --- !u!50 &1946883835786170220
 Rigidbody2D:
   serializedVersion: 5
@@ -302,6 +303,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4587606656269040101
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -347,6 +349,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 7fba5dccea3091eaabd632c337056d54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -356,7 +359,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &7498893531255786383
 PrefabInstance:

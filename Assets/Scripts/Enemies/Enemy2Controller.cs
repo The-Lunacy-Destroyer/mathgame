@@ -16,7 +16,7 @@ namespace Enemies
         public float maxDeviation = 1.25f;
         private float _deviationFactor;
 
-        [Min(1)]
+        [Min(0)]
         public int actionCooldown = 1;
         private int _actionCooldownTimer;
 
@@ -77,9 +77,10 @@ namespace Enemies
                 float deviation = 1 + (TargetDirection - Rigidbody.linearVelocity.normalized).magnitude * _deviationFactor;
                 Vector2 movementDirection = MathUtilities.RotateVector(TargetDirection, RandomAngle);
 
-                Rigidbody.AddForce(movementDirection * (deviation * MoveForce));
+                float forceCoefficient = deviation * MoveForce * Mathf.Clamp(TargetVector.magnitude, 1, TargetVector.magnitude);
+                Rigidbody.AddForce(movementDirection * forceCoefficient);
                 
-                _actionCooldownTimer = actionCooldown;
+                _actionCooldownTimer = _stopRadiusMovementTimer;
                 _stopRadiusMovementTimer = 0;
             }
         }
@@ -88,12 +89,14 @@ namespace Enemies
         {
             if (_stopRadiusMovementTimer <= 0)
             {
-                float randomAngle = Random.Range(-stopRadiusMovementAngle, stopRadiusMovementAngle);
+                float randomAngle = Random.value < 0.5 ?
+                    Random.Range(-stopRadiusMovementAngle, -10f)
+                    : Random.Range(10f, stopRadiusMovementAngle);
                 
                 _randomStopRadiusVector = MathUtilities.RotateVector(TargetDirection, randomAngle);
                 _stopRadiusMovementTimer = stopRadiusMovementCooldown;
             }
-            Rigidbody.linearVelocity = _randomStopRadiusVector.normalized * (MoveForce * stopRadiusMoveForce);
+            Rigidbody.linearVelocity = _randomStopRadiusVector.normalized * stopRadiusMoveForce;
             _stopRadiusMovementTimer--;
         }
 

@@ -50,6 +50,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5755978529598683549
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,6 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 33085249058313889, guid: 0e8c3e7831b01f9829cb347f2c1a9429, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,7 +106,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &2266194998180874804
 Rigidbody2D:
@@ -151,19 +152,21 @@ MonoBehaviour:
   shakeDelay: 0.003
   minShake: 0.125
   maxShake: 0.15
-  <MoveForce>k__BackingField: 10
+  <MoveForce>k__BackingField: 9
   <MaxSpeed>k__BackingField: 12
   <Slowdown>k__BackingField: 0.875
   randomMovementAngle: 45
   randomMovementCooldown: 25
   minSpeed: 1.9999998
-  stopRadius: 6
+  stopRadius: 7
   torqueForce: 70
   maxRotationSpeed: 150
-  specialTorqueForce: 0.75
+  specialTorqueForce: 0.6
   contactDamage: 33.33
-  minProjectileCooldown: 0.15
-  minProjectileSpeed: 100
+  minProjectileCooldown: 0.075
+  minProjectileSpeed: 300
+  secondActionTimerScale: 1.75
+  secondActionPostTimerScale: 2.3
   laserMaxSize: 50
 --- !u!114 &4591838992153462741
 MonoBehaviour:
@@ -178,8 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile.EntityShootingController
   projectilePrefab: {fileID: 1701417249012432286, guid: a1ea18ddeaac616b4815cbf9737e4935, type: 3}
-  projectileSpeed: 600
-  damageScale: 1
+  projectileSpeed: 900
+  damageScale: 1.25
   projectileCooldown: 0.5
   spreadAngle: 0
 --- !u!95 &2258616954432905974
@@ -285,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae42076126ca489b9b42e4643a984bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityAI.ActionController
-  aiDurations: 2c0100001e0000002c0100001e000000
+  aiDurations: 2c01000032000000400100001e000000
 --- !u!114 &1522753860124802447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +354,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2542786884426957530
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -396,6 +400,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: be5228dd5e6210274b349e5cd8f356a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -405,7 +410,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &672551356681506294
 PrefabInstance:

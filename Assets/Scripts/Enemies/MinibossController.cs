@@ -30,6 +30,9 @@ namespace Enemies
         public float minProjectileSpeed = 100f;
         private float _initialProjectileCooldown;
         private float _initialProjectileSpeed;
+
+        public float secondActionTimerScale = 1.75f;
+        public float secondActionPostTimerScale = 2.3f;
         
         public float laserMaxSize = 50f;
         private float _laserSize;
@@ -62,6 +65,7 @@ namespace Enemies
             }
             
             _actionController.OnDefaultStart += OnDefaultStart;
+            _actionController.OnPreSpecialStart += OnPreSpecialStart;
             _actionController.OnSpecialStart += OnSpecialStart;
             _actionController.OnPostSpecialStart += OnPostSpecialStart;
             
@@ -111,18 +115,22 @@ namespace Enemies
             }
             _isLasersAction = !_isLasersAction;
         }
+
+        private void OnPreSpecialStart()
+        {
+            _laserStartSound.SetActive(true);
+            _laserEndSound.SetActive(false);
+        }
         private void OnSpecialStart()
         {
             if (!_isLasersAction)
             {
-                _actionController.AITimer *= 2;
+                _actionController.AITimer = Mathf.RoundToInt(secondActionTimerScale * _actionController.AITimer);
                 _bulletSystem.projectileCooldown = minProjectileCooldown;
                 _bulletSystem.projectileSpeed = minProjectileSpeed;
             }
             else
             {
-                _laserStartSound.SetActive(true);
-                _laserEndSound.SetActive(false);
                 for (int i = 0; i < 3; i++)
                 {
                     _lasers[i].SetActive(true);
@@ -144,7 +152,7 @@ namespace Enemies
         {
             if (!_isLasersAction)
             {
-                _actionController.AITimer = (int)(2.25f * _actionController.AITimer);
+                _actionController.AITimer = Mathf.RoundToInt(secondActionPostTimerScale * _actionController.AITimer);
                 _bulletSystem.projectileCooldown = _initialProjectileCooldown;
                 _bulletSystem.projectileSpeed = _initialProjectileSpeed;
             }

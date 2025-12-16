@@ -62,7 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6860806089416399860, guid: a0349acdcc5d2f51ea40e2c59a702f6d, type: 3}
       propertyPath: m_Name
-      value: Bullet3Shooting Variant
+      value: Bullet3Shooting
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860806089416399860, guid: a0349acdcc5d2f51ea40e2c59a702f6d, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

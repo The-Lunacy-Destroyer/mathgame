@@ -62,7 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5557673121184987538, guid: 528483e6479569427b477f2467dbcd47, type: 3}
       propertyPath: m_Name
-      value: Bullet3Flash Variant
+      value: Bullet3Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 5557673121184987538, guid: 528483e6479569427b477f2467dbcd47, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

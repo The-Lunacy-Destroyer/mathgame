@@ -17,7 +17,7 @@ namespace Enemies
         public float maxDeviation = 1.25f;
         private float _deviationFactor;
 
-        [Min(1)]
+        [Min(0)]
         public int actionCooldown = 30;
         private int _actionCooldownTimer;
 
@@ -105,7 +105,7 @@ namespace Enemies
         private void Rotate()
         {
             transform.up = Vector2.MoveTowards(
-                transform.up, TargetDirection, 10 * Time.fixedDeltaTime);
+                transform.up, TargetDirection, 17.5f * Time.fixedDeltaTime);
         }
     }
 }

@@ -44,6 +44,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7190877418840760248
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,6 +90,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 1145d2ba524014d6792f2d2c3b5f2a38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,7 +100,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!50 &3480370217434023851
 Rigidbody2D:
@@ -145,19 +146,19 @@ MonoBehaviour:
   shakeDelay: 0.003
   minShake: 0.125
   maxShake: 0.15
-  <MoveForce>k__BackingField: 6
-  <MaxSpeed>k__BackingField: 8
-  <Slowdown>k__BackingField: 0.9
-  randomMovementAngle: 45
+  <MoveForce>k__BackingField: 8
+  <MaxSpeed>k__BackingField: 9.5
+  <Slowdown>k__BackingField: 0.97
+  randomMovementAngle: 60
   randomMovementCooldown: 30
   stopRadius: 5
   minStopRadiusScale: 0.75
-  maxStopRadiusScale: 1.25
-  minDeviation: 0.95
-  maxDeviation: 1.25
-  actionCooldown: 30
-  stopRadiusMovementCooldown: 30
-  shootRadius: 8
+  maxStopRadiusScale: 2
+  minDeviation: 4
+  maxDeviation: 5
+  actionCooldown: 15
+  stopRadiusMovementCooldown: 20
+  shootRadius: 10
 --- !u!60 &667771176659950419
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -226,10 +227,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile.EntityShootingController
   projectilePrefab: {fileID: 1701417249012432286, guid: a1ea18ddeaac616b4815cbf9737e4935, type: 3}
-  projectileSpeed: 500
+  projectileSpeed: 710
   damageScale: 1
-  projectileCooldown: 0.4
-  spreadAngle: 15
+  projectileCooldown: 1.25
+  spreadAngle: 40
 --- !u!114 &-2639861724708251551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +323,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2430068860209497107
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -367,6 +369,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 18942f240748826479b219e8f96dbfb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -376,7 +379,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &3565197946119527607
 PrefabInstance:

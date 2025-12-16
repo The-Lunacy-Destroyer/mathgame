@@ -14,17 +14,17 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Background
   - Entity
   - Character
-  - Projectiles
+  - PlayerProjectiles
   - Enemy
   - ContactEnemy
   - SolidEnemy
   - Borders
   - HealthDrop
   - SolidEntity
-  - 
+  - EnemyProjectiles
   - 
   - 
   - 

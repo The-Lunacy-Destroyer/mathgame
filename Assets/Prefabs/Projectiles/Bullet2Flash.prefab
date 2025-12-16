@@ -62,7 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8106413968970030787, guid: 725f614dfe10be09daec94b5736f71ec, type: 3}
       propertyPath: m_Name
-      value: Bullet2Flash Variant
+      value: Bullet2Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106413968970030787, guid: 725f614dfe10be09daec94b5736f71ec, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
