@@ -35,6 +35,7 @@ namespace Enemies
         public float secondActionPostTimerScale = 2.3f;
         
         public float laserMaxSize = 50f;
+        public float deviationForce = 3f;
         private float _laserSize;
         
         private GameObject[] _lasers = new GameObject[3];
@@ -176,7 +177,7 @@ namespace Enemies
             {
                 Rigidbody.linearVelocity *= Slowdown;
             }
-            float deviation = 1 + (TargetDirection - Rigidbody.linearVelocity.normalized).magnitude;
+            float deviation = 1 + (TargetDirection - Rigidbody.linearVelocity.normalized).magnitude * deviationForce;
 
             Vector2 movementDirection = MathUtilities.RotateVector(TargetDirection, RandomAngle);
             Rigidbody.AddForce(movementDirection * (deviation * MoveForce));

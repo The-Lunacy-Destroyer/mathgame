@@ -154,20 +154,21 @@ MonoBehaviour:
   maxShake: 0.15
   <MoveForce>k__BackingField: 9
   <MaxSpeed>k__BackingField: 12
-  <Slowdown>k__BackingField: 0.875
+  <Slowdown>k__BackingField: 0.87
   randomMovementAngle: 45
   randomMovementCooldown: 25
   minSpeed: 1.9999998
-  stopRadius: 7
+  stopRadius: 6
   torqueForce: 70
   maxRotationSpeed: 150
-  specialTorqueForce: 0.6
+  specialTorqueForce: 0.575
   contactDamage: 33.33
-  minProjectileCooldown: 0.075
+  minProjectileCooldown: 0.05
   minProjectileSpeed: 300
   secondActionTimerScale: 1.75
   secondActionPostTimerScale: 2.3
   laserMaxSize: 50
+  deviationForce: 1.5
 --- !u!114 &4591838992153462741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,9 +182,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile.EntityShootingController
   projectilePrefab: {fileID: 1701417249012432286, guid: a1ea18ddeaac616b4815cbf9737e4935, type: 3}
-  projectileSpeed: 900
+  projectileSpeed: 800
   damageScale: 1.25
-  projectileCooldown: 0.5
+  projectileCooldown: 0.45
   spreadAngle: 0
 --- !u!95 &2258616954432905974
 Animator:
