@@ -11,6 +11,8 @@ public class FlashMaskController : MonoBehaviour
     public float opacityDecrement = 0.055f;
     public float maxOpacity = 0.2f;
     
+    private bool _isStarted;
+    
     private float ColorOpacity
     {
         get => _flashMaskSpriteRenderer.color.a;
@@ -25,23 +27,26 @@ public class FlashMaskController : MonoBehaviour
     
     public void Flash()
     {
-        StartCoroutine(nameof(IncreaseOpacity));
+        if(!_isStarted) StartCoroutine(nameof(ChangeOpacity));
+        else
+        {
+            StopCoroutine(nameof(ChangeOpacity));
+            StartCoroutine(nameof(ChangeOpacity));
+        }
     }
-    IEnumerator IncreaseOpacity()
+    IEnumerator ChangeOpacity()
     {
+        _isStarted = true;
         while (ColorOpacity < maxOpacity)
         {
             yield return new WaitForSeconds(increaseOpacityRate);
             ColorOpacity += opacityIncrement;
         }
-        StartCoroutine(nameof(DecreaseOpacity));
-    }
-    IEnumerator DecreaseOpacity()
-    {
         while (ColorOpacity > 0)
         {
             yield return new WaitForSeconds(decreaseOpacityRate);
             ColorOpacity -= opacityDecrement;
         }
+        _isStarted = false;
     }
 }

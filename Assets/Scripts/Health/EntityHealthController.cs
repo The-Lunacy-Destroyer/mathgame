@@ -26,6 +26,7 @@ namespace Health
                 else if (value < _currentHealth)
                 {
                     _flashMask?.Flash();
+                    
                     _healthBar.Entity.Shake();
                 }
                 _currentHealth = Mathf.Clamp(value, 0, maxHealth);

@@ -1060,9 +1060,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashMaskController
   increaseOpacityRate: 0.01
-  opacityIncrement: 0.05
+  opacityIncrement: 0.1
   decreaseOpacityRate: 0.01
-  opacityDecrement: 0.025
+  opacityDecrement: 0.05
   maxOpacity: 0.2
 --- !u!1 &225042523
 GameObject:
@@ -52771,7 +52771,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 78036bc5bd6a68494b7477cd534580b3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0.62398916, b: 0.62398916, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

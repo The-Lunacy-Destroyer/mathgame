@@ -303,10 +303,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashMaskController
   increaseOpacityRate: 0.01
-  opacityIncrement: 0.33
+  opacityIncrement: 0.1
   decreaseOpacityRate: 0.01
-  opacityDecrement: 0.33
-  maxOpacity: 0.1
+  opacityDecrement: 0.05
+  maxOpacity: 0.2
 --- !u!114 &2128117541374492133
 MonoBehaviour:
   m_ObjectHideFlags: 0
