@@ -276,7 +276,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e35ff7445041a385967aee058f8a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Drop.EntityHealthDropController
-  healthDrop: {fileID: 5609533653832823387, guid: 4ac2b3c5a04af8fe3afe28754a066cdd, type: 3}
+  drops:
+  - dropObj: {fileID: 5609533653832823387, guid: 4ac2b3c5a04af8fe3afe28754a066cdd, type: 3}
+    dropChance: 1
+  isSingleDrop: 1
 --- !u!114 &7333871701622295094
 MonoBehaviour:
   m_ObjectHideFlags: 0
