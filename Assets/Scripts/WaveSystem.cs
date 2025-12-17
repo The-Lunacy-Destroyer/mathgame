@@ -30,6 +30,13 @@ public class WaveSystem : MonoBehaviour
         {
             if (value <= 0)
             {
+                if (_currentWave == _waveCount - 1)
+                {
+                    Victory();
+                    _waveTimer = -1;
+                    _breakTimer = -1;
+                    return;
+                }
                 _breakTimer = waves[_currentWave].waveBreakDuration;
                 _timerText.text = $"Break timer: {_breakTimer}";
                 _waveTimer = 0;
@@ -48,7 +55,7 @@ public class WaveSystem : MonoBehaviour
         {
             if (value <= 0)
             {
-                if (_currentWave < _waveCount)
+                if (_currentWave < _waveCount - 1)
                 {
                     _currentWave++;
                     _waveText.text = $"Wave: {_currentWave + 1}";
@@ -63,7 +70,6 @@ public class WaveSystem : MonoBehaviour
                         _gameMusic.clip = waves[_currentWave].waveMusic;
                         _gameMusic.Play();
                     }
-                        
                 }
                 _breakTimer = 0;
             }
@@ -121,5 +127,11 @@ public class WaveSystem : MonoBehaviour
     private void SpawnEnemies()
     {
         transform.GetChild(_currentWave).gameObject.SetActive(true);
+    }
+
+    private void Victory()
+    {
+        _timerText.text = "VICTORY!";
+        _timerText.style.color = Color.green;
     }
 }
