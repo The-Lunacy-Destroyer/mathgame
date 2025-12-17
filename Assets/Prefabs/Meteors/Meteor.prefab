@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health.EntityHealthController
   deathSoundPrefab: {fileID: 4404108502473601490, guid: e4b34a32726275392b92cacdce3acfec, type: 3}
-  maxHealth: 80
+  maxHealth: 90
 --- !u!114 &-6762356495434797765
 MonoBehaviour:
   m_ObjectHideFlags: 0

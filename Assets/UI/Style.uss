@@ -17,10 +17,12 @@
 {
     background-color: #26263e;
     flex-grow: 1;
+
+    max-width: 800px;
 }
 #Presentation
 {
-    width: 66%;
+    flex-grow: 4;
     justify-content: center;
     align-items: center;
 }
@@ -46,20 +48,20 @@
 }
 #MainSection_Footer
 {
-    padding: 16px;
+    padding: 8px;
     background-color: #26263e;
 }
 #Logo
 {
-    width: 144px;
-    height: 144px;
+    width: 96px;
+    height: 96px;
 }
 #Title
 {
-    font-size: 64px;
+    font-size: 32px;
     -unity-font-style: bold;
     letter-spacing: 8px;
-    margin-top: 20px;
+    margin-top: 16px;
 }
 #MainSection_Buttons
 {
