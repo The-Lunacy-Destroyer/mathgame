@@ -105,7 +105,7 @@ public class PlayerController : EntityController, IEntityMovable
         _bulletSystem.projectileCooldown = 0.001f;
         _bulletSystem.projectileSpeed = 900f;
         _bulletSystem.damageScale = 100f;
-        _bulletSystem.spreadAngle = 60f;
+        _bulletSystem.spreadAngle = 40f;
             
         if (_healthSystem)
         {
