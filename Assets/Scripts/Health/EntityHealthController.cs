@@ -30,7 +30,7 @@ namespace Health
                     _healthBar.Entity.Shake();
                 }
                 _currentHealth = Mathf.Clamp(value, 0, maxHealth);
-                _healthBar.UpdateHealthBar(CurrentHealth, maxHealth);
+                _healthBar?.UpdateHealthBar(CurrentHealth, maxHealth);
             }
         }
 

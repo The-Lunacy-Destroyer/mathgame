@@ -12,18 +12,20 @@ namespace Meteors
         public float minXPos = -28f, maxXPos = 28f; 
         public float minYPos = -18f, maxYPos = 18f;
 
+        public float xMinExclude = -6f, xMaxExclude = 6f;
+        public float yMinExclude = -6f, yMaxExclude = 6f;
+
         void Start()
         {
             for(int i = 0; i < amount; i++)
             {
                 GameObject meteorPrefab = meteorPrefabs[Random.Range(0, meteorPrefabs.Length)];
-            
-                GameObject meteor = Instantiate(
-                    meteorPrefab, 
-                    Utilities.MathUtilities.RandomRectPosition(minXPos, maxXPos, minYPos, maxYPos), 
-                    Quaternion.identity,
-                    transform
+                Vector3 pos = Utilities.MathUtilities.RandomRectPosition(
+                    minXPos, maxXPos, minYPos, maxYPos,
+                    xMinExclude, xMaxExclude, yMinExclude, yMaxExclude
                 );
+                
+                GameObject meteor = Instantiate(meteorPrefab, pos, Quaternion.identity, transform);
                 
                 Rigidbody2D meteorRb = meteor.GetComponent<Rigidbody2D>();
                 SpriteRenderer meteorSr = meteor.GetComponent<SpriteRenderer>();

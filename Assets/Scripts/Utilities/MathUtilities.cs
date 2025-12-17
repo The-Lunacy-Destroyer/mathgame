@@ -21,9 +21,41 @@ namespace Utilities
             return Mathf.Round(value * scale) / scale;
         }
 
-        public static Vector3 RandomRectPosition(float xMin, float xMax, float yMin, float yMax)
+        public static Vector3 RandomRectPosition(
+            float xMin, float xMax, float yMin, float yMax,
+            float xMinExclude = 0f, float xMaxExclude = 0f, float yMinExclude = 0f, float yMaxExclude = 0f)
         {
-            return new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
+            bool excludeX = xMinExclude - xMaxExclude != 0;
+            bool excludeY = yMinExclude - yMaxExclude != 0;
+            
+            float x, y;
+
+            if (excludeX)
+                x = Random.value < 0.5
+                    ? Random.Range(xMin, xMinExclude)
+                    : Random.Range(xMaxExclude, xMax);
+            else x = Random.Range(xMin, xMax);
+            
+            if (excludeY)
+                y = Random.value < 0.5
+                    ? Random.Range(yMin, yMinExclude)
+                    : Random.Range(yMaxExclude, yMax);
+            else y = Random.Range(yMin, yMax);
+            
+            if (excludeX && excludeY)
+            {
+                switch (Random.Range(0, 3))
+                {
+                    case 0:
+                        x = Random.Range(xMin, xMax);
+                        break;
+                    case 1:
+                        y = Random.Range(yMin, yMax);
+                        break;
+                }
+            }
+            
+            return new Vector3(x, y);
         }
     }
 }

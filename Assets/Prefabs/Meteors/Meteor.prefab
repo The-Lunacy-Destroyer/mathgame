@@ -39,6 +39,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8928752387497145588
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -84,6 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 22b425bb9e5c881159716ef8a4bf964a, type: 3}
   m_Color: {r: 0.8577962, g: 0.7866942, b: 0.7866942, a: 1}
   m_FlipX: 0
@@ -93,7 +95,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!60 &5089969932455244980
 PolygonCollider2D:
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health.EntityHealthController
   deathSoundPrefab: {fileID: 4404108502473601490, guid: e4b34a32726275392b92cacdce3acfec, type: 3}
-  maxHealth: 1000
+  maxHealth: 80
 --- !u!1001 &6049999127101412523
 PrefabInstance:
   m_ObjectHideFlags: 0

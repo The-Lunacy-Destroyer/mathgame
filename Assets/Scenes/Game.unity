@@ -48798,7 +48798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Meteors.SpawnMeteors
   meteorPrefabs:
   - {fileID: 840653777926419913, guid: 47193bd726d56314eb9e51cd26ddf963, type: 3}
-  amount: 12
+  amount: 20
   minScale: 1
   maxScale: 2.5
   minMass: 1
@@ -48807,6 +48807,10 @@ MonoBehaviour:
   maxXPos: 28
   minYPos: -18
   maxYPos: 18
+  xMinExclude: -6
+  xMaxExclude: 6
+  yMinExclude: -6
+  yMaxExclude: 6
 --- !u!4 &980659223
 Transform:
   m_ObjectHideFlags: 0
