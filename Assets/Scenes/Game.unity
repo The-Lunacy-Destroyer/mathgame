@@ -48690,14 +48690,19 @@ MonoBehaviour:
   waves:
   - waveDuration: 30
     waveBreakDuration: 5
+    waveMusic: {fileID: 0}
   - waveDuration: 35
     waveBreakDuration: 5
+    waveMusic: {fileID: 0}
   - waveDuration: 35
     waveBreakDuration: 5
+    waveMusic: {fileID: 0}
   - waveDuration: 40
     waveBreakDuration: 5
+    waveMusic: {fileID: 0}
   - waveDuration: 50
     waveBreakDuration: 5
+    waveMusic: {fileID: 8300000, guid: b5ab23282c0f4cf0b8f19abe0354f620, type: 3}
   waveUI: {fileID: 726673101}
 --- !u!1 &974205169
 GameObject:
@@ -52066,7 +52071,7 @@ PrefabInstance:
     - target: {fileID: 3409900123090793210, guid: 95bc4189c6a6933c286debf752ae8954, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: b5ab23282c0f4cf0b8f19abe0354f620, type: 3}
+      objectReference: {fileID: 8300000, guid: 447c89515d762fd37a2740e9292ea36e, type: 3}
     - target: {fileID: 3733507678919100274, guid: 95bc4189c6a6933c286debf752ae8954, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

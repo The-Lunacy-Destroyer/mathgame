@@ -6,11 +6,14 @@ using Random = UnityEngine.Random;
 
 public class WaveSystem : MonoBehaviour
 {
+    private AudioSource _gameMusic;
+    
     [Serializable]
     public struct WaveInfo
     {
         [Min(1)] public int waveDuration;
         [Min(1)] public int waveBreakDuration;
+        public AudioClip waveMusic;
     }
 
     public WaveInfo[] waves;
@@ -53,6 +56,14 @@ public class WaveSystem : MonoBehaviour
                     _waveTimer = waves[_currentWave].waveDuration;
                     _timerText.text = $"Wave timer: {_waveTimer}";
                     SpawnEnemies();
+
+                    if (waves[_currentWave].waveMusic)
+                    {
+                        _gameMusic.Stop();
+                        _gameMusic.clip = waves[_currentWave].waveMusic;
+                        _gameMusic.Play();
+                    }
+                        
                 }
                 _breakTimer = 0;
             }
@@ -71,6 +82,7 @@ public class WaveSystem : MonoBehaviour
     private void Awake()
     {
         _waveCount = Mathf.Min(waves.Length, transform.childCount);
+        _gameMusic = Camera.main?.GetComponent<AudioSource>();
     }
 
     private void Start()
