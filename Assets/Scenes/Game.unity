@@ -49050,6 +49050,7 @@ GameObject:
   - component: {fileID: 1089010504}
   - component: {fileID: 1089010508}
   - component: {fileID: 1089010507}
+  - component: {fileID: 1089010509}
   m_Layer: 13
   m_Name: Borders
   m_TagString: Untagged
@@ -51398,6 +51399,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &1089010509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089010502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be412c5836d62014d88e82a8d490f0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  minDamageSpeed: 7.5
+  maxDamageSpeed: 50
+  damageScale: 3
 --- !u!1 &1118976418
 GameObject:
   m_ObjectHideFlags: 0

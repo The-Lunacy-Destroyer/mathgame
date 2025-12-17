@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 752554051878457922}
   - component: {fileID: 2152909816113015858}
   - component: {fileID: -6762356495434797765}
+  - component: {fileID: -1757537688514859717}
   m_Layer: 15
   m_Name: Meteor
   m_TagString: Enemy
@@ -201,9 +202,6 @@ MonoBehaviour:
   maxShake: 0.075
   torqueMaxScale: 1.5
   forceMaxScale: 3
-  minDamageSpeed: 2.5
-  maxDamageSpeed: 50
-  damageScale: 2
 --- !u!114 &2152909816113015858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +234,21 @@ MonoBehaviour:
   - dropObj: {fileID: 4707974261290380961, guid: 2a2e763f1a0b13d1cb3ab8402fc07376, type: 3}
     dropChance: 0.25
   isSingleDrop: 1
+--- !u!114 &-1757537688514859717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840653777926419913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be412c5836d62014d88e82a8d490f0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollideDamageController
+  minDamageSpeed: 8
+  maxDamageSpeed: 50
+  damageScale: 0.75
 --- !u!1001 &6049999127101412523
 PrefabInstance:
   m_ObjectHideFlags: 0

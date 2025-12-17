@@ -13,9 +13,6 @@ namespace Meteors
         
         public float torqueMaxScale = 2f;
         public float forceMaxScale = 2f;
-        public float minDamageSpeed = 3f;
-        public float maxDamageSpeed = 50f;
-        public float damageScale = 1f;
 
         private void Awake()
         {
@@ -36,17 +33,6 @@ namespace Meteors
             _rigidbody.AddForce(
                 MathUtilities.RotateVector(Vector2.up, forceAngle) * forceScale, 
                 ForceMode2D.Impulse);
-        }
-
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            EntityHealthController entityHealth = other.gameObject.GetComponent<EntityHealthController>();
-            if (entityHealth && _rigidbody.linearVelocity.magnitude > minDamageSpeed)
-            {
-                entityHealth.CurrentHealth -= 
-                    Mathf.Clamp(_rigidbody.linearVelocity.magnitude, minDamageSpeed, maxDamageSpeed) 
-                    * _rigidbody.mass * damageScale;
-            }
         }
     }
 }
