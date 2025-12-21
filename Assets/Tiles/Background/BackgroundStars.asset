@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
+  m_Name: BackgroundStars
+  m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.RuleTile
+  m_DefaultSprite: {fileID: 21300000, guid: 87bfabf19e4624c4a98cd78f889678bf, type: 3}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 1
+  m_TilingRules:
+  - m_Id: 0
+    m_Sprites:
+    - {fileID: 8952936027920180356, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    - {fileID: 8952936027920180356, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    - {fileID: 696940474, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    - {fileID: 696940474, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    - {fileID: -1628582007, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    - {fileID: 1544669656, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    - {fileID: -1399058414, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    - {fileID: -449183740, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    - {fileID: 1235612961, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    - {fileID: -752217773, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    - {fileID: 8952936027920180356, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    - {fileID: 696940474, guid: b3b8123cb0c1605a99f94a6dee2e6032, type: 3}
+    m_GameObject: {fileID: 0}
+    m_MinAnimationSpeed: 1
+    m_MaxAnimationSpeed: 1
+    m_PerlinScale: 0.93
+    m_Output: 1
+    m_ColliderType: 1
+    m_RandomTransform: 5
+    m_Neighbors: 
+    m_NeighborPositions: []
+    m_RuleTransform: 0

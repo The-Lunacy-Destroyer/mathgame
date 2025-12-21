@@ -1,0 +1,159 @@
+:root {
+    
+}
+*
+{
+    border-width: 0;
+    -unity-font-definition: url("project://database/Assets/Fonts/Ithaca-LVB75%20SDF.asset?fileID=11400000&amp;guid=ff578140020f8ba7185392ecbac929b1&amp;type=2#Ithaca-LVB75 SDF");
+}
+
+#MainContainer
+{
+    background-color: #353658;
+    flex-direction: row;
+    color: #9FADD1;
+}
+#MainSection
+{
+    background-color: #26263e;
+    flex-grow: 1;
+
+    max-width: 800px;
+}
+#Presentation
+{
+    flex-grow: 4;
+    justify-content: center;
+    align-items: center;
+}
+.MainContainer__section
+{
+    align-items: center;
+    justify-content: center;
+}
+
+#MainSection_Header
+{
+    justify-content: space-between;
+    padding: 24px 16px;
+    background-color: #26263e;
+    align-items: center;
+}
+#MainSection_Main
+{
+    padding: 16px;
+    flex-grow: 1;
+    justify-content: center;
+    background-color: #1E1F32;
+}
+#MainSection_Footer
+{
+    padding: 8px;
+    background-color: #26263e;
+}
+#Logo
+{
+    width: 96px;
+    height: 96px;
+}
+#Title
+{
+    font-size: 32px;
+    -unity-font-style: bold;
+    letter-spacing: 8px;
+    margin-top: 16px;
+}
+#MainSection_Buttons
+{
+    flex: 1;
+    align-self: stretch;
+    justify-content: center;
+    align-items: center;
+}
+.ButtonContainer__ButtonBlock
+{
+    flex-direction: row;
+    flex-grow: 0;
+}
+.ButtonContainer__Button
+{
+    flex-grow: 0;
+    margin: 8px;
+    padding: 24px;
+    background-color: transparent;
+    border-radius: 8px;
+    border-width: 0;
+    min-height: 20%;
+    max-height: 300px;
+    width: 100%;
+    
+    font-size: 40px;
+    transition: scale .2s, color .2s, background-color .2s;
+    
+    -unity-background-scale-mode: scale-to-fit;
+}
+.ButtonContainer__Button:hover
+{
+    color: #bf99dc;
+    scale: 1.025;
+    transition: scale .2s, color .1s, background-color .1s;
+}
+.Button_disabled, .Button_disabled:hover
+{
+    color: #969ebc;
+    scale: 1;
+}
+
+#IngameContainer
+{
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+#IngameContainer #MainSection_Main
+{
+    color: #9FADD1;
+    height: auto;
+    flex-grow: 0;
+    border-radius: 4px;
+    width: 33%;
+    min-width: 300px;
+}
+#IngameContainer #MainSection_Buttons
+{
+    height: 500px;
+    /*max-height: 300px;*/
+    width: 100%;
+}
+
+#NewGame
+{
+    background-image: url("project://database/Assets/Sprites/Menu.png#Menu_0");
+}
+#LoadGame
+{
+    background-image: url("project://database/Assets/Sprites/Menu.png#Menu_1");
+}
+#Leave
+{
+    background-image: url("project://database/Assets/Sprites/Menu.png#Menu_3");
+}
+#LeaveToMenu
+{
+    background-image: url("project://database/Assets/Sprites/Menu.png#Menu_2");
+}
+#NewGame:hover
+{
+    background-image: url("project://database/Assets/Sprites/MenuOFF.png#MenuOFF_0");
+}
+#LoadGame:hover
+{
+    background-image: url("project://database/Assets/Sprites/MenuOFF.png#MenuOFF_1");
+}
+#Leave:hover
+{
+    background-image: url("project://database/Assets/Sprites/MenuOFF.png#MenuOFF_3");
+}
+#LeaveToMenu:hover
+{
+    background-image: url("project://database/Assets/Sprites/MenuOFF.png#MenuOFF_2");
+}
