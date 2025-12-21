@@ -95,7 +95,7 @@ public class PlayerController : EntityController, IEntityMovable
 
     private IEnumerator WaitForDigit2()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4.2f);
         _is42 = false;
     }
 
