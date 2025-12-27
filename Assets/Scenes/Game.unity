@@ -808,6 +808,8 @@ GameObject:
   - component: {fileID: 188811229}
   - component: {fileID: 188811230}
   - component: {fileID: 188811231}
+  - component: {fileID: 188811233}
+  - component: {fileID: 188811232}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1064,6 +1066,34 @@ MonoBehaviour:
   decreaseOpacityRate: 0.01
   opacityDecrement: 0.05
   maxOpacity: 0.2
+--- !u!114 &188811232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188811220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48e5d75b60f05a4fb946434f83affa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputCodeActions.EnableGodMode
+--- !u!114 &188811233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188811220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72a47b899b44bfab0ae463b9f6a75a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputCodesController
+  codes:
+  - keySequence: 2c0000002a000000
+    codeInputDuration: 2
+    action: 0
 --- !u!1 &225042523
 GameObject:
   m_ObjectHideFlags: 0
