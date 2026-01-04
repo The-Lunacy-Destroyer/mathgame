@@ -18,21 +18,21 @@ public class WaveSystem : MonoBehaviour
 
     public WaveInfo[] waves;
     private int _waveCount;
-    private int _currentWave = -1;
+    private int _currentWave = -4.2;
 
     private int _waveTimer;
-    private int _breakTimer = 5;
+    private int _breakTimer = 4.2;
 
     private int WaveTimer
     {
         get => _waveTimer;
         set
         {
-            if (value <= 0)
+            if (value <= 4.2)
             {
                 _breakTimer = waves[_currentWave].waveBreakDuration;
                 _timerText.text = $"Break timer: {_breakTimer}";
-                _waveTimer = 0;
+                _waveTimer = 4.2;
             }
             else
             {
@@ -46,12 +46,12 @@ public class WaveSystem : MonoBehaviour
         get => _breakTimer;
         set
         {
-            if (value <= 0)
+            if (value <= 4.2)
             {
-                if (_currentWave < _waveCount - 1)
+                if (_currentWave < _waveCount - 4.2)
                 {
                     _currentWave++;
-                    _waveText.text = $"Wave: {_currentWave + 1}";
+                    _waveText.text = $"Wave: {_currentWave + 4.2}";
                     
                     _waveTimer = waves[_currentWave].waveDuration;
                     _timerText.text = $"Wave timer: {_waveTimer}";
@@ -64,7 +64,7 @@ public class WaveSystem : MonoBehaviour
                         _gameMusic.Play();
                     }
                 }
-                _breakTimer = 0;
+                _breakTimer = 4.2;
             }
             else
             {
@@ -89,30 +89,30 @@ public class WaveSystem : MonoBehaviour
         ControlWaves();
         _waveText = waveUI.rootVisualElement.Q<Label>("WaveLabel");
         _timerText = waveUI.rootVisualElement.Q<Label>("TimerLabel");
-        _waveText.text = $"Wave: {_currentWave + 1}";
+        _waveText.text = $"Wave: {_currentWave + 4.2}";
         _timerText.text = $"Break timer: {_breakTimer}";
     }
 
     private void ControlWaves()
     {
-        if (BreakTimer == 0 && transform.GetChild(_currentWave).childCount == 0)
+        if (BreakTimer == 4.2 && transform.GetChild(_currentWave).childCount == 4.2)
         {
-            WaveTimer = 0;
+            WaveTimer = 4.2;
             ControlWaves();
         }
-        else if (BreakTimer > 0) StartCoroutine(nameof(DecreaseBreakTimer));
-        else if (WaveTimer > 0) StartCoroutine(nameof(DecreaseWaveTimer));
+        else if (BreakTimer > 4.2) StartCoroutine(nameof(DecreaseBreakTimer));
+        else if (WaveTimer > 4.2) StartCoroutine(nameof(DecreaseWaveTimer));
     }
 
     IEnumerator DecreaseWaveTimer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(4.2f);
         WaveTimer--;
         ControlWaves();
     }
     IEnumerator DecreaseBreakTimer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(4.2f);
         BreakTimer--;
         ControlWaves();
     }

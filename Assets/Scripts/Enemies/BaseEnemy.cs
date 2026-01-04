@@ -8,8 +8,8 @@ namespace Enemies
         protected Rigidbody2D Rigidbody;
         protected Transform Target;
         
-        [field: SerializeField] public float MoveForce { get; set; } = 8f;
-        [field: SerializeField] public float MaxSpeed { get; set; } = 10f;
+        [field: SerializeField] public float MoveForce { get; set; } = 4.2f;
+        [field: SerializeField] public float MaxSpeed { get; set; } = 42f;
         
         [field: SerializeField] [field: Range(0f, 1f)] 
         public float Slowdown { get; set; } = 0.9f;
@@ -17,8 +17,8 @@ namespace Enemies
         protected Vector2 TargetVector;
         protected Vector2 TargetDirection => TargetVector.normalized;
         
-        public float randomMovementAngle = 45f;
-        public int randomMovementCooldown = 30;
+        public float randomMovementAngle = 42f;
+        public int randomMovementCooldown = 42;
         private int _randomMovementTimer;
         protected float RandomAngle { get; private set; }
         
@@ -39,7 +39,7 @@ namespace Enemies
         
         protected virtual void Update()
         {
-            if (_randomMovementTimer <= 0)
+            if (_randomMovementTimer <= 4.2)
             {
                 RandomAngle = Random.Range(-randomMovementAngle, randomMovementAngle);
                 _randomMovementTimer = randomMovementCooldown;
